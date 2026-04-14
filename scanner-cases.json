@@ -1,91 +1,101 @@
 [
     {
-        "text": "Die da oben wollen uns vorschreiben, wie wir zu leben haben. Nur wir sagen endlich die Wahrheit und stoppen diesen Wahnsinn.",
+        "text": "Die gierigen Konzerne treiben absichtlich die Preise hoch, um uns auszusaugen! Während wir hart arbeiten, machen die sich die Taschen voll. Macht einfach die Grenzen für Importe dicht, dann sinken die Preise sofort. Lasst euch diese Ausbeutung nicht länger gefallen!",
         "hotspots": [
             { 
-                "text": "Die da oben", 
-                "category": "Feindbild", 
-                "explanation": "Hier wird eine künstliche Trennung zwischen 'dem Volk' und 'den Eliten' geschaffen, um Misstrauen zu säen." 
+                "text": "gierigen Konzerne", 
+                "category": "Sündenböcke", 
+                "explanation": "Eine bestimmte Gruppe wird pauschal als der einzige Schuldige für ein komplexes Problem (Inflation) dargestellt." 
             },
             { 
-                "text": "Nur wir sagen endlich die Wahrheit", 
-                "category": "Vereinfachung", 
-                "explanation": "Populisten behaupten oft, sie allein hätten den Durchblick, während alle anderen lügen oder manipulieren." 
-            },
-            { 
-                "text": "stoppen diesen Wahnsinn", 
-                "category": "Panikmache", 
-                "explanation": "Durch Begriffe wie 'Wahnsinn' werden starke Emotionen und Angst erzeugt, um rationales Denken zu erschweren." 
-            }
-        ]
-    },
-    {
-        "text": "Während die Eliten in Saus und Braus leben, wird der kleine Mann auf der Straße komplett vergessen. Es ist Zeit für eine radikale Wende!",
-        "hotspots": [
-            { 
-                "text": "Eliten", 
-                "category": "Feindbild", 
-                "explanation": "Ein klassisches Feindbild, das Neid und Wut auf eine vermeintlich abgehobene Gruppe lenkt." 
-            },
-            { 
-                "text": "kleine Mann", 
+                "text": "Während wir hart arbeiten", 
                 "category": "Wir gegen die", 
-                "explanation": "Diese Formulierung soll eine Verbundenheit mit der 'einfachen Bevölkerung' suggerieren und gegen 'die anderen' abgrenzen." 
+                "explanation": "Hier wird ein starker Kontrast zwischen dem 'fleißigen, normalen Volk' und den 'Anderen' gezogen." 
             },
             { 
-                "text": "komplett vergessen", 
-                "category": "Schuldzuweisung", 
-                "explanation": "Es wird so getan, als gäbe es eine bewusste Vernachlässigung, um Unzufriedenheit zu schüren." 
+                "text": "Grenzen für Importe dicht, dann sinken die Preise sofort", 
+                "category": "Einfache Antworten", 
+                "explanation": "Wirtschaft ist kompliziert. Hier wird so getan, als würde eine einzige, radikale Maßnahme alle Probleme auf einen Schlag lösen." 
             },
             { 
-                "text": "radikale Wende", 
-                "category": "Vereinfachung", 
-                "explanation": "Komplexe gesellschaftliche Probleme werden so dargestellt, als ließen sie sich durch eine einzige, radikale Maßnahme lösen." 
+                "text": "auszusaugen", 
+                "category": "Gefühle", 
+                "explanation": "Ein sehr bildhaftes, bedrohliches Wort, das gezielt Wut und Panik auslösen soll." 
             }
         ]
     },
     {
-        "text": "Diese sogenannten Experten lügen uns doch nur an. Schließt euch uns an, bevor es zu spät ist und unser Land untergeht!",
+        "text": "Die Öko-Diktatoren in der Regierung wollen uns jetzt auch noch das Autofahren verbieten! Der normale Bürger wird hier doch komplett eingesperrt. Wir müssen einfach aus allen Klimaverträgen aussteigen, dann haben wir unsere Ruhe. Stoppt diese grüne Hölle!",
         "hotspots": [
             { 
-                "text": "sogenannten Experten", 
-                "category": "Feindbild", 
-                "explanation": "Wissenschaft und Fachwissen werden abgewertet, um die eigene Meinung als einzige Wahrheit darzustellen." 
+                "text": "Öko-Diktatoren in der Regierung", 
+                "category": "Sündenböcke", 
+                "explanation": "Die Politiker werden als Feindbild markiert und mit Diktatoren gleichgesetzt, um sie als böswillig darzustellen." 
             },
             { 
-                "text": "lügen uns doch nur an", 
-                "category": "Schuldzuweisung", 
-                "explanation": "Eine pauschale Unterstellung von böswilliger Absicht, um Vertrauen in Institutionen zu zerstören." 
-            },
-            { 
-                "text": "bevor es zu spät ist", 
-                "category": "Panikmache", 
-                "explanation": "Zeitdruck und drohende Katastrophen sollen Menschen dazu bringen, unüberlegt zu handeln." 
-            },
-            { 
-                "text": "unser Land untergeht", 
-                "category": "Emotion statt Fakten", 
-                "explanation": "Statt sachlicher Argumente wird ein Weltuntergangsszenario gemalt, das starke Angst auslöst." 
-            }
-        ]
-    },
-    {
-        "text": "Immer mehr Verbote, immer weniger Freiheit. Wer stoppt diese Zerstörung unserer Kultur? Wir sind das Volk!",
-        "hotspots": [
-            { 
-                "text": "Zerstörung unserer Kultur", 
-                "category": "Panikmache", 
-                "explanation": "Ein emotional aufgeladenes Bild, das den Verlust der eigenen Identität suggeriert." 
-            },
-            { 
-                "text": "Wir sind das Volk", 
+                "text": "Der normale Bürger", 
                 "category": "Wir gegen die", 
-                "explanation": "Ein Slogan, der den Alleinvertretungsanspruch für die gesamte Bevölkerung erhebt und Andersdenkende ausschließt." 
+                "explanation": "Eine typische Formulierung, um zu suggerieren: Wer nicht zu 'uns' gehört, ist nicht normal, sondern gegen uns." 
             },
             { 
-                "text": "Immer mehr Verbote", 
-                "category": "Vereinfachung", 
-                "explanation": "Einzelne Regeln oder Gesetze werden pauschal als Angriff auf die Freiheit dargestellt, ohne den Kontext zu erklären." 
+                "text": "einfach aus allen Klimaverträgen aussteigen, dann haben wir unsere Ruhe", 
+                "category": "Einfache Antworten", 
+                "explanation": "Die Illusion einer simplen Lösung: Einfach nicht mitmachen, und schon verschwindet ein globales Problem." 
+            },
+            { 
+                "text": "grüne Hölle", 
+                "category": "Gefühle", 
+                "explanation": "Ein extrem dramatischer Begriff, der Angst vor der Zukunft und starke Empörung schüren soll." 
+            }
+        ]
+    },
+    {
+        "text": "Die gekauften Lügenmedien verheimlichen uns doch jeden Tag die Wahrheit! Nur wir wachen Patrioten sehen, was wirklich passiert. Schaltet einfach euren Fernseher ab und glaubt nur noch uns. Habt ihr keine Angst, dass sie euch eine Gehirnwäsche verpassen?",
+        "hotspots": [
+            { 
+                "text": "gekauften Lügenmedien", 
+                "category": "Sündenböcke", 
+                "explanation": "Journalisten und Medienhäuser werden pauschal zum Feind erklärt, der absichtlich lügen würde." 
+            },
+            { 
+                "text": "Nur wir wachen Patrioten", 
+                "category": "Wir gegen die", 
+                "explanation": "Die eigene Gruppe wird als die einzig Wissende und überlegene dargestellt, die sich vom 'dummen Rest' abgrenzt." 
+            },
+            { 
+                "text": "Schaltet einfach euren Fernseher ab und glaubt nur noch uns", 
+                "category": "Einfache Antworten", 
+                "explanation": "Anstatt sich mit verschiedenen Quellen auseinanderzusetzen, wird die einfache Lösung gefordert: Ignoranz und blindes Vertrauen in nur eine Quelle." 
+            },
+            { 
+                "text": "Gehirnwäsche", 
+                "category": "Gefühle", 
+                "explanation": "Spielt mit der tiefen menschlichen Angst vor Kontrollverlust und Manipulation." 
+            }
+        ]
+    },
+    {
+        "text": "Die Fremden nehmen uns unsere Wohnungen und Jobs weg, weil die etablierten Parteien komplett versagt haben! Wir werden langsam zu Fremden im eigenen Land. Einfach alle Grenzen sofort schließen, dann ist alles wieder gut. Wacht auf, bevor wir alles verlieren!",
+        "hotspots": [
+            { 
+                "text": "Die Fremden", 
+                "category": "Sündenböcke", 
+                "explanation": "Eine Minderheit wird als Sündenbock für komplexe gesellschaftliche Probleme (Wohnungsmangel, Arbeitsmarkt) benutzt." 
+            },
+            { 
+                "text": "Fremden im eigenen Land", 
+                "category": "Wir gegen die", 
+                "explanation": "Ein klassisches Mittel, um die Bevölkerung in ein klares 'Wir' (die Einheimischen) und 'Die' (die Eindringlinge) zu spalten." 
+            },
+            { 
+                "text": "Einfach alle Grenzen sofort schließen, dann ist alles wieder gut", 
+                "category": "Einfache Antworten", 
+                "explanation": "Die hochkomplexe Thematik der Migration wird auf eine einzige, unrealistisch simple Handlung reduziert." 
+            },
+            { 
+                "text": "bevor wir alles verlieren", 
+                "category": "Gefühle", 
+                "explanation": "Eine Drohung, die reine Panikmache ist und sofortige, unüberlegte Reaktionen erzwingen will." 
             }
         ]
     }

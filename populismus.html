@@ -176,6 +176,10 @@
                     <div id="scanner-container" class="grid lg:grid-cols-2 gap-12 items-start">
                         <!-- Left: The Post -->
                         <div class="space-y-6">
+                            <div id="scanner-feedback" class="min-h-[80px] p-6 rounded-2xl bg-slate-100/50 dark:bg-gray-800/50 border border-slate-200 dark:border-gray-700 flex items-center justify-center text-center italic text-slate-500 dark:text-gray-400">
+                                Klicke auf eine markierte Textstelle und wähle die passende Taktik aus.
+                            </div>
+                            
                             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-slate-200 dark:border-gray-700 relative">
                                 <div class="flex items-center gap-3 mb-6">
                                     <div class="w-12 h-12 bg-slate-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-xl">👤</div>
@@ -192,10 +196,6 @@
                                     <span>💬 452</span>
                                     <span>🔄 128</span>
                                 </div>
-                            </div>
-                            
-                            <div id="scanner-feedback" class="min-h-[80px] p-6 rounded-2xl bg-slate-100/50 dark:bg-gray-800/50 border border-slate-200 dark:border-gray-700 flex items-center justify-center text-center italic text-slate-500 dark:text-gray-400">
-                                Klicke auf eine markierte Textstelle und wähle die passende Taktik aus.
                             </div>
                         </div>
 
@@ -348,12 +348,10 @@
         }
 
         const categories = [
-            { id: "Feindbild", label: "Feindbild", icon: "👺" },
+            { id: "Gefühle", label: "Gefühle", icon: "😤" },
             { id: "Wir gegen die", label: "Wir gegen die", icon: "⚔️" },
-            { id: "Panikmache", label: "Panikmache", icon: "🚨" },
-            { id: "Vereinfachung", label: "Vereinfachung", icon: "📉" },
-            { id: "Emotion statt Fakten", label: "Emotion statt Fakten", icon: "🔥" },
-            { id: "Schuldzuweisung", label: "Schuldzuweisung", icon: "👉" }
+            { id: "Einfache Antworten", label: "Einfache Antworten", icon: "📉" },
+            { id: "Sündenböcke", label: "Sündenböcke", icon: "👺" }
         ];
 
         let currentScannerIndex = 0;
@@ -452,7 +450,7 @@
                         }
                     } else {
                         // Wrong
-                        scannerFeedback.innerHTML = `Schau dir die Formulierung noch einmal genauer an: Wird hier Angst gemacht, vereinfacht oder eine Gruppe beschuldigt?`;
+                        scannerFeedback.innerHTML = `Schau dir die Formulierung noch einmal genauer an: Wird hier mit Gefühlen gearbeitet, vereinfacht oder eine Gruppe zum Sündenbock gemacht?`;
                         scannerFeedback.className = "min-h-[80px] p-6 rounded-2xl bg-red-100/50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 flex items-center justify-center text-center text-red-700 dark:text-red-300 animate-shake";
                         setTimeout(() => {
                             scannerFeedback.classList.remove('animate-shake');
@@ -468,11 +466,11 @@
             
             let summaryHTML = "";
             if (currentScannerIndex === 0) {
-                summaryHTML = "<p>Gut gemacht! Du hast alle Taktiken in diesem Post erkannt. Populisten nutzen oft <strong>emotionale Sprache</strong> und <strong>Feindbilder</strong>, um eine schnelle Reaktion bei dir auszulösen, bevor du kritisch nachdenken kannst.</p>";
+                summaryHTML = "<p>Gut gemacht! Du hast alle Taktiken in diesem Post erkannt. Populisten nutzen oft <strong>Gefühle</strong> und <strong>Sündenböcke</strong>, um eine schnelle Reaktion bei dir auszulösen, bevor du kritisch nachdenken kannst.</p>";
             } else if (currentScannerIndex === 1) {
-                summaryHTML = "<p>Hervorragend. Hier hast du gesehen, wie die Spaltung der Gesellschaft (<strong>Wir gegen die</strong>) und <strong>Schuldzuweisungen</strong> genutzt werden, um Unzufriedenheit zu kanalisieren.</p>";
+                summaryHTML = "<p>Hervorragend. Hier hast du gesehen, wie die Spaltung der Gesellschaft (<strong>Wir gegen die</strong>) und <strong>Sündenböcke</strong> genutzt werden, um Unzufriedenheit zu kanalisieren.</p>";
             } else {
-                summaryHTML = "<p>Klasse Analyse! Du merkst schon: Wenn eine Aussage alles ganz einfach erklärt und gleichzeitig Angst vor der Zukunft macht, ist das ein deutliches Warnsignal.</p>";
+                summaryHTML = "<p>Klasse Analyse! Du merkst schon: Wenn eine Aussage alles ganz <strong>einfach erklärt</strong> und gleichzeitig <strong>Angst</strong> macht, ist das ein deutliches Warnsignal.</p>";
             }
             
             summaryContent.innerHTML = summaryHTML;
