@@ -1,0 +1,92 @@
+[
+    {
+        "text": "Die da oben wollen uns vorschreiben, wie wir zu leben haben. Nur wir sagen endlich die Wahrheit und stoppen diesen Wahnsinn.",
+        "hotspots": [
+            { 
+                "text": "Die da oben", 
+                "category": "Feindbild", 
+                "explanation": "Hier wird eine künstliche Trennung zwischen 'dem Volk' und 'den Eliten' geschaffen, um Misstrauen zu säen." 
+            },
+            { 
+                "text": "Nur wir sagen endlich die Wahrheit", 
+                "category": "Vereinfachung", 
+                "explanation": "Populisten behaupten oft, sie allein hätten den Durchblick, während alle anderen lügen oder manipulieren." 
+            },
+            { 
+                "text": "stoppen diesen Wahnsinn", 
+                "category": "Panikmache", 
+                "explanation": "Durch Begriffe wie 'Wahnsinn' werden starke Emotionen und Angst erzeugt, um rationales Denken zu erschweren." 
+            }
+        ]
+    },
+    {
+        "text": "Während die Eliten in Saus und Braus leben, wird der kleine Mann auf der Straße komplett vergessen. Es ist Zeit für eine radikale Wende!",
+        "hotspots": [
+            { 
+                "text": "Eliten", 
+                "category": "Feindbild", 
+                "explanation": "Ein klassisches Feindbild, das Neid und Wut auf eine vermeintlich abgehobene Gruppe lenkt." 
+            },
+            { 
+                "text": "kleine Mann", 
+                "category": "Wir gegen die", 
+                "explanation": "Diese Formulierung soll eine Verbundenheit mit der 'einfachen Bevölkerung' suggerieren und gegen 'die anderen' abgrenzen." 
+            },
+            { 
+                "text": "komplett vergessen", 
+                "category": "Schuldzuweisung", 
+                "explanation": "Es wird so getan, als gäbe es eine bewusste Vernachlässigung, um Unzufriedenheit zu schüren." 
+            },
+            { 
+                "text": "radikale Wende", 
+                "category": "Vereinfachung", 
+                "explanation": "Komplexe gesellschaftliche Probleme werden so dargestellt, als ließen sie sich durch eine einzige, radikale Maßnahme lösen." 
+            }
+        ]
+    },
+    {
+        "text": "Diese sogenannten Experten lügen uns doch nur an. Schließt euch uns an, bevor es zu spät ist und unser Land untergeht!",
+        "hotspots": [
+            { 
+                "text": "sogenannten Experten", 
+                "category": "Feindbild", 
+                "explanation": "Wissenschaft und Fachwissen werden abgewertet, um die eigene Meinung als einzige Wahrheit darzustellen." 
+            },
+            { 
+                "text": "lügen uns doch nur an", 
+                "category": "Schuldzuweisung", 
+                "explanation": "Eine pauschale Unterstellung von böswilliger Absicht, um Vertrauen in Institutionen zu zerstören." 
+            },
+            { 
+                "text": "bevor es zu spät ist", 
+                "category": "Panikmache", 
+                "explanation": "Zeitdruck und drohende Katastrophen sollen Menschen dazu bringen, unüberlegt zu handeln." 
+            },
+            { 
+                "text": "unser Land untergeht", 
+                "category": "Emotion statt Fakten", 
+                "explanation": "Statt sachlicher Argumente wird ein Weltuntergangsszenario gemalt, das starke Angst auslöst." 
+            }
+        ]
+    },
+    {
+        "text": "Immer mehr Verbote, immer weniger Freiheit. Wer stoppt diese Zerstörung unserer Kultur? Wir sind das Volk!",
+        "hotspots": [
+            { 
+                "text": "Zerstörung unserer Kultur", 
+                "category": "Panikmache", 
+                "explanation": "Ein emotional aufgeladenes Bild, das den Verlust der eigenen Identität suggeriert." 
+            },
+            { 
+                "text": "Wir sind das Volk", 
+                "category": "Wir gegen die", 
+                "explanation": "Ein Slogan, der den Alleinvertretungsanspruch für die gesamte Bevölkerung erhebt und Andersdenkende ausschließt." 
+            },
+            { 
+                "text": "Immer mehr Verbote", 
+                "category": "Vereinfachung", 
+                "explanation": "Einzelne Regeln oder Gesetze werden pauschal als Angriff auf die Freiheit dargestellt, ohne den Kontext zu erklären." 
+            }
+        ]
+    }
+]

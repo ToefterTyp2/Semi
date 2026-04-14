@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz - Medienkompetenz & Desinformation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { accent: { light: '#3b82f6', dark: '#8b5cf6' } }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply font-sans antialiased bg-slate-50 text-slate-900 dark:bg-gray-950 dark:text-gray-100 transition-all duration-500 ease-in-out; }
+            /* Ensure smooth transitions for all elements during theme switch */
+            *, ::before, ::after { @apply transition-all duration-500 ease-in-out; }
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-slate-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="/logo.png" alt="Logo" class="w-10 h-10 object-contain hover:scale-110 transition-transform cursor-pointer" referrerPolicy="no-referrer">
+                <span class="font-bold text-lg tracking-tight hidden sm:block">Seminarfach A27</span>
+            </a>
+            <button id="theme-toggle" class="p-2 rounded-xl bg-slate-100 dark:bg-gray-800 hover:ring-2 ring-accent-light dark:ring-accent-dark transition-all">
+                <svg id="sun-icon" class="w-5 h-5 text-amber-500 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M16.95 16.95l.707.707M7.05 7.05l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>
+                <svg id="moon-icon" class="w-5 h-5 text-slate-700 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 relative">
+        <!-- Persistent Background Elements for Continuity -->
+        <div class="fixed inset-0 -z-20 pointer-events-none overflow-hidden">
+            <div class="absolute top-[10%] -left-[10%] w-[40%] h-[40%] bg-accent-light/5 blur-[120px] rounded-full animate-[pulse_8s_infinite]"></div>
+            <div class="absolute bottom-[10%] right-[10%] w-[30%] h-[30%] bg-accent-dark/5 blur-[100px] rounded-full animate-[pulse_10s_infinite_4s]"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-black mb-8">Datenschutzerklärung</h1>
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-6 text-slate-600 dark:text-gray-400">
+                <section>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-2">1. Datenschutz auf einen Blick</h2>
+                    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-2">2. Datenerfassung auf unserer Website</h2>
+                    <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-2">3. Analyse-Tools und Tools von Drittanbietern</h2>
+                    <p>Beim Besuch dieser Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit Cookies und mit sogenannten Analyseprogrammen.</p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-2">4. YouTube mit erweitertem Datenschutz</h2>
+                    <p>Wir binden Videos der Website YouTube ein. Betreiber der Seiten ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland.</p>
+                    <p>Wir nutzen YouTube im erweiterten Datenschutzmodus. Dieser Modus bewirkt laut YouTube, dass YouTube keine Informationen über die Besucher auf dieser Website speichert, bevor diese sich das Video ansehen. Die Weitergabe von Daten an YouTube-Partner wird durch den erweiterten Datenschutzmodus jedoch nicht zwingend ausgeschlossen.</p>
+                    <p>Auf dieser Website werden YouTube-Videos erst nach Ihrer aktiven Zustimmung geladen (Zwei-Klick-Lösung). Sobald Sie ein YouTube-Video auf dieser Website starten, wird eine Verbindung zu den Servern von YouTube hergestellt. Dabei wird dem YouTube-Server mitgeteilt, welche unserer Seiten Sie besucht haben. Wenn Sie in Ihrem YouTube-Account eingeloggt sind, ermöglichen Sie YouTube, Ihr Surfverhalten direkt Ihrem persönlichen Profil zuzuordnen. Dies können Sie verhindern, indem Sie sich aus Ihrem YouTube-Account ausloggen.</p>
+                    <p>Ihre Entscheidung, Videos zu laden, wird in Ihrem Browser gespeichert (Local Storage). Sie können diese Einwilligung jederzeit hier widerrufen:</p>
+                    <button id="reset-yt-consent" class="mt-4 px-6 py-2 bg-red-500/10 text-red-600 border border-red-500/20 rounded-xl hover:bg-red-500/20 transition-all text-sm font-bold">
+                        YouTube-Einwilligung zurücksetzen
+                    </button>
+                    <p id="reset-success" class="mt-2 text-xs text-green-500 font-medium hidden">Einwilligung wurde erfolgreich zurückgesetzt.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <img src="/logo.png" alt="Logo" class="w-8 h-8 object-contain" referrerPolicy="no-referrer">
+                <span class="font-bold text-slate-900 dark:text-white">Seminarfach A27</span>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-slate-600 dark:text-gray-400">
+                <a href="impressum.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Impressum</a>
+                <a href="datenschutz.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Datenschutz</a>
+                <a href="quellen.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Quellen</a>
+                <a href="kontakt.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Kontakt</a>
+            </nav>
+            <p class="text-slate-500 dark:text-gray-500 text-sm">&copy; 2026 Seminarfach Gruppe 1 A27</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Reset YouTube Consent
+        const resetBtn = document.getElementById('reset-yt-consent');
+        const successMsg = document.getElementById('reset-success');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                localStorage.removeItem('yt-consent');
+                successMsg.classList.remove('hidden');
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>

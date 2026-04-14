@@ -1,0 +1,54 @@
+[
+    {
+        "id": 2,
+        "headline": "Wissenschaftler beweisen: Zitronensaft heilt Krebs in 24 Stunden! Experten warnen vor Zensur.",
+        "image": "https://picsum.photos/seed/lemon/600/600",
+        "profile": {
+            "name": "NaturHeilung24",
+            "avatar": "https://picsum.photos/seed/avatar1/100/100",
+            "age": "2 Tage",
+            "impressum": "Keines vorhanden (Anonym)",
+            "followers": "12",
+            "isVerified": false
+        },
+        "emotions": ["beweisen", "heilt", "24 Stunden", "Experten warnen", "Zensur"],
+        "searchResult": [
+            { "title": "Zitronensaft gegen Krebs? Faktencheck", "source": "CORRECTIV", "snippet": "Keine wissenschaftlichen Belege für Heilung. Gefährliche Desinformation.", "isCorrect": true },
+            { "title": "Warum Hausmittel keine Krebstherapie ersetzen", "source": "Tagesschau", "snippet": "Onkologen warnen vor Heilsversprechen in sozialen Medien.", "isCorrect": true },
+            { "title": "Die Wahrheit über Zitrone: Was Pharma dir verschweigt", "source": "FreieMedien_Blog", "snippet": "Tausende Patienten berichten von Wunderheilungen durch Zitronenkur.", "isCorrect": false }
+        ],
+        "metadata": {
+            "date": "Original: 12.05.2015",
+            "context": "Das Bild stammt aus einer alten Werbung für Limonade in Brasilien.",
+            "location": "Stockfoto-Archiv (Shutterstock)"
+        },
+        "isFake": true,
+        "explanation": "Die reißerische Sprache ('24 Stunden'), der anonyme Account ohne Impressum und die eindeutigen Faktenchecks zeigen: Das ist eine gefährliche Falschmeldung."
+    },
+    {
+        "id": 3,
+        "headline": "Sensation: Forscher finden antike Stadt unter dem Eis der Antarktis! Satellitenbilder zeigen Pyramiden.",
+        "image": "https://picsum.photos/seed/antarctica/600/600",
+        "profile": {
+            "name": "MysteryWorld_Official",
+            "avatar": "https://picsum.photos/seed/avatar2/100/100",
+            "age": "3 Jahre",
+            "impressum": "Mystery Media LLC, USA",
+            "followers": "45k",
+            "isVerified": true
+        },
+        "emotions": ["Sensation", "antike Stadt", "Pyramiden"],
+        "searchResult": [
+            { "title": "Pyramiden in der Antarktis? Die Wahrheit über die Berge", "source": "National Geographic", "snippet": "Geologen erklären die pyramidenförmigen Strukturen als natürliche Bergformationen (Nunataks).", "isCorrect": true },
+            { "title": "Verschwörungsmythen über die Antarktis", "source": "Bayerischer Rundfunk", "snippet": "Warum sich Mythen über geheime Basen und Städte im Eis so hartnäckig halten.", "isCorrect": true },
+            { "title": "Eilmeldung: Eingang zur Hohlwelt am Südpol entdeckt", "source": "UFO-Insider", "snippet": "Exklusive Aufnahmen zeigen künstliche Strukturen unter dem Gletschereis.", "isCorrect": false }
+        ],
+        "metadata": {
+            "date": "Original: 2016",
+            "context": "Das Bild zeigt den Mount Vinson, den höchsten Berg der Antarktis, aus einem bestimmten Winkel.",
+            "location": "Ellsworthgebirge, Antarktis"
+        },
+        "isFake": true,
+        "explanation": "Hier werden natürliche Phänomene als Sensation umgedeutet. Die SIFT-Methode hilft dir, durch den Gegencheck bei Fachmagazinen die geologische Realität von der Fiktion zu trennen."
+    }
+]

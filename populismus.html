@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Populismus - Medienkompetenz & Desinformation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { accent: { light: '#3b82f6', dark: '#8b5cf6' } }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply font-sans antialiased bg-slate-50 text-slate-900 dark:bg-gray-950 dark:text-gray-100 transition-all duration-500 ease-in-out; }
+            *, ::before, ::after { @apply transition-all duration-500 ease-in-out; }
+        }
+        @layer utilities {
+            .hide-scrollbar::-webkit-scrollbar { display: none; }
+            .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        }
+        .video-card {
+            @apply transition-all duration-500;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .animate-shake { animation: shake 0.2s ease-in-out infinite; }
+    </style>
+</head>
+<body>
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-slate-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="/logo.png" alt="Logo" class="w-10 h-10 object-contain hover:scale-110 transition-transform cursor-pointer" referrerPolicy="no-referrer">
+                <span class="font-bold text-lg tracking-tight hidden sm:block">Seminarfach A27</span>
+            </a>
+            <button id="theme-toggle" class="p-2 rounded-xl bg-slate-100 dark:bg-gray-800 hover:ring-2 ring-accent-light dark:ring-accent-dark transition-all">
+                <svg id="sun-icon" class="w-5 h-5 text-amber-500 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M16.95 16.95l.707.707M7.05 7.05l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>
+                <svg id="moon-icon" class="w-5 h-5 text-slate-700 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 relative">
+        <div class="fixed inset-0 -z-20 pointer-events-none overflow-hidden">
+            <div class="absolute top-[10%] -left-[10%] w-[40%] h-[40%] bg-accent-light/5 blur-[120px] rounded-full animate-[pulse_8s_infinite]"></div>
+            <div class="absolute bottom-[10%] right-[10%] w-[30%] h-[30%] bg-accent-dark/5 blur-[100px] rounded-full animate-[pulse_10s_infinite_4s]"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header Section -->
+            <div class="mb-16">
+                <a href="index.html#lexikon" class="inline-flex items-center text-sm font-bold text-accent-light dark:text-accent-dark hover:underline mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Zurück zum Lexikon
+                </a>
+                <h1 class="text-6xl md:text-7xl font-black mb-8 tracking-tight">📣 Populismus</h1>
+                
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    <p class="text-xl md:text-2xl text-slate-600 dark:text-gray-300 leading-relaxed mb-8">
+                        Wer das aktuelle Weltgeschehen auf Social Media verfolgt, stößt unvermeidlich auf extreme Debatten und unterschiedlichste Meinungen. Diese negative Atmosphäre entsteht selten zufällig. Stattdessen nutzen bestimmte Gruppen diese Atmosphäre um sich in den Vordergrund zu drängen, für komplexe Probleme einfache Lösungen versprechen und Feindbilder schaffen.
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-gray-400 leading-relaxed">
+                        Anstatt realistische Kompromisse zu erreichen, wird die Gesellschaft durch diesen Populismus in verfeindete Lager gespalten. Dies geschieht durch Aussagen und Nachrichten welche so verpackt werden, dass Emotionen wie Angst, Wut oder Empörung ausgelöst werden, wodurch die aufgestellten Behauptungen kaum noch hinterfragt werden. Diese Form der emotionalen Manipulation verleitet uns dazu, vorschnell zu urteilen. Wenn wir diese Tricks nicht durchschauen, lassen wir uns schnell von Leuten manipulieren, denen Aufmerksamkeit wichtiger ist als die Wahrheit.
+                </div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="mb-24">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                    <h2 class="text-3xl font-black flex items-center gap-3">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                        Schau dir diese Videos an, um mehr zu erfahren
+                    </h2>
+                </div>
+                <div class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x scroll-smooth" id="video-carousel">
+                    <!-- Video 1 -->
+                    <div class="min-w-[300px] md:min-w-[450px] snap-start video-card" data-video-index="0">
+                        <div class="video-placeholder relative aspect-video rounded-3xl overflow-hidden bg-slate-200 dark:bg-gray-800 shadow-lg border border-white/20 dark:border-gray-800 group cursor-pointer" data-video-id="vhakO1R-Fxk">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
+                                <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <p class="text-sm font-bold mb-2">Video von YouTube laden</p>
+                                <p class="text-[10px] leading-tight text-slate-500 dark:text-gray-400 max-w-[200px]">Mit dem Klick akzeptierst du die Datenschutzbestimmungen von YouTube.</p>
+                            </div>
+                            <div class="absolute inset-0 bg-cover bg-center opacity-20 blur-sm" style="background-image: url('https://img.youtube.com/vi/vhakO1R-Fxk/0.jpg')"></div>
+                        </div>
+                        <p class="mt-4 font-bold text-slate-700 dark:text-gray-300">Populismus einfach erklärt</p>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="min-w-[300px] md:min-w-[450px] snap-start video-card" data-video-index="1">
+                        <div class="video-placeholder relative aspect-video rounded-3xl overflow-hidden bg-slate-200 dark:bg-gray-800 shadow-lg border border-white/20 dark:border-gray-800 group cursor-pointer" data-video-id="kCsQlGm_fjc">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
+                                <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <p class="text-sm font-bold mb-2">Video von YouTube laden</p>
+                                <p class="text-[10px] leading-tight text-slate-500 dark:text-gray-400 max-w-[200px]">Mit dem Klick akzeptierst du die Datenschutzbestimmungen von YouTube.</p>
+                            </div>
+                            <div class="absolute inset-0 bg-cover bg-center opacity-20 blur-sm" style="background-image: url('https://img.youtube.com/vi/kCsQlGm_fjc/0.jpg')"></div>
+                        </div>
+                        <p class="mt-4 font-bold text-slate-700 dark:text-gray-300">Die Strategien der Populisten</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Populismus-Check: Tipps & Merkmale -->
+            <div class="mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-black mb-4 tracking-tight">💡 Populismus-Check</h2>
+                    <p class="text-lg text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Wie erkennst du Populismus im Alltag? Hier sind die wichtigsten Merkmale und Tipps, welche von Populisten verwendet werden.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Bubble 1: Wir gegen die -->
+                    <div class="p-8 rounded-[3rem] bg-blue-500/5 dark:bg-blue-500/10 border border-blue-500/20 hover:scale-[1.02] transition-transform group">
+                        <div class="w-12 h-12 bg-blue-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20 group-hover:rotate-12 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-blue-700 dark:text-blue-400">"Wir gegen die"</h3>
+                        <p class="text-sm leading-relaxed text-slate-600 dark:text-gray-400">
+                            Populismus teilt die Gesellschaft meist in zwei Gruppen: Wir (das „gute Volk“) und die Anderen (z.B. „korrupte Eliten“). Abweichende Meinungen werden nicht akzeptiert, sondern direkt den „Anderen“ zugeordnet.
+                        </p>
+                    </div>
+
+                    <!-- Bubble 2: Einfache Antworten -->
+                    <div class="p-8 rounded-[3rem] bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20 hover:scale-[1.02] transition-transform group">
+                        <div class="w-12 h-12 bg-amber-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20 group-hover:rotate-12 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-amber-700 dark:text-amber-400">Einfache Antworten</h3>
+                        <p class="text-sm leading-relaxed text-slate-600 dark:text-gray-400">
+                            Komplexe Probleme (wie Klimawandel oder Wirtschaft) werden auf eine einzige Ursache, oft einen Sündenbock (wie Ausländer oder Reiche) begrenzt. Es wird so getan, als gäbe es eine simple Lösung.
+                    </div>
+
+                    <!-- Bubble 3: Emotionen statt Fakten -->
+                    <div class="p-8 rounded-[3rem] bg-red-500/5 dark:bg-red-500/10 border border-red-500/20 hover:scale-[1.02] transition-transform group">
+                        <div class="w-12 h-12 bg-red-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-red-500/20 group-hover:rotate-12 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-red-700 dark:text-red-400">Gefühle</h3>
+                        <p class="text-sm leading-relaxed text-slate-600 dark:text-gray-400">
+                            Anstatt sachliche Argumente zu liefern, wird versucht, starke Gefühle wie Wut, Angst oder Empörung auszulösen. Emotionen verbreiten sich viel schneller als Fakten.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Taktik-Scanner Section -->
+            <div class="mb-24 py-16 px-6 md:px-12 rounded-[3rem] bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-white/20 dark:border-gray-800/30 shadow-2xl relative overflow-hidden" id="taktik-scanner-section">
+                <div class="absolute -top-24 -left-24 w-64 h-64 bg-accent-light/10 dark:bg-accent-dark/10 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-black mb-6 tracking-tight">🔍 Taktik-Scanner</h2>
+                        <p class="text-xl text-slate-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                            Populistische Botschaften wirken oft einfach, emotional und überzeugend. Sie teilen die Welt in „wir“ und „die anderen“ ein, suchen Schuldige und tun so, als gäbe es für komplizierte Probleme ganz einfache Lösungen. Im Taktik-Scanner lernst du, solche Strategien in Aussagen auf Social Media zu erkennen.
+                        </p>
+                    </div>
+
+                    <div id="scanner-container" class="grid lg:grid-cols-2 gap-12 items-start">
+                        <!-- Left: The Post -->
+                        <div class="space-y-6">
+                            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-slate-200 dark:border-gray-700 relative">
+                                <div class="flex items-center gap-3 mb-6">
+                                    <div class="w-12 h-12 bg-slate-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-xl">👤</div>
+                                    <div>
+                                        <div class="font-bold text-slate-900 dark:text-white">Anonymer Nutzer</div>
+                                        <div class="text-xs text-slate-500">vor 2 Stunden • Social Media</div>
+                                    </div>
+                                </div>
+                                <div id="scanner-text" class="text-xl md:text-2xl leading-relaxed text-slate-800 dark:text-gray-200 font-medium">
+                                    <!-- Text with hotspots will be injected here -->
+                                </div>
+                                <div class="mt-8 flex gap-4 text-slate-400 text-sm border-t border-slate-100 dark:border-gray-700 pt-4">
+                                    <span>❤️ 1.2k</span>
+                                    <span>💬 452</span>
+                                    <span>🔄 128</span>
+                                </div>
+                            </div>
+                            
+                            <div id="scanner-feedback" class="min-h-[80px] p-6 rounded-2xl bg-slate-100/50 dark:bg-gray-800/50 border border-slate-200 dark:border-gray-700 flex items-center justify-center text-center italic text-slate-500 dark:text-gray-400">
+                                Klicke auf eine markierte Textstelle und wähle die passende Taktik aus.
+                            </div>
+                        </div>
+
+                        <!-- Right: Categories -->
+                        <div class="grid grid-cols-1 gap-3" id="category-list">
+                            <!-- Categories will be injected here -->
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="mt-12">
+                        <div class="flex justify-between text-sm font-bold mb-2 uppercase tracking-widest text-slate-400">
+                            <span>Fortschritt</span>
+                            <span id="scanner-progress-text">Beispiel 1 von 4</span>
+                        </div>
+                        <div class="h-2 bg-slate-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                            <div id="scanner-progress-bar" class="h-full bg-accent-light dark:bg-accent-dark w-1/4 transition-all duration-500"></div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Overlay (Hidden by default) -->
+                    <div id="scanner-summary" class="hidden mt-12 p-8 rounded-3xl bg-accent-light/10 dark:bg-accent-dark/10 border border-accent-light/20 dark:border-accent-dark/20 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <h3 class="text-2xl font-black mb-4 flex items-center gap-2">
+                            <span class="text-3xl">🎯</span> Analyse abgeschlossen
+                        </h3>
+                        <div id="summary-content" class="space-y-4 text-slate-600 dark:text-gray-300">
+                            <!-- Summary text injected here -->
+                        </div>
+                        <button id="next-scanner-btn" class="mt-8 w-full py-4 bg-accent-light dark:bg-accent-dark text-white font-black rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">Nächste Aussage scannen</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="py-16 border-t border-slate-200 dark:border-gray-800">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-2xl font-black mb-6 text-accent-light dark:text-accent-dark uppercase tracking-wider">Merksatz</h2>
+                        <p class="text-2xl md:text-3xl font-bold leading-tight text-slate-800 dark:text-white">
+                            "Einfache Lösungen für komplexe Probleme sind oft der erste Schritt zur Manipulation."
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-black mb-6 text-accent-light dark:text-accent-dark uppercase tracking-wider">Was du mitnimmst</h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-lg text-slate-600 dark:text-gray-300">Hinterfrage einfache Antworten auf schwierige Fragen.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-lg text-slate-600 dark:text-gray-300">Erkenne die Spaltung in "Wir" gegen "Die".</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-lg text-slate-600 dark:text-gray-300">Achte auf emotionale Aufladung statt sachlicher Argumente.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <img src="/logo.png" alt="Logo" class="w-8 h-8 object-contain" referrerPolicy="no-referrer">
+                    <span class="font-bold text-slate-900 dark:text-white">Seminarfach A27</span>
+                </div>
+                
+                <nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-slate-600 dark:text-gray-400">
+                    <a href="impressum.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Impressum</a>
+                    <a href="datenschutz.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Datenschutz</a>
+                    <a href="quellen.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Quellen</a>
+                    <a href="kontakt.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Kontakt</a>
+                </nav>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-slate-500 dark:text-gray-500 text-sm">
+                        &copy; 2026 Seminarfach Gruppe 1 A27
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // YouTube Consent Logic
+        function initYoutubeConsent() {
+            const placeholders = document.querySelectorAll('.video-placeholder');
+            const hasConsent = localStorage.getItem('yt-consent') === 'true';
+
+            placeholders.forEach(placeholder => {
+                const videoId = placeholder.dataset.videoId;
+                
+                if (hasConsent) {
+                    loadYoutubeVideo(placeholder, videoId, false);
+                } else {
+                    placeholder.addEventListener('click', () => {
+                        loadYoutubeVideo(placeholder, videoId, true);
+                        localStorage.setItem('yt-consent', 'true');
+                    });
+                }
+            });
+        }
+
+        function loadYoutubeVideo(container, videoId, autoplay) {
+            const iframe = document.createElement('iframe');
+            iframe.className = "w-full h-full";
+            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}${autoplay ? '?autoplay=1' : ''}`;
+            iframe.title = "YouTube video player";
+            iframe.frameBorder = "0";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+            
+            container.innerHTML = '';
+            container.appendChild(iframe);
+            container.classList.remove('cursor-pointer');
+        }
+
+        window.addEventListener('load', initYoutubeConsent);
+
+        // Taktik-Scanner Data
+        let scannerCases = [];
+
+        async function loadScannerData() {
+            try {
+                const response = await fetch('scanner-cases.json?v=' + Date.now());
+                if (!response.ok) throw new Error('Network response was not ok');
+                scannerCases = await response.json();
+                if (scannerCases.length > 0) {
+                    initScanner(0);
+                }
+            } catch (error) {
+                console.error('Error loading scanner data:', error);
+                scannerFeedback.innerHTML = "Fehler beim Laden der Scanner-Daten. Bitte versuche es später erneut.";
+            }
+        }
+
+        const categories = [
+            { id: "Feindbild", label: "Feindbild", icon: "👺" },
+            { id: "Wir gegen die", label: "Wir gegen die", icon: "⚔️" },
+            { id: "Panikmache", label: "Panikmache", icon: "🚨" },
+            { id: "Vereinfachung", label: "Vereinfachung", icon: "📉" },
+            { id: "Emotion statt Fakten", label: "Emotion statt Fakten", icon: "🔥" },
+            { id: "Schuldzuweisung", label: "Schuldzuweisung", icon: "👉" }
+        ];
+
+        let currentScannerIndex = 0;
+        let activeHotspot = null;
+        const foundHotspots = new Set();
+
+        const scannerText = document.getElementById('scanner-text');
+        const categoryList = document.getElementById('category-list');
+        const scannerFeedback = document.getElementById('scanner-feedback');
+        const scannerSummary = document.getElementById('scanner-summary');
+        const summaryContent = document.getElementById('summary-content');
+        const nextScannerBtn = document.getElementById('next-scanner-btn');
+        const scannerProgressBar = document.getElementById('scanner-progress-bar');
+        const scannerProgressText = document.getElementById('scanner-progress-text');
+
+        function initScanner(index) {
+            currentScannerIndex = index;
+            const c = scannerCases[index];
+            foundHotspots.clear();
+            activeHotspot = null;
+            
+            scannerSummary.classList.add('hidden');
+            scannerFeedback.innerHTML = "Klicke auf eine markierte Textstelle und wähle die passende Taktik aus.";
+            scannerFeedback.className = "min-h-[80px] p-6 rounded-2xl bg-slate-100/50 dark:bg-gray-800/50 border border-slate-200 dark:border-gray-700 flex items-center justify-center text-center italic text-slate-500 dark:text-gray-400";
+            
+            // Update Progress
+            scannerProgressText.textContent = `Beispiel ${index + 1} von ${scannerCases.length}`;
+            scannerProgressBar.style.width = `${((index + 1) / scannerCases.length) * 100}%`;
+
+            // Render Text with Hotspots
+            let htmlText = c.text;
+            // Sort hotspots by length descending to avoid nested replacement issues if any
+            // BUGFIX: map originalIndex before sorting so data-hs-index stays correct
+            const sortedHotspots = c.hotspots
+                .map((hs, originalIndex) => ({ ...hs, originalIndex }))
+                .sort((a, b) => b.text.length - a.text.length);
+            
+            sortedHotspots.forEach((hs) => {
+                htmlText = htmlText.replace(hs.text, `<span class="scanner-hotspot cursor-pointer border-b-2 border-dashed border-accent-light/50 dark:border-accent-dark/50 hover:bg-accent-light/10 dark:hover:bg-accent-dark/10 transition-colors px-1 rounded" data-hs-index="${hs.originalIndex}">${hs.text}</span>`);
+            });
+            scannerText.innerHTML = htmlText;
+
+            // Render Categories
+            categoryList.innerHTML = categories.map(cat => `
+                <button class="category-btn group flex items-center gap-4 p-4 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-2xl text-left hover:border-accent-light dark:hover:border-accent-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed" data-cat-id="${cat.id}">
+                    <span class="text-2xl group-hover:scale-125 transition-transform">${cat.icon}</span>
+                    <span class="font-bold text-slate-700 dark:text-gray-200">${cat.label}</span>
+                </button>
+            `).join('');
+
+            setupScannerEvents();
+        }
+
+        function setupScannerEvents() {
+            const hotspots = document.querySelectorAll('.scanner-hotspot');
+            const catBtns = document.querySelectorAll('.category-btn');
+
+            hotspots.forEach(hs => {
+                hs.addEventListener('click', () => {
+                    if (hs.classList.contains('found')) return;
+                    
+                    hotspots.forEach(h => h.classList.remove('active', 'ring-2', 'ring-accent-light', 'dark:ring-accent-dark'));
+                    hs.classList.add('active', 'ring-2', 'ring-accent-light', 'dark:ring-accent-dark');
+                    activeHotspot = parseInt(hs.dataset.hsIndex);
+                    
+                    scannerFeedback.innerHTML = "Wähle nun die passende Kategorie für diesen Textabschnitt.";
+                    scannerFeedback.className = "min-h-[80px] p-6 rounded-2xl bg-accent-light/10 dark:bg-accent-dark/10 border border-accent-light/30 dark:border-accent-dark/30 flex items-center justify-center text-center font-bold text-accent-light dark:text-accent-dark animate-pulse";
+                });
+            });
+
+            catBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (activeHotspot === null) {
+                        scannerFeedback.innerHTML = "Wähle zuerst eine Textstelle im Post aus!";
+                        scannerFeedback.className = "min-h-[80px] p-6 rounded-2xl bg-amber-100/50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 flex items-center justify-center text-center font-bold text-amber-600 dark:text-amber-400";
+                        return;
+                    }
+
+                    const catId = btn.dataset.catId;
+                    const hs = scannerCases[currentScannerIndex].hotspots[activeHotspot];
+                    const hsElement = document.querySelector(`.scanner-hotspot[data-hs-index="${activeHotspot}"]`);
+
+                    if (hs.category === catId) {
+                        // Correct
+                        hsElement.classList.remove('active', 'ring-2', 'border-dashed');
+                        hsElement.classList.add('found', 'bg-green-500/20', 'text-green-600', 'dark:text-green-400', 'border-green-500', 'font-bold', 'border-b-2');
+                        
+                        scannerFeedback.innerHTML = `<strong>Richtig!</strong> ${hs.explanation}`;
+                        scannerFeedback.className = "min-h-[80px] p-6 rounded-2xl bg-green-100/50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 flex flex-col items-center justify-center text-center text-green-700 dark:text-green-300 animate-in zoom-in-95 duration-300";
+                        
+                        foundHotspots.add(activeHotspot);
+                        activeHotspot = null;
+
+                        if (foundHotspots.size === scannerCases[currentScannerIndex].hotspots.length) {
+                            showScannerSummary();
+                        }
+                    } else {
+                        // Wrong
+                        scannerFeedback.innerHTML = `Schau dir die Formulierung noch einmal genauer an: Wird hier Angst gemacht, vereinfacht oder eine Gruppe beschuldigt?`;
+                        scannerFeedback.className = "min-h-[80px] p-6 rounded-2xl bg-red-100/50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 flex items-center justify-center text-center text-red-700 dark:text-red-300 animate-shake";
+                        setTimeout(() => {
+                            scannerFeedback.classList.remove('animate-shake');
+                        }, 500);
+                    }
+                });
+            });
+        }
+
+        function showScannerSummary() {
+            const c = scannerCases[currentScannerIndex];
+            scannerSummary.classList.remove('hidden');
+            
+            let summaryHTML = "";
+            if (currentScannerIndex === 0) {
+                summaryHTML = "<p>Gut gemacht! Du hast alle Taktiken in diesem Post erkannt. Populisten nutzen oft <strong>emotionale Sprache</strong> und <strong>Feindbilder</strong>, um eine schnelle Reaktion bei dir auszulösen, bevor du kritisch nachdenken kannst.</p>";
+            } else if (currentScannerIndex === 1) {
+                summaryHTML = "<p>Hervorragend. Hier hast du gesehen, wie die Spaltung der Gesellschaft (<strong>Wir gegen die</strong>) und <strong>Schuldzuweisungen</strong> genutzt werden, um Unzufriedenheit zu kanalisieren.</p>";
+            } else {
+                summaryHTML = "<p>Klasse Analyse! Du merkst schon: Wenn eine Aussage alles ganz einfach erklärt und gleichzeitig Angst vor der Zukunft macht, ist das ein deutliches Warnsignal.</p>";
+            }
+            
+            summaryContent.innerHTML = summaryHTML;
+            
+            if (currentScannerIndex === scannerCases.length - 1) {
+                nextScannerBtn.textContent = "Scanner abschließen";
+                nextScannerBtn.addEventListener('click', () => {
+                    scannerSummary.innerHTML = `
+                        <div class="text-center py-8">
+                            <div class="text-6xl mb-6">🎓</div>
+                            <h3 class="text-3xl font-black mb-4">Scanner-Training beendet!</h3>
+                            <p class="text-xl text-slate-600 dark:text-gray-300 mb-8 leading-relaxed">
+                                Du hast gelernt, die verborgenen Taktiken hinter populistischen Botschaften zu entlarven. Bleib wachsam: Wenn eine Nachricht dich sofort wütend macht, Schuldige präsentiert und alles ganz einfach erklärt, solltest du besonders kritisch sein.
+                            </p>
+                            <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl border border-accent-light dark:border-accent-dark font-bold text-accent-light dark:text-accent-dark italic">
+                                "Wer die Taktik kennt, lässt sich seltener täuschen."
+                            </div>
+                        </div>
+                    `;
+                }, { once: true });
+            } else {
+                nextScannerBtn.onclick = () => initScanner(currentScannerIndex + 1);
+            }
+        }
+
+        loadScannerData();
+
+        // Video Carousel Scroll Logic
+        const carousel = document.getElementById('video-carousel');
+        const scrollLeftBtn = document.getElementById('scroll-left');
+        const scrollRightBtn = document.getElementById('scroll-right');
+
+        if (carousel && scrollLeftBtn && scrollRightBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                const cardWidth = carousel.querySelector('.video-card').offsetWidth + 24; // width + gap
+                carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                const cardWidth = carousel.querySelector('.video-card').offsetWidth + 24; // width + gap
+                carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>
