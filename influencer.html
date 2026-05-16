@@ -28,30 +28,6 @@
             .hide-scrollbar::-webkit-scrollbar { display: none; }
             .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         }
-        .drop-zone {
-            @apply inline-block min-w-[120px] h-8 border-b-2 border-dashed border-accent-light dark:border-accent-dark mx-1 align-middle transition-colors duration-300;
-        }
-        .drop-zone.hover {
-            @apply bg-accent-light/10 dark:bg-accent-dark/10 border-solid;
-        }
-        .drop-zone.filled {
-            @apply border-none bg-accent-light/20 dark:bg-accent-dark/20 rounded-lg px-2 h-auto py-0.5 font-bold text-accent-light dark:text-accent-dark;
-        }
-        .draggable-word {
-            @apply inline-block px-4 py-2 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-xl shadow-sm cursor-grab active:cursor-grabbing font-bold text-slate-700 dark:text-gray-200 hover:border-accent-light dark:hover:border-accent-dark transition-all;
-        }
-        .draggable-word.dragging {
-            @apply opacity-50 scale-95;
-        }
-        .video-card {
-            @apply cursor-pointer transition-all duration-500;
-        }
-        .video-card.active {
-            @apply ring-4 ring-accent-light dark:ring-accent-dark ring-offset-4 dark:ring-offset-gray-950 scale-[1.02];
-        }
-        .video-card.active .video-overlay {
-            @apply hidden;
-        }
     </style>
 </head>
 <body>
@@ -98,13 +74,12 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                     <h2 class="text-3xl font-black flex items-center gap-3">
                         <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                        1. Video wählen
+                        Videos zum Thema
                     </h2>
-                    <p class="text-slate-500 dark:text-gray-400 font-medium">Klicke auf ein Video, um den Lückentext zu starten</p>
                 </div>
                 <div class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x scroll-smooth" id="video-carousel">
                     <!-- Video 1 -->
-                    <div class="min-w-[300px] md:min-w-[450px] snap-start video-card active" data-video-index="0">
+                    <div class="min-w-[300px] md:min-w-[450px] snap-start">
                         <div class="video-placeholder relative aspect-video rounded-3xl overflow-hidden bg-slate-200 dark:bg-gray-800 shadow-lg border border-white/20 dark:border-gray-800 group cursor-pointer" data-video-id="dQw4w9WgXcQ">
                             <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                                 <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
@@ -118,7 +93,7 @@
                         <p class="mt-4 font-bold text-slate-700 dark:text-gray-300">Die Macht der Influencer</p>
                     </div>
                     <!-- Video 2 -->
-                    <div class="min-w-[300px] md:min-w-[450px] snap-start video-card" data-video-index="1">
+                    <div class="min-w-[300px] md:min-w-[450px] snap-start">
                         <div class="video-placeholder relative aspect-video rounded-3xl overflow-hidden bg-slate-200 dark:bg-gray-800 shadow-lg border border-white/20 dark:border-gray-800 group cursor-pointer" data-video-id="dQw4w9WgXcQ">
                             <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                                 <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
@@ -132,7 +107,7 @@
                         <p class="mt-4 font-bold text-slate-700 dark:text-gray-300">Meinungsmache auf Social Media</p>
                     </div>
                     <!-- Video 3 -->
-                    <div class="min-w-[300px] md:min-w-[450px] snap-start video-card" data-video-index="2">
+                    <div class="min-w-[300px] md:min-w-[450px] snap-start">
                         <div class="video-placeholder relative aspect-video rounded-3xl overflow-hidden bg-slate-200 dark:bg-gray-800 shadow-lg border border-white/20 dark:border-gray-800 group cursor-pointer" data-video-id="dQw4w9WgXcQ">
                             <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                                 <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
@@ -157,31 +132,109 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Workshop Section: Influencer verstehen -->
+            <div class="mb-24">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight">
+                        <span class="text-accent-light dark:text-accent-dark">Einfluss</span> verstehen
+                    </h2>
+                    <p class="text-lg text-slate-600 dark:text-gray-400 max-w-3xl mx-auto">
+                        Wie Influencer unbemerkt unsere politische und gesellschaftliche Meinung prägen können.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-8 mt-12 mb-24">
+                    <div class="bg-white/60 dark:bg-gray-900/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/40 dark:border-gray-800/30 shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
+                        <div class="w-16 h-16 bg-blue-500/20 text-blue-500 rounded-2xl flex items-center justify-center font-black text-3xl flex-shrink-0 group-hover:bg-blue-500 group-hover:text-white transition-colors shadow-inner">🤝</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Parasoziale Beziehungen</h3>
+                            <p class="text-slate-600 dark:text-gray-400 leading-relaxed">
+                                Durch persönliche Einblicke und direkte Ansprache entsteht die Illusion einer echten Freundschaft. Wir bauen eine einseitige emotionale Bindung auf, wodurch unsere Kritikfähigkeit gegenüber den Aussagen des Influencers automatisch sinkt.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white/60 dark:bg-gray-900/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/40 dark:border-gray-800/30 shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
+                        <div class="w-16 h-16 bg-red-500/20 text-red-500 rounded-2xl flex items-center justify-center font-black text-3xl flex-shrink-0 group-hover:bg-red-500 group-hover:text-white transition-colors shadow-inner">⚖️</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Fehlende Objektivität</h3>
+                            <p class="text-slate-600 dark:text-gray-400 leading-relaxed">
+                                Im Gegensatz zu echten Journalisten unterliegen Influencer keiner journalistischen Sorgfaltspflicht. Sie müssen nicht neutral oder ausgewogen berichten, sondern präsentieren Informationen oft subjektiv und unvollständig, was schnell zu einer einseitigen Meinungsbildung führt.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white/60 dark:bg-gray-900/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/40 dark:border-gray-800/30 shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
+                        <div class="w-16 h-16 bg-purple-500/20 text-purple-500 rounded-2xl flex items-center justify-center font-black text-3xl flex-shrink-0 group-hover:bg-purple-500 group-hover:text-white transition-colors shadow-inner">🎭</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Meinung vs. Fakten</h3>
+                            <p class="text-slate-600 dark:text-gray-400 leading-relaxed">
+                                Weil wir Influencern sympathisieren, verwechseln wir ihre persönlichen Ansichten häufig mit objektiven Fakten. Wenn sie geschickt Fakten mit ihren eigenen Emotionen vermischen, nehmen wir diese oft ungeprüft als absolute Wahrheit an.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
 
             <!-- Interactive Section -->
             <div class="mb-24 py-12 px-6 md:px-12 rounded-[3rem] bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-white/20 dark:border-gray-800/30 shadow-2xl relative overflow-hidden" id="interactive-section">
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent-light/10 dark:bg-accent-dark/10 rounded-full blur-3xl"></div>
                 
-                <div class="relative z-10">
+                <div class="relative z-10 max-w-4xl mx-auto">
                     <div class="text-center mb-12">
-                        <h2 class="text-3xl font-black mb-4">2. Lückentext lösen</h2>
-                        <p class="text-lg text-slate-600 dark:text-gray-400">Ziehe die richtigen Wörter in die Lücken des Textes.</p>
+                        <h2 class="text-3xl font-black mb-4">Vertrauens-Check: Meinung oder Fakt?</h2>
+                        <p class="text-lg text-slate-600 dark:text-gray-400">Influencer vermischen oft geschickt echte Nachrichten mit ihren eigenen Emotionen. Kannst du Sympathie von objektiver Wahrheit trennen? Lies dir den fiktiven Chat-Verlauf deines Lieblings-Influencers durch und entscheide!</p>
                     </div>
 
-                    <div id="cloze-container" class="space-y-12">
-                        <!-- Cloze text will be injected here -->
-                    </div>
+                    <div class="flex justify-center">
+                        <!-- Smartphone Interface -->
+                        <div class="w-full max-w-[400px] bg-slate-900 rounded-[3rem] p-3 border-[8px] border-slate-800 shadow-2xl relative overflow-hidden aspect-[9/18]">
+                            <div class="bg-slate-50 dark:bg-gray-900 h-full rounded-[2.2rem] overflow-hidden flex flex-col relative">
+                                <!-- Status Bar -->
+                                <div class="h-6 bg-slate-100 dark:bg-gray-800 flex justify-between px-6 items-center text-[10px] font-bold text-slate-400 z-10 relative">
+                                    <span>9:41</span>
+                                    <div class="flex gap-1 items-center">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" /></svg>
+                                        <div class="w-4 h-2 bg-slate-400 rounded-sm"></div>
+                                    </div>
+                                </div>
 
-                    <div id="words-container" class="flex flex-wrap justify-center gap-4 mt-12 p-6 bg-slate-100/50 dark:bg-gray-800/50 rounded-2xl border border-slate-200 dark:border-gray-700">
-                        <!-- Words will be injected here -->
-                    </div>
+                                <!-- Chat Header -->
+                                <div class="px-4 py-3 bg-white dark:bg-gray-800 border-b border-slate-200 dark:border-gray-700 flex items-center gap-3 z-10 relative shadow-sm">
+                                    <div class="w-10 h-10 rounded-full bg-accent-light text-white flex items-center justify-center font-bold text-lg">
+                                        ⭐️
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sm">Dein Lieblings-Influencer</h3>
+                                        <p class="text-[10px] text-green-500 font-medium">Online</p>
+                                    </div>
+                                </div>
 
-                    <div class="mt-12 text-center">
-                        <button id="check-btn" class="px-8 py-3 bg-accent-light dark:bg-accent-dark text-white font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed">
-                            Ergebnis prüfen
-                        </button>
-                        <p id="feedback-msg" class="mt-6 font-bold text-lg hidden"></p>
+                                <!-- Chat Feed -->
+                                <div id="chat-feed" class="flex-1 overflow-y-auto p-4 space-y-4 relative custom-scrollbar flex flex-col">
+                                    <div class="text-center my-2">
+                                        <span class="text-[10px] bg-slate-200 dark:bg-gray-800 text-slate-500 px-3 py-1 rounded-full font-bold uppercase tracking-wider">Heute</span>
+                                    </div>
+                                    <!-- Messages injected via JS -->
+                                </div>
+
+                                <!-- Decision Panel -->
+                                <div id="decision-panel" class="bg-white dark:bg-gray-800 p-4 border-t border-slate-200 dark:border-gray-700 pb-8 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] transform transition-transform translate-y-full z-20">
+                                    <p class="text-center text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">Ist diese Aussage...</p>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button id="btn-meinung" class="py-3 px-2 bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/30 dark:hover:bg-purple-900/50 text-purple-700 dark:text-purple-300 rounded-xl font-bold transition-colors flex flex-col items-center gap-1 border-2 border-purple-200 dark:border-purple-800">
+                                            <span class="text-xl">🎭</span>
+                                            <span class="text-sm">Meinung</span>
+                                        </button>
+                                        <button id="btn-fakt" class="py-3 px-2 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-xl font-bold transition-colors flex flex-col items-center gap-1 border-2 border-blue-200 dark:border-blue-800">
+                                            <span class="text-xl">📊</span>
+                                            <span class="text-sm">Fakt</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,135 +304,141 @@
         }
         themeToggle.addEventListener('click', toggleTheme);
 
-        // Cloze Test Data
-        const clozeData = [
-            {
-                text: "Influencer bauen eine [parasoziale] Beziehung zu ihren Followern auf. Dadurch wirken sie wie [Freunde], was ihr [Vertrauen] und ihren Einfluss auf die Meinung der Jugendlichen enorm steigert.",
-                words: ["parasoziale", "Freunde", "Vertrauen"]
-            },
-            {
-                text: "Oft ist politische [Werbung] bei Influencern schwer zu erkennen. Sie vermischen private [Einblicke] mit politischen [Botschaften], was die kritische Distanz der Zuschauer verringert.",
-                words: ["Werbung", "Einblicke", "Botschaften"]
-            },
-            {
-                text: "Creator tragen eine große [Verantwortung] für ihre Inhalte. Sie sollten Fakten von [Meinungen] trennen und ihre [Quellen] transparent machen, um Manipulation zu verhindern.",
-                words: ["Verantwortung", "Meinungen", "Quellen"]
-            }
-        ];
+        // Chat Game Data and Logic
+            const chatData = [
+                {
+                    text: "Leute, das neue Schulsystem ist doch der absolute Horror, wer hat sich das ausgedacht?!",
+                    type: "meinung",
+                    explanation: "Das ist eine starke emotionale Bewertung ('Horror') und keine überprüfbare Tatsache."
+                },
+                {
+                    text: "Laut dem neuen Gesetz werden ab nächstem Jahr die Ferien um eine Woche verkürzt.",
+                    type: "fakt",
+                    explanation: "Diesen Gesetzesbeschluss kann man objektiv nachlesen und überprüfen."
+                },
+                {
+                    text: "Die Politiker da oben haben einfach komplett den Bezug zur Realität verloren.",
+                    type: "meinung",
+                    explanation: "Eine Verallgemeinerung und subjektive Einschätzung, kein Fakt."
+                },
+                {
+                    text: "In Berlin haben am Wochenende 25.000 Menschen für Klimaschutz demonstriert.",
+                    type: "fakt",
+                    explanation: "Die Teilnehmerzahl einer Demonstration lässt sich überprüfen."
+                },
+                {
+                    text: "Glaubt mir, wenn wir so weiter machen, geht das Land in 5 Jahren komplett vor die Hunde.",
+                    type: "meinung",
+                    explanation: "Eine persönliche Prognose und Angstmache, kein bewiesener Fakt."
+                }
+            ];
 
-        let currentVideoIndex = 0;
-        const clozeContainer = document.getElementById('cloze-container');
-        const wordsContainer = document.getElementById('words-container');
-        const checkBtn = document.getElementById('check-btn');
-        const feedbackMsg = document.getElementById('feedback-msg');
-        const videoCards = document.querySelectorAll('.video-card');
-
-        function initCloze(index) {
-            currentVideoIndex = index;
-            const data = clozeData[index];
-            feedbackMsg.classList.add('hidden');
+            let currentChatIndex = 0;
+            let score = 0;
             
-            // Render Text with Drop Zones
-            let htmlText = data.text;
-            data.words.forEach((word, i) => {
-                htmlText = htmlText.replace(`[${word}]`, `<span class="drop-zone" data-answer="${word}"></span>`);
-            });
-            clozeContainer.innerHTML = `<p class="text-xl md:text-2xl leading-[2.5] text-slate-700 dark:text-gray-200">${htmlText}</p>`;
+            const chatFeed = document.getElementById('chat-feed');
+            const decisionPanel = document.getElementById('decision-panel');
+            const btnMeinung = document.getElementById('btn-meinung');
+            const btnFakt = document.getElementById('btn-fakt');
 
-            // Render Shuffled Words
-            const shuffledWords = [...data.words].sort(() => Math.random() - 0.5);
-            wordsContainer.innerHTML = shuffledWords.map(word => `
-                <div class="draggable-word" draggable="true" data-word="${word}">${word}</div>
-            `).join('');
+            function addChatBubble(text, sender = 'influencer') {
+                const wrapper = document.createElement('div');
+                wrapper.className = `flex ${sender === 'influencer' ? 'justify-start' : 'justify-center'} w-full animate-in slide-in-from-bottom-2 fade-in duration-300`;
+                
+                if (sender === 'influencer') {
+                    wrapper.innerHTML = `
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded-2xl rounded-tl-sm shadow-sm max-w-[85%] border border-slate-100 dark:border-gray-700">
+                            <p class="text-sm text-slate-800 dark:text-gray-200">${text}</p>
+                        </div>
+                    `;
+                } else if (sender === 'system') {
+                    wrapper.innerHTML = text; // expecting full HTML for system messages
+                }
+                
+                chatFeed.appendChild(wrapper);
+                chatFeed.scrollTop = chatFeed.scrollHeight;
+                return wrapper;
+            }
 
-            setupDragAndDrop();
-        }
-
-        function setupDragAndDrop() {
-            const draggables = document.querySelectorAll('.draggable-word');
-            const dropZones = document.querySelectorAll('.drop-zone');
-
-            draggables.forEach(draggable => {
-                draggable.addEventListener('dragstart', () => {
-                    draggable.classList.add('dragging');
-                });
-
-                draggable.addEventListener('dragend', () => {
-                    draggable.classList.remove('dragging');
-                });
-            });
-
-            dropZones.forEach(zone => {
-                zone.addEventListener('dragover', e => {
-                    e.preventDefault();
-                    zone.classList.add('hover');
-                });
-
-                zone.addEventListener('dragleave', () => {
-                    zone.classList.remove('hover');
-                });
-
-                zone.addEventListener('drop', e => {
-                    e.preventDefault();
-                    zone.classList.remove('hover');
-                    const draggable = document.querySelector('.dragging');
-                    if (!draggable) return;
-
-                    if (zone.classList.contains('filled')) {
-                        const oldWord = zone.textContent;
-                        const oldDraggable = Array.from(document.querySelectorAll('.draggable-word')).find(d => d.textContent === oldWord && d.style.display === 'none');
-                        if (oldDraggable) oldDraggable.style.display = 'inline-block';
-                    }
-
-                    zone.textContent = draggable.textContent;
-                    zone.classList.add('filled');
-                    draggable.style.display = 'none';
-                });
-
-                zone.addEventListener('click', () => {
-                    if (zone.classList.contains('filled')) {
-                        const word = zone.textContent;
-                        const draggable = Array.from(document.querySelectorAll('.draggable-word')).find(d => d.textContent === word && d.style.display === 'none');
-                        if (draggable) draggable.style.display = 'inline-block';
-                        zone.textContent = '';
-                        zone.classList.remove('filled');
-                    }
-                });
-            });
-        }
-
-        checkBtn.addEventListener('click', () => {
-            const zones = document.querySelectorAll('.drop-zone');
-            let correctCount = 0;
-            let allFilled = true;
-
-            zones.forEach(zone => {
-                if (!zone.classList.contains('filled')) {
-                    allFilled = false;
+            function showNextMessage() {
+                if (currentChatIndex >= chatData.length) {
+                    endGame();
                     return;
                 }
-                if (zone.textContent === zone.dataset.answer) {
-                    correctCount++;
-                    zone.classList.remove('bg-red-500/20', 'text-red-500');
-                    zone.classList.add('bg-green-500/20', 'text-green-500');
-                } else {
-                    zone.classList.remove('bg-green-500/20', 'text-green-500');
-                    zone.classList.add('bg-red-500/20', 'text-red-500');
-                }
-            });
-
-            feedbackMsg.classList.remove('hidden');
-            if (!allFilled) {
-                feedbackMsg.textContent = "Bitte fülle alle Lücken aus!";
-                feedbackMsg.className = "mt-6 font-bold text-lg text-amber-500";
-            } else if (correctCount === zones.length) {
-                feedbackMsg.textContent = "Super! Alles richtig gelöst. 🎉";
-                feedbackMsg.className = "mt-6 font-bold text-lg text-green-500";
-            } else {
-                feedbackMsg.textContent = `Fast geschafft! ${correctCount} von ${zones.length} sind richtig. Versuche es nochmal!`;
-                feedbackMsg.className = "mt-6 font-bold text-lg text-red-500";
+                
+                decisionPanel.style.transform = 'translateY(100%)';
+                
+                setTimeout(() => {
+                    // Show typing indicator
+                    const typing = addChatBubble('<div class="flex items-center gap-1 h-5 p-2 bg-white dark:bg-gray-800 rounded-2xl rounded-tl-sm shadow-sm border border-slate-100 dark:border-gray-700 w-fit"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></div><div class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div><div class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div></div>', 'system');
+                    
+                    setTimeout(() => {
+                        typing.remove();
+                        addChatBubble(chatData[currentChatIndex].text, 'influencer');
+                        
+                        setTimeout(() => {
+                            decisionPanel.style.transform = 'translateY(0)';
+                        }, 500);
+                    }, 1000);
+                }, 500);
             }
-        });
+
+            function handleChoice(chosenType) {
+                const data = chatData[currentChatIndex];
+                const isCorrect = chosenType === data.type;
+                
+                if (isCorrect) score++;
+
+                decisionPanel.style.transform = 'translateY(100%)';
+
+                // Add result system bubble
+                const resultColor = isCorrect ? 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800' : 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800';
+                const resultIcon = isCorrect ? '✅ Richtig:' : '❌ Falsch:';
+                
+                setTimeout(() => {
+                    addChatBubble(`
+                        <div class="w-full text-center mt-2 mb-2">
+                            <div class="inline-block px-4 py-2 rounded-2xl border ${resultColor} shadow-sm text-xs max-w-[90%] text-left">
+                                <span class="font-bold block mb-1">${resultIcon} Es ist ein${data.type === 'fakt' ? ' Fakt' : 'e Meinung'}!</span>
+                                <span>${data.explanation}</span>
+                            </div>
+                        </div>
+                    `, 'system');
+
+                    currentChatIndex++;
+                    setTimeout(() => {
+                        showNextMessage();
+                    }, 2500);
+                }, 400);
+            }
+
+            btnMeinung.addEventListener('click', () => handleChoice('meinung'));
+            btnFakt.addEventListener('click', () => handleChoice('fakt'));
+
+            function endGame() {
+                setTimeout(() => {
+                    let feedback = "";
+                    if(score === chatData.length) feedback = "Hervorragend! Du lässt dich nicht täuschen.";
+                    else if(score > 2) feedback = "Gut gemacht! Manchmal ist es gar nicht so leicht zu unterscheiden.";
+                    else feedback = "Gar nicht so einfach! Achte künftig genauer auf emotionale Formulierungen.";
+
+                    addChatBubble(`
+                        <div class="w-full text-center mt-4">
+                            <div class="bg-gradient-to-br from-accent-light to-accent-dark text-white rounded-3xl p-5 shadow-lg flex flex-col items-center">
+                                <h3 class="text-xl font-black mb-1">Vertrauens-Check beendet!</h3>
+                                <p class="text-3xl font-black mb-2">${score} / ${chatData.length}</p>
+                                <p class="text-xs opacity-90">${feedback}</p>
+                                <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-white text-slate-800 text-xs font-bold rounded-full hover:scale-105 transition-transform">Nochmal spielen</button>
+                            </div>
+                        </div>
+                    `, 'system');
+                }, 500);
+            }
+
+            // Start game
+            setTimeout(() => {
+                showNextMessage();
+            }, 1000);
 
         // YouTube Consent Logic
         function initYoutubeConsent() {
@@ -423,25 +482,17 @@
 
         if (carousel && scrollLeftBtn && scrollRightBtn) {
             scrollLeftBtn.addEventListener('click', () => {
-                const cardWidth = carousel.querySelector('.video-card').offsetWidth + 24; // width + gap
+                const cardWidth = carousel.firstElementChild.offsetWidth + 24; // width + gap
                 carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
             });
 
             scrollRightBtn.addEventListener('click', () => {
-                const cardWidth = carousel.querySelector('.video-card').offsetWidth + 24; // width + gap
+                const cardWidth = carousel.firstElementChild.offsetWidth + 24; // width + gap
                 carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
             });
         }
 
-        videoCards.forEach(card => {
-            card.addEventListener('click', () => {
-                videoCards.forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
-                initCloze(parseInt(card.dataset.videoIndex));
-            });
-        });
 
-        initCloze(0);
     </script>
 </body>
 </html>
