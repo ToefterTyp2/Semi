@@ -6,7 +6,7 @@
     <title>Wahrheits-Jäger (Koop)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -79,44 +79,80 @@
         </div>
 
         <!-- Game Active View -->
-        <div id="game-view" class="hidden w-full max-w-5xl grid lg:grid-cols-3 gap-6 items-start">
-            <!-- Left: The Post -->
-            <div class="lg:col-span-1 bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-2xl">
-                <div class="inline-block px-3 py-1 mb-4 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold tracking-widest uppercase">
-                    Verdächtiger Post
+        <div id="game-view" class="hidden w-full max-w-5xl grid lg:grid-cols-4 gap-6 items-start">
+            
+            <!-- Left Column: Scores -->
+            <div class="lg:col-span-1 flex flex-col gap-4">
+                <!-- Role Card -->
+                <div class="bg-indigo-600 text-white rounded-3xl p-6 shadow-2xl">
+                    <h3 class="text-xs uppercase tracking-widest font-bold opacity-80 mb-1">Deine Rolle</h3>
+                    <h2 id="my-role-display" class="text-2xl font-black mb-2"></h2>
+                    <p id="my-role-desc" class="text-sm opacity-90"></p>
                 </div>
-                <h3 id="post-headline" class="text-xl font-black mb-4 leading-snug"></h3>
-                <p id="post-content" class="text-slate-600 dark:text-gray-400 mb-4 italic text-sm border-l-2 border-slate-300 dark:border-gray-700 pl-4"></p>
-                <div class="p-4 bg-slate-100 dark:bg-gray-800 rounded-xl mb-6">
-                    <p class="text-sm font-medium">Dein exklusiver Hinweis:</p>
-                    <p id="player-clue" class="text-base font-bold text-accent-light dark:text-accent-dark mt-2"></p>
-                </div>
-            </div>
-
-            <!-- Middle: Voting & Result -->
-            <div class="lg:col-span-1 flex flex-col gap-6">
-                <!-- Voting Panel -->
-                <div id="voting-panel" class="bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-xl text-center">
-                    <h3 class="text-lg font-bold mb-4">Teambeschluss</h3>
-                    <p class="text-sm text-slate-600 dark:text-gray-400 mb-6">Tauscht eure exklusiven Hinweise im Chat aus. Wie lautet euer Urteil?</p>
+                
+                <!-- Global Scores -->
+                <div class="bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-xl">
+                    <h3 class="font-bold text-sm uppercase text-slate-500 dark:text-gray-400 mb-4 tracking-wider">Live-Statistiken</h3>
                     
-                    <div class="grid grid-cols-2 gap-4">
-                        <button onclick="submitVote('fakt')" class="py-3 rounded-xl font-bold bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800 transition">Fakt</button>
-                        <button onclick="submitVote('fake')" class="py-3 rounded-xl font-bold bg-red-100 text-red-700 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800 transition">Fake</button>
-                    </div>
-                    <p id="vote-status" class="mt-4 text-xs font-bold text-amber-500 uppercase tracking-widest hidden">Warte auf andere Agenten...</p>
-                </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span>Journalist (Reichweite)</span>
+                                <span id="score-reach" class="text-accent-light dark:text-accent-dark"></span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-gray-700 rounded-full h-2">
+                                <div id="bar-reach" class="bg-accent-light dark:bg-accent-dark h-2 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span>Algorithmus (Engagement)</span>
+                                <span id="score-eng" class="text-purple-500"></span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-gray-700 rounded-full h-2">
+                                <div id="bar-eng" class="bg-purple-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                        </div>
 
-                <!-- Result Panel -->
-                <div id="result-panel" class="hidden bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-xl text-center">
-                    <h3 id="result-title" class="text-2xl font-black mb-2"></h3>
-                    <p id="result-desc" class="text-sm text-slate-600 dark:text-gray-400 mb-6"></p>
-                    <div id="explanation-box" class="p-4 bg-slate-100 dark:bg-gray-800 rounded-xl text-sm text-left font-medium mb-6"></div>
-                    <button id="next-round-btn" class="w-full py-3 rounded-xl font-bold text-white bg-accent-light dark:bg-accent-dark hover:opacity-90 transition hidden">Nächster Fall</button>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span>Zuschauer (Informiertheit)</span>
+                                <span id="score-info" class="text-blue-500"></span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-gray-700 rounded-full h-2">
+                                <div id="bar-info" class="bg-blue-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span>Zuschauer (Mental Health)</span>
+                                <span id="score-mood" class="text-green-500"></span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-gray-700 rounded-full h-2">
+                                <div id="bar-mood" class="bg-green-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Right: Chat -->
+            <!-- Middle Column: Action Panel -->
+            <div class="lg:col-span-2 bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/40 dark:border-gray-800/30 shadow-2xl flex flex-col relative overflow-hidden">
+                
+                <div class="flex justify-between items-center mb-6 border-b border-slate-200 dark:border-gray-800 pb-4">
+                    <h2 class="text-xl font-black">Runde <span id="round-display"></span> <span class="text-slate-400 text-sm italic font-medium ml-2" id="phase-name"></span></h2>
+                </div>
+
+                <!-- Dynamic Turn Action Area -->
+                <div id="turn-action-area" class="flex-grow flex flex-col justify-center min-h-[300px]">
+                    <!-- Injected by JS -->
+                </div>
+
+            </div>
+
+            <!-- Right Column: Chat -->
             <div class="lg:col-span-1 bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-4 border border-white/40 dark:border-gray-800/30 shadow-xl flex flex-col h-[500px]">
                 <h3 class="font-bold text-sm uppercase text-slate-500 mb-4 px-2 tracking-wider flex justify-between">
                     <span>Team-Funk</span>
@@ -132,7 +168,7 @@
     </main>
 
     <script>
-        const socket = io();
+        const socket = io('https://semi.kurtshaus.de');
         
         let currentState = null;
         let myUsername = '';
@@ -165,6 +201,17 @@
                 // Re-join logic if disconnected
                 socket.emit('join_room', { username: myUsername, room: myRoom });
             }
+        });
+
+        socket.on('connect_error', () => {
+            loadingE.innerHTML = `
+                <div class="text-red-500 font-bold mb-2">❌ Keine Verbindung zum Server</div>
+                <p class="text-sm text-slate-600 dark:text-gray-400 max-w-sm mx-auto">
+                    Falls du das Spiel lokal heruntergeladen hast, musst du den Backend-Server starten:<br><br>
+                    <code class="bg-gray-200 dark:bg-gray-800 p-2 rounded block text-left text-xs mb-2">npm install<br>node server.js</code>
+                    <br>Öffne dann <a href="http://localhost:3000" class="text-accent-light underline">http://localhost:3000</a> im Browser.
+                </p>
+            `;
         });
 
         // Setup Join
@@ -227,72 +274,159 @@
                 document.getElementById('start-game-btn').classList.toggle('hidden', !amHost);
                 document.getElementById('waiting-for-host-msg').classList.toggle('hidden', amHost);
 
-            } else if (state.status === 'playing' || state.status === 'result') {
+            } else if (state.status === 'playing' || state.status === 'result' || state.status === 'final_result') {
                 waitingView.classList.add('hidden');
                 gameView.classList.remove('hidden');
 
-                // Render article
-                const article = state.currentArticle;
-                document.getElementById('post-headline').innerText = article.headline;
-                document.getElementById('post-content').innerText = article.content;
+                // Render Header
+                document.getElementById('round-display').innerText = state.phase;
+                const phaseNames = ["Chronologischer Feed", "Engagement-Ära", "Die Filterblase"];
+                document.getElementById('phase-name').innerText = "- " + phaseNames[state.phase - 1];
 
-                // Render clue for this player
-                const myIndex = state.players.findIndex(p => p.id === socket.id);
-                // Distribute clues round-robin if more players than clues
-                const myClue = article.clues[myIndex % article.clues.length] || "Kein Hinweis erhalten - höre gut auf dein Team!";
-                document.getElementById('player-clue').innerText = `"${myClue}"`;
+                // Render Scores
+                document.getElementById('score-reach').innerText = state.scores.journalistReach;
+                document.getElementById('bar-reach').style.width = Math.min(100, state.scores.journalistReach / 10) + '%';
+                
+                document.getElementById('score-eng').innerText = state.scores.algoEngagement;
+                document.getElementById('bar-eng').style.width = Math.min(100, state.scores.algoEngagement / 10) + '%';
 
-                if (state.status === 'playing') {
-                    document.getElementById('voting-panel').classList.remove('hidden');
-                    document.getElementById('result-panel').classList.add('hidden');
-                    
-                    const myVote = Object.values(state.votes).find(v => v.playerId === socket.id);
-                    if(myVote) {
-                        document.getElementById('vote-status').classList.remove('hidden');
-                        document.getElementById('vote-status').innerText = `${Object.keys(state.votes).length} von ${state.players.length} haben abgestimmt...`;
-                        document.querySelector('#voting-panel .grid').style.opacity = '0.5';
-                        document.querySelector('#voting-panel .grid').style.pointerEvents = 'none';
-                    } else {
-                        document.getElementById('vote-status').classList.add('hidden');
-                        document.querySelector('#voting-panel .grid').style.opacity = '1';
-                        document.querySelector('#voting-panel .grid').style.pointerEvents = 'auto';
+                document.getElementById('score-info').innerText = state.scores.zuschauerInfo + '%';
+                document.getElementById('bar-info').style.width = state.scores.zuschauerInfo + '%';
+
+                document.getElementById('score-mood').innerText = state.scores.zuschauerMood + '%';
+                document.getElementById('bar-mood').style.width = state.scores.zuschauerMood + '%';
+
+                // Determine my role
+                const me = state.players.find(p => p.id === socket.id);
+                const myRole = me ? me.role : 'Beobachter';
+                document.getElementById('my-role-display').innerText = myRole;
+                
+                let roleDesc = "";
+                if (myRole === 'Journalist') roleDesc = "Ziel: Maximiere deine Reichweite. Schreibe sachlich oder nutze Clickbait, um viral zu gehen.";
+                else if (myRole === 'Algorithmus') roleDesc = "Ziel: Maximiere die Plattform-Verweildauer (Engagement). Kontrolliere die Sichtbarkeit von Posts.";
+                else if (myRole === 'Zuschauer') roleDesc = "Ziel: Bleibe informiert und bewahre gute Laune. Entscheide, was du konsumierst.";
+                document.getElementById('my-role-desc').innerText = roleDesc;
+
+                // Render Turn Action Area
+                const actionArea = document.getElementById('turn-action-area');
+                actionArea.innerHTML = '';
+                
+                const isMyTurn = (state.turn === 'journalist_turn' && myRole === 'Journalist') ||
+                                 (state.turn === 'algo_turn' && myRole === 'Algorithmus') ||
+                                 (state.turn === 'zuschauer_turn' && myRole === 'Zuschauer');
+                
+                const amHost = state.host === socket.id;
+
+                if (state.status === 'final_result') {
+                    actionArea.innerHTML = `
+                        <div class="text-center">
+                            <h3 class="text-3xl font-black mb-4">Simulation Beendet</h3>
+                            <p class="mb-4">Seht euch eure Endpunktstände an.</p>
+                            <p class="text-slate-600 dark:text-gray-400 text-sm mb-6">Fällt euch auf, wie schwer es war, als Zuschauer glücklich und informiert zu bleiben, wenn Algorithmus und Journalist auf Klicks optimieren?</p>
+                            ${amHost ? `<button onclick="location.reload()" class="px-6 py-3 bg-accent-light text-white rounded-xl font-bold">Neue Simulation starten</button>` : ''}
+                        </div>
+                    `;
+                }
+                else if (state.turn === 'round_result') {
+                    const ri = state.roundInfo;
+                    actionArea.innerHTML = `
+                        <div class="text-center">
+                            <h3 class="text-2xl font-black mb-4">Rundenauswertung</h3>
+                            <div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-slate-200 dark:border-gray-700 mb-6 text-left space-y-2 text-sm">
+                                <p><b>Artikel:</b> ${ri.chosenArticle.headline}</p>
+                                <p><b>Algorithmus:</b> ${ri.algoAction === 'boost' ? '🚀 Boosted' : ri.algoAction === 'shadowban' ? '👻 Shadowbanned' : '➡️ Normal angezeigt'}</p>
+                                <p><b>Zuschauer:</b> ${ri.zuschauerAction === 'lesen' ? '👁️ Hat gelesen' : '⏭️ Hat ignoriert'}</p>
+                                <hr class="my-2 border-slate-200 dark:border-gray-700">
+                                <p class="text-accent-light">+${ri.reachDelta} Reichweite für Journalist</p>
+                                <p class="text-purple-500">+${ri.engagementDelta} Engagement für Algorithmus</p>
+                                <p class="text-blue-500">${ri.infoDelta > 0 ? '+' : ''}${ri.infoDelta} Information | <span class="text-green-500">${ri.moodDelta > 0 ? '+' : ''}${ri.moodDelta} Stimmung</span></p>
+                            </div>
+                            ${amHost ? `<button onclick="window.submitAction('next_round')" class="w-full py-3 bg-accent-light text-white rounded-xl font-bold shadow-lg">Nächste Runde</button>` : '<p class="text-amber-500 font-bold">Warte auf Host...</p>'}
+                        </div>
+                    `;
+                }
+                else if (!isMyTurn) {
+                    const actingRole = state.turn === 'journalist_turn' ? 'Journalist' : state.turn === 'algo_turn' ? 'Algorithmus' : 'Zuschauer';
+                    actionArea.innerHTML = `
+                        <div class="text-center animate-pulse">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full border-4 border-dashed border-slate-300 dark:border-gray-600 animate-spin"></div>
+                            <h3 class="text-xl font-bold text-slate-500 dark:text-gray-400">Warte auf Aktion von:<br><span class="text-accent-light dark:text-accent-dark">${actingRole}</span></h3>
+                        </div>
+                    `;
+                }
+                else {
+                    // It is my turn!
+                    if (myRole === 'Journalist' && state.turn === 'journalist_turn') {
+                        let optsHtml = state.roundInfo.options.map(o => `
+                            <button onclick="window.submitAction('journalist_action', {articleId: ${o.id}})" class="w-full text-left p-4 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-accent-light dark:hover:border-accent-dark transition group shadow-sm">
+                                <span class="text-xs font-bold uppercase tracking-widest ${o.type === 'clickbait' ? 'text-red-500' : 'text-blue-500'} mb-1 block">${o.type}</span>
+                                <h4 class="font-bold text-lg mb-2 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">${o.headline}</h4>
+                                <p class="text-sm text-slate-500 dark:text-gray-400">${o.content}</p>
+                            </button>
+                        `).join('');
+
+                        actionArea.innerHTML = `
+                            <h3 class="text-xl font-black mb-4">Welchen Beitrag möchtest du posten?</h3>
+                            <div class="space-y-4">
+                                ${optsHtml}
+                            </div>
+                        `;
                     }
-                } else if (state.status === 'result') {
-                    document.getElementById('voting-panel').classList.add('hidden');
-                    document.getElementById('result-panel').classList.remove('hidden');
+                    else if (myRole === 'Algorithmus' && state.turn === 'algo_turn') {
+                        const art = state.roundInfo.chosenArticle;
+                        actionArea.innerHTML = `
+                            <h3 class="text-xl font-black mb-2">Inhalts-Analyse</h3>
+                            <p class="mb-4 text-sm">Ein Journalist hat gepostet. Entscheide die Sichtbarkeit!</p>
+                            <div class="p-4 bg-white dark:bg-gray-800 rounded-xl border-l-4 ${art.type === 'clickbait' ? 'border-red-500' : 'border-blue-500'} mb-6 shadow-sm">
+                                <span class="text-xs uppercase font-bold text-slate-400 block">${art.type}</span>
+                                <h4 class="font-bold">${art.headline}</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button onclick="window.submitAction('algo_action', {action: 'boost'})" class="py-3 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded-xl font-bold border border-purple-200 dark:border-purple-800 hover:bg-purple-200 transition">🚀 Boosten (x2 Reach)</button>
+                                <button onclick="window.submitAction('algo_action', {action: 'shadowban'})" class="py-3 bg-slate-100 dark:bg-gray-800 text-slate-700 dark:text-gray-300 rounded-xl font-bold border border-slate-200 dark:border-gray-700 hover:bg-slate-200 transition">👻 Shadowban (x0.1 Reach)</button>
+                                <button onclick="window.submitAction('algo_action', {action: 'normal'})" class="col-span-2 py-3 bg-white dark:bg-gray-800 text-slate-900 dark:text-white rounded-xl font-bold border border-slate-200 dark:border-gray-700 hover:bg-slate-50 transition">Normal Anzeigen</button>
+                            </div>
+                        `;
+                    }
+                    else if (myRole === 'Zuschauer' && state.turn === 'zuschauer_turn') {
+                        const art = state.roundInfo.chosenArticle;
+                        const action = state.roundInfo.algoAction;
+                        
+                        let displayClasses = "p-4 border-l-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm";
+                        let notice = "";
+                        
+                        if (action === 'boost') {
+                            displayClasses = "p-8 border-4 border-red-500 bg-red-50 dark:bg-red-900/20 rounded-2xl shadow-xl transform scale-105";
+                            notice = "<div class='text-red-500 font-bold text-sm uppercase tracking-widest mb-2'>🔥 Empfohlen für dich! 🔥</div>";
+                        } else if (action === 'shadowban') {
+                            displayClasses = "p-2 opacity-50 bg-slate-50 dark:bg-gray-900 text-xs rounded-lg border border-slate-200";
+                        }
 
-                    // Check result
-                    // For majority vote:
-                    const fakeVotes = Object.values(state.votes).filter(v => v.vote === 'fake').length;
-                    const faktVotes = Object.values(state.votes).filter(v => v.vote === 'fakt').length;
-                    const teamVerdict = fakeVotes > faktVotes ? 'fake' : 'fakt';
-                    
-                    const correctVerdict = article.isFake ? 'fake' : 'fakt';
-                    const success = teamVerdict === correctVerdict;
-
-                    document.getElementById('result-title').innerText = success ? "🎉 Hervorragend bewertet!" : "❌ Team-Fehleinschätzung!";
-                    document.getElementById('result-title').className = `text-2xl font-black mb-2 ${success ? 'text-green-500' : 'text-red-500'}`;
-                    
-                    document.getElementById('result-desc').innerText = `Tatsächlich: Es handelt sich um ein ${correctVerdict.toUpperCase()}.`;
-                    document.getElementById('explanation-box').innerText = article.explanation;
-
-                    const amHost = state.host === socket.id;
-                    document.getElementById('next-round-btn').classList.toggle('hidden', !amHost);
+                        actionArea.innerHTML = `
+                            <h3 class="text-xl font-black mb-4">Dein Feed</h3>
+                            <div class="${displayClasses} mb-8 transition-all">
+                                ${notice}
+                                <h4 class="${action === 'boost' ? 'text-2xl font-black' : 'font-bold'} mb-2">${art.headline}</h4>
+                                <p class="${action === 'shadowban' ? 'hidden' : 'text-slate-600 dark:text-gray-400 text-sm'}">${art.content}</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mt-auto">
+                                <button onclick="window.submitAction('zuschauer_action', {action: 'lesen'})" class="py-4 bg-accent-light dark:bg-accent-dark text-white rounded-xl font-bold shadow-lg transform transition hover:scale-105">👁️ Lesen & Reagieren</button>
+                                <button onclick="window.submitAction('zuschauer_action', {action: 'ignorieren'})" class="py-4 bg-slate-200 dark:bg-gray-700 text-slate-700 dark:text-gray-300 rounded-xl font-bold shadow-sm hover:bg-slate-300 transition">⏭️ Weiter scrollen</button>
+                            </div>
+                        `;
+                    }
                 }
             }
         });
 
+        // Global function for action buttons
+        window.submitAction = function(type, payload = null) {
+            socket.emit('action', { room: myRoom, type, payload });
+        };
+
         document.getElementById('start-game-btn').addEventListener('click', () => {
             socket.emit('action', { room: myRoom, type: 'start_game' });
         });
-
-        document.getElementById('next-round-btn').addEventListener('click', () => {
-            socket.emit('action', { room: myRoom, type: 'next_round' });
-        });
-
-        function submitVote(choice) {
-            socket.emit('action', { room: myRoom, type: 'submit_vote', payload: choice });
-        }
     </script>
 </body>
 </html>
