@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -85,11 +86,16 @@
                 
                 <div class="prose prose-lg dark:prose-invert max-w-none">
                     <p class="text-xl md:text-2xl text-slate-600 dark:text-gray-300 leading-relaxed mb-8">
-                        Sobald wir eine App wie TikTok oder Instagram öffnen, werden uns unendlich viele Videos und Post präsentiert. Welche Inhalte uns dabei angezeigt werdem, entscheidet in Bruchteilen von Sekunden ein unsichtbares Computerprogramm: der Algorithmus. Er hat nicht die Aufgabe, uns ausgewogen zu informieren. Sein einziges Ziel ist es, uns so lange wie möglich in der Anwendung zu halten, indem er exakt berechnet, was unsere Aufmerksamkeit fesselt.
+                        Wenn du TikTok oder Instagram öffnest, entscheidet ein unsichtbares Computerprogramm, welche Videos dir angezeigt werden – der Algorithmus. Er hat nur ein Ziel: Dich so lange wie möglich in der App zu halten.
                     </p>
                     <p class="text-lg text-slate-600 dark:text-gray-400 leading-relaxed">
-                        Das Tückische an diesem System ist, dass es tief in unsere Psyche eingreift. Da Menschen naturgemäß am stärksten auf Reize wie Wut oder Empörung reagieren, werden genau solche extremen Beiträge vom Algorithmus systematisch belohnt – laut Studien mit rund 40 Prozent mehr Sichtbarkeit als sachliche Erklärungen. Ohne es zu merken, werden wir durch diese Mechanik in eine digitale „Filterblase“ gedrängt. Unser Feed verwandelt sich in eine geschlossene Welt, die unsere eigenen Ansichten durch radikale Meinungen immer weiter verstärkt und andere Blickwinkel völlig unsichtbar macht.
+                        Da Menschen am stärksten auf extreme Gefühle wie Wut oder Empörung reagieren, belohnt der Algorithmus genau solche Inhalte. Eine aktuelle Studie zeigt, dass aggressive Videos, die politische Gegner angreifen, etwa 40 Prozent mehr Sichtbarkeit bekommen als sachliche Erklärungen. So landest du schnell in einer "Filterblase", in der dir nur noch extreme Meinungen angezeigt werden, die dein Weltbild bestätigen und andere Perspektiven ausblenden.
                     </p>
+                </div>
+                <div class="mt-8">
+                    <a href="coop.html" class="inline-flex items-center px-8 py-4 text-lg rounded-full font-bold text-white bg-accent-light dark:bg-accent-dark transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-accent-light/30">
+                        🕵️ Multiplayer Koop Spiel starten
+                    </a>
                 </div>
             </div>
 
@@ -98,9 +104,9 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                     <h2 class="text-3xl font-black flex items-center gap-3">
                         <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                        1. Video wählen
+                        1. Videos ansehen
                     </h2>
-                    <p class="text-slate-500 dark:text-gray-400 font-medium">Klicke auf ein Video, um den Lückentext zu starten</p>
+                    <p class="text-slate-500 dark:text-gray-400 font-medium">Bilde dich weiter, um für das Spiel gewappnet zu sein.</p>
                 </div>
                 <div class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x scroll-smooth" id="video-carousel">
                     <!-- Video 1 -->
@@ -157,31 +163,115 @@
                     </button>
                 </div>
             </div>
-            </div>
 
-            <!-- Interactive Section -->
-            <div class="mb-24 py-12 px-6 md:px-12 rounded-[3rem] bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-white/20 dark:border-gray-800/30 shadow-2xl relative overflow-hidden" id="interactive-section">
-                <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent-light/10 dark:bg-accent-dark/10 rounded-full blur-3xl"></div>
-                
-                <div class="relative z-10">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl font-black mb-4">2. Lückentext lösen</h2>
-                        <p class="text-lg text-slate-600 dark:text-gray-400">Ziehe die richtigen Wörter in die Lücken des Textes.</p>
+            <!-- Game Section -->
+            <div class="mb-24 relative" id="game-section">
+                <!-- Overlay for Loading/Connecting -->
+                <div id="loading" class="text-center py-12 hidden">
+                    <div class="w-12 h-12 border-4 border-accent-light border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="font-medium animate-pulse">Verbinde zum Server...</p>
+                </div>
+
+                <!-- Lobby View (Join Room) -->
+                <div id="lobby-view" class="w-full max-w-2xl mx-auto bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-8 border border-white/40 dark:border-gray-800/30 shadow-2xl">
+                    <h2 class="text-3xl font-black mb-2 text-center">2. Wahrheits-Jäger Taskforce</h2>
+                    <p class="text-slate-600 dark:text-gray-400 mb-8 text-center text-sm">Entscheide ob Social Media Posts "Fake" oder "Fakt" sind. Spiele kooperativ mit Freunden oder trainiere gegen KI-Agenten!</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold mb-1">Dein Deckname</label>
+                            <input type="text" id="username-input" class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-gray-800 border-none outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark placeholder-slate-400" placeholder="Agent 007">
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 pt-4 border-t border-slate-200 dark:border-gray-800">
+                            <!-- Singleplayer / Bot Mode -->
+                            <div class="bg-slate-100/50 dark:bg-gray-800/50 p-6 rounded-2xl text-center">
+                                <h3 class="font-bold text-lg mb-2">🤖 Solo-Training</h3>
+                                <p class="text-xs text-slate-500 mb-4">Spiele mit zwei KI-Agenten, die automatisch abstimmen.</p>
+                                <button id="play-bots-btn" class="w-full py-3 rounded-xl font-bold text-white bg-indigo-500 hover:bg-indigo-600 transform transition hover:scale-[1.02] active:scale-95 shadow-lg">Gegen Bots spielen</button>
+                            </div>
+
+                            <!-- Multiplayer Mode -->
+                            <div class="bg-slate-100/50 dark:bg-gray-800/50 p-6 rounded-2xl">
+                                <h3 class="font-bold text-lg mb-2 text-center">🌍 Multiplayer</h3>
+                                <p class="text-xs text-slate-500 mb-4 text-center">Tritt einem Raum bei oder erstelle einen neuen Code.</p>
+                                <input type="text" id="room-input" class="w-full px-4 py-2 mb-3 rounded-xl bg-white dark:bg-gray-900 border-none outline-none placeholder-slate-400 text-center uppercase text-sm font-bold" placeholder="RAUMCODE (Z.B. A27)">
+                                <button id="join-btn" class="w-full py-3 rounded-xl font-bold text-white bg-accent-light dark:bg-accent-dark hover:opacity-90 transform transition hover:scale-[1.02] active:scale-95 shadow-lg">Raum beitreten</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Waiting Room View -->
+                <div id="waiting-view" class="hidden w-full max-w-lg mx-auto bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-8 border border-white/40 dark:border-gray-800/30 shadow-2xl text-center">
+                    <h2 class="text-3xl font-black mb-2">Team formiert sich...</h2>
+                    <p class="text-slate-600 dark:text-gray-400 mb-8">Wartet auf weitere Agenten im Raum <b id="waiting-room-code" class="text-accent-light dark:text-accent-dark"></b></p>
+                    
+                    <div class="bg-slate-100 dark:bg-gray-800 rounded-2xl p-4 mb-8 text-left">
+                        <h3 class="font-bold text-sm uppercase text-slate-500 mb-4 tracking-wider">Aktuelle Taskforce:</h3>
+                        <ul id="players-list" class="space-y-2">
+                            <!-- Players inserted here -->
+                        </ul>
                     </div>
 
-                    <div id="cloze-container" class="space-y-12">
-                        <!-- Cloze text will be injected here -->
+                    <button id="start-game-btn" class="hidden w-full py-4 rounded-xl font-bold text-white bg-green-500 hover:bg-green-600 transform transition hover:scale-[1.02] active:scale-95 shadow-lg shadow-green-500/20">Mission Starten</button>
+                    <p id="waiting-for-host-msg" class="text-sm font-medium text-amber-500 hidden mt-4">Warte auf Host...</p>
+                </div>
+
+                <!-- Game Active View -->
+                <div id="game-view" class="hidden w-full grid lg:grid-cols-3 gap-6 items-start">
+                    <!-- Left: The Post -->
+                    <div class="lg:col-span-1 bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-2xl">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="inline-block px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold tracking-widest uppercase">
+                                Verdächtiger Post
+                            </div>
+                            <div id="room-badge" class="px-3 py-1 rounded-full bg-slate-200 dark:bg-gray-800 text-xs font-bold text-slate-600 dark:text-gray-400">
+                                Raum: <span id="room-code-display"></span>
+                            </div>
+                        </div>
+                        <h3 id="post-headline" class="text-xl font-black mb-4 leading-snug"></h3>
+                        <p id="post-content" class="text-slate-600 dark:text-gray-400 mb-4 italic text-sm border-l-2 border-slate-300 dark:border-gray-700 pl-4"></p>
+                        <div class="p-4 bg-slate-100 dark:bg-gray-800 rounded-xl mb-6">
+                            <p class="text-sm font-medium">Dein exklusiver Hinweis:</p>
+                            <p id="player-clue" class="text-base font-bold text-accent-light dark:text-accent-dark mt-2"></p>
+                        </div>
                     </div>
 
-                    <div id="words-container" class="flex flex-wrap justify-center gap-4 mt-12 p-6 bg-slate-100/50 dark:bg-gray-800/50 rounded-2xl border border-slate-200 dark:border-gray-700">
-                        <!-- Words will be injected here -->
+                    <!-- Middle: Voting & Result -->
+                    <div class="lg:col-span-1 flex flex-col gap-6">
+                        <!-- Voting Panel -->
+                        <div id="voting-panel" class="bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-xl text-center">
+                            <h3 class="text-lg font-bold mb-4">Teambeschluss</h3>
+                            <p class="text-sm text-slate-600 dark:text-gray-400 mb-6">Tauscht eure exklusiven Hinweise im Chat aus. Wie lautet euer Urteil?</p>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <button onclick="submitVote('fakt')" class="py-3 rounded-xl font-bold bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800 transition shadow-sm">Fakt</button>
+                                <button onclick="submitVote('fake')" class="py-3 rounded-xl font-bold bg-red-100 text-red-700 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800 transition shadow-sm">Fake</button>
+                            </div>
+                            <p id="vote-status" class="mt-4 text-xs font-bold text-amber-500 uppercase tracking-widest hidden">Warte auf andere Agenten...</p>
+                        </div>
+
+                        <!-- Result Panel -->
+                        <div id="result-panel" class="hidden bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-xl text-center">
+                            <h3 id="result-title" class="text-2xl font-black mb-2"></h3>
+                            <p id="result-desc" class="text-sm text-slate-600 dark:text-gray-400 mb-6"></p>
+                            <div id="explanation-box" class="p-4 bg-slate-100 dark:bg-gray-800 rounded-xl text-sm text-left font-medium mb-6"></div>
+                            <button id="next-round-btn" class="w-full py-3 rounded-xl font-bold text-white bg-accent-light dark:bg-accent-dark hover:opacity-90 transition hidden shadow-lg">Nächster Fall</button>
+                        </div>
                     </div>
 
-                    <div class="mt-12 text-center">
-                        <button id="check-btn" class="px-8 py-3 bg-accent-light dark:bg-accent-dark text-white font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed">
-                            Ergebnis prüfen
-                        </button>
-                        <p id="feedback-msg" class="mt-6 font-bold text-lg hidden"></p>
+                    <!-- Right: Chat -->
+                    <div class="lg:col-span-1 bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-4 border border-white/40 dark:border-gray-800/30 shadow-xl flex flex-col h-[500px]">
+                        <h3 class="font-bold text-sm uppercase text-slate-500 mb-4 px-2 tracking-wider flex justify-between">
+                            <span>Team-Funk</span>
+                            <span id="chat-online" class="text-green-500">• Online</span>
+                        </h3>
+                        <div id="chat-messages" class="flex-grow overflow-y-auto mb-4 space-y-3 px-2 hide-scrollbar"></div>
+                        <form id="chat-form" class="flex gap-2">
+                            <input type="text" id="chat-input" autocomplete="off" class="flex-grow px-4 py-2 rounded-xl bg-slate-100 dark:bg-gray-800 border-none outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark text-sm" placeholder="Nachricht...">
+                            <button type="submit" class="px-4 py-2 rounded-xl bg-accent-light dark:bg-accent-dark text-white font-bold">→</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -229,7 +319,6 @@
                     <a href="impressum.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Impressum</a>
                     <a href="datenschutz.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Datenschutz</a>
                     <a href="quellen.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Quellen</a>
-                    <a href="kontakt.html" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Kontakt</a>
                 </nav>
                 
                 <div class="text-center md:text-right">
@@ -252,135 +341,199 @@
         }
         themeToggle.addEventListener('click', toggleTheme);
 
-        // Cloze Test Data
-        const clozeData = [
-            {
-                text: "Algorithmen analysieren unser [Verhalten], um uns möglichst lange in der App zu halten. Sie zeigen uns Inhalte, die unsere [Aufmerksamkeit] fesseln, oft durch [personalisierte] Empfehlungen.",
-                words: ["Verhalten", "Aufmerksamkeit", "personalisierte"]
-            },
-            {
-                text: "Das endlose Scrollen nutzt das Prinzip der [variablen Belohnung]. Unser Gehirn schüttet [Dopamin] aus, wenn wir etwas Interessantes finden. Das kann zu einer Art [Abhängigkeit] führen.",
-                words: ["variablen Belohnung", "Dopamin", "Abhängigkeit"]
-            },
-            {
-                text: "In einer [Filterblase] bekommen wir nur noch Meinungen angezeigt, die wir bereits teilen. Das schränkt unseren [Horizont] ein und erschwert den [Diskurs] mit andersdenkenden Menschen.",
-                words: ["Filterblase", "Horizont", "Diskurs"]
-            }
-        ];
+        const socket = io();
+        
+        let currentState = null;
+        let myUsername = '';
+        let myRoom = '';
 
-        let currentVideoIndex = 0;
-        const clozeContainer = document.getElementById('cloze-container');
-        const wordsContainer = document.getElementById('words-container');
-        const checkBtn = document.getElementById('check-btn');
-        const feedbackMsg = document.getElementById('feedback-msg');
-        const videoCards = document.querySelectorAll('.video-card');
+        // DOM Elements
+        const loadingE = document.getElementById('loading');
+        const lobbyView = document.getElementById('lobby-view');
+        const waitingView = document.getElementById('waiting-view');
+        const gameView = document.getElementById('game-view');
+        
+        const usernameIn = document.getElementById('username-input');
+        const roomIn = document.getElementById('room-input');
+        const joinBtn = document.getElementById('join-btn');
+        const playBotsBtn = document.getElementById('play-bots-btn');
+        const badge = document.getElementById('room-badge');
+        const codeDisp = document.getElementById('room-code-display');
+        
+        // Chat
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
 
-        function initCloze(index) {
-            currentVideoIndex = index;
-            const data = clozeData[index];
-            feedbackMsg.classList.add('hidden');
-            
-            // Render Text with Drop Zones
-            let htmlText = data.text;
-            data.words.forEach((word, i) => {
-                htmlText = htmlText.replace(`[${word}]`, `<span class="drop-zone" data-answer="${word}"></span>`);
-            });
-            clozeContainer.innerHTML = `<p class="text-xl md:text-2xl leading-[2.5] text-slate-700 dark:text-gray-200">${htmlText}</p>`;
-
-            // Render Shuffled Words
-            const shuffledWords = [...data.words].sort(() => Math.random() - 0.5);
-            wordsContainer.innerHTML = shuffledWords.map(word => `
-                <div class="draggable-word" draggable="true" data-word="${word}">${word}</div>
-            `).join('');
-
-            setupDragAndDrop();
-        }
-
-        function setupDragAndDrop() {
-            const draggables = document.querySelectorAll('.draggable-word');
-            const dropZones = document.querySelectorAll('.drop-zone');
-
-            draggables.forEach(draggable => {
-                draggable.addEventListener('dragstart', () => {
-                    draggable.classList.add('dragging');
-                });
-
-                draggable.addEventListener('dragend', () => {
-                    draggable.classList.remove('dragging');
-                });
-            });
-
-            dropZones.forEach(zone => {
-                zone.addEventListener('dragover', e => {
-                    e.preventDefault();
-                    zone.classList.add('hover');
-                });
-
-                zone.addEventListener('dragleave', () => {
-                    zone.classList.remove('hover');
-                });
-
-                zone.addEventListener('drop', e => {
-                    e.preventDefault();
-                    zone.classList.remove('hover');
-                    const draggable = document.querySelector('.dragging');
-                    if (!draggable) return;
-
-                    if (zone.classList.contains('filled')) {
-                        const oldWord = zone.textContent;
-                        const oldDraggable = Array.from(document.querySelectorAll('.draggable-word')).find(d => d.textContent === oldWord && d.style.display === 'none');
-                        if (oldDraggable) oldDraggable.style.display = 'inline-block';
-                    }
-
-                    zone.textContent = draggable.textContent;
-                    zone.classList.add('filled');
-                    draggable.style.display = 'none';
-                });
-
-                zone.addEventListener('click', () => {
-                    if (zone.classList.contains('filled')) {
-                        const word = zone.textContent;
-                        const draggable = Array.from(document.querySelectorAll('.draggable-word')).find(d => d.textContent === word && d.style.display === 'none');
-                        if (draggable) draggable.style.display = 'inline-block';
-                        zone.textContent = '';
-                        zone.classList.remove('filled');
-                    }
-                });
-            });
-        }
-
-        checkBtn.addEventListener('click', () => {
-            const zones = document.querySelectorAll('.drop-zone');
-            let correctCount = 0;
-            let allFilled = true;
-
-            zones.forEach(zone => {
-                if (!zone.classList.contains('filled')) {
-                    allFilled = false;
-                    return;
-                }
-                if (zone.textContent === zone.dataset.answer) {
-                    correctCount++;
-                    zone.classList.remove('bg-red-500/20', 'text-red-500');
-                    zone.classList.add('bg-green-500/20', 'text-green-500');
-                } else {
-                    zone.classList.remove('bg-green-500/20', 'text-green-500');
-                    zone.classList.add('bg-red-500/20', 'text-red-500');
-                }
-            });
-
-            feedbackMsg.classList.remove('hidden');
-            if (!allFilled) {
-                feedbackMsg.textContent = "Bitte fülle alle Lücken aus!";
-                feedbackMsg.className = "mt-6 font-bold text-lg text-amber-500";
-            } else if (correctCount === zones.length) {
-                feedbackMsg.textContent = "Super! Alles richtig gelöst. 🎉";
-                feedbackMsg.className = "mt-6 font-bold text-lg text-green-500";
+        // Connect event
+        socket.on('connect', () => {
+            console.log('Connected to server');
+            loadingE.classList.add('hidden');
+            if(!myRoom) {
+                lobbyView.classList.remove('hidden');
             } else {
-                feedbackMsg.textContent = `Fast geschafft! ${correctCount} von ${zones.length} sind richtig. Versuche es nochmal!`;
-                feedbackMsg.className = "mt-6 font-bold text-lg text-red-500";
+                // Re-join logic if disconnected
+                socket.emit('join_room', { username: myUsername, room: myRoom });
             }
         });
+
+        // Setup Join
+        joinBtn.addEventListener('click', () => {
+            const u = usernameIn.value.trim();
+            const r = roomIn.value.trim().toUpperCase();
+            if(!u || !r) return alert('Bitte Deckname und Raumcode eingeben.');
+            myUsername = u;
+            myRoom = r;
+            socket.emit('join_room', { username: u, room: r });
+            lobbyView.classList.add('hidden');
+            loadingE.classList.remove('hidden');
+        });
+
+        playBotsBtn.addEventListener('click', () => {
+            const u = usernameIn.value.trim() || 'Solo Agent';
+            myUsername = u;
+            socket.emit('action', { room: '', type: 'play_vs_bots', payload: { username: u }});
+            lobbyView.classList.add('hidden');
+            loadingE.classList.remove('hidden');
+        });
+
+        socket.on('bot_room_joined', (roomId) => {
+            myRoom = roomId;
+        });
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if(!text) return;
+            socket.emit('chat_message', { room: myRoom, text });
+            chatInput.value = '';
+        });
+
+        socket.on('chat_message', (msg) => {
+            const div = document.createElement('div');
+            const isMe = msg.username === myUsername;
+            div.className = `flex flex-col ${isMe ? 'items-end' : 'items-start'}`;
+            div.innerHTML = `
+                <span class="text-[10px] text-slate-400 mb-0.5 font-bold">${msg.username}</span>
+                <div class="px-3 py-2 rounded-2xl text-sm ${isMe ? 'bg-accent-light dark:bg-accent-dark text-white rounded-br-sm' : 'bg-slate-200 dark:bg-gray-700 text-slate-900 dark:text-gray-100 rounded-bl-sm'}">
+                    ${msg.text}
+                </div>
+            `;
+            chatMessages.appendChild(div);
+            // Auto scroll
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+
+        // Render purely based on state broadcasts
+        socket.on('room_state', (state) => {
+            currentState = state;
+            loadingE.classList.add('hidden');
+            lobbyView.classList.add('hidden');
+            
+            // Header display (Optional on this page since it was in coop.html header, but here it's embedded)
+            if (badge) badge.classList.remove('hidden');
+            if (codeDisp) codeDisp.innerText = state.id;
+
+            if (state.status === 'waiting') {
+                waitingView.classList.remove('hidden');
+                gameView.classList.add('hidden');
+                document.getElementById('waiting-room-code').innerText = state.id;
+                
+                const plList = document.getElementById('players-list');
+                plList.innerHTML = state.players.map(p => `
+                    <li class="flex items-center gap-3 p-3 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-slate-100 dark:border-gray-700">
+                        <div class="w-2 h-2 ${p.isBot ? 'bg-indigo-500' : 'bg-green-500'} rounded-full"></div>
+                        <span class="font-bold flex-grow">${p.username} ${p.id === state.host ? '<span class="text-xs text-accent-light dark:text-accent-dark uppercase ml-2">(Host)</span>' : ''}</span>
+                    </li>
+                `).join('');
+
+                const amHost = state.host === socket.id;
+                document.getElementById('start-game-btn').classList.toggle('hidden', !amHost);
+                document.getElementById('waiting-for-host-msg').classList.toggle('hidden', amHost);
+
+                // Auto start bot game after a tiny delay for effect
+                if (state.isBotRoom && state.status === 'waiting' && amHost) {
+                     setTimeout(() => {
+                         socket.emit('action', { room: myRoom, type: 'start_game' });
+                     }, 1500);
+                }
+
+            } else if (state.status === 'playing' || state.status === 'result') {
+                waitingView.classList.add('hidden');
+                gameView.classList.remove('hidden');
+
+                // Scroll down to game section automatically on start
+                if (state.status === 'playing' && document.getElementById('game-section')) {
+                     document.getElementById('game-section').scrollIntoView({behavior: "smooth"});
+                }
+
+                // Render article
+                const article = state.currentArticle;
+                document.getElementById('post-headline').innerText = article.headline;
+                document.getElementById('post-content').innerText = article.content;
+
+                // Render clue for this player
+                const myIndex = state.players.findIndex(p => p.id === socket.id);
+                // Distribute clues round-robin
+                const myClue = article.clues[myIndex % article.clues.length] || "Kein Hinweis erhalten - höre gut auf dein Team!";
+                document.getElementById('player-clue').innerText = `"${myClue}"`;
+
+                if (state.status === 'playing') {
+                    document.getElementById('voting-panel').classList.remove('hidden');
+                    document.getElementById('result-panel').classList.add('hidden');
+                    
+                    const myVote = Object.values(state.votes).find(v => v.playerId === socket.id);
+                    if(myVote) {
+                        document.getElementById('vote-status').classList.remove('hidden');
+                        document.getElementById('vote-status').innerText = `${Object.keys(state.votes).length} von ${state.players.length} haben abgestimmt...`;
+                        document.querySelector('#voting-panel .grid').style.opacity = '0.5';
+                        document.querySelector('#voting-panel .grid').style.pointerEvents = 'none';
+                    } else {
+                        document.getElementById('vote-status').classList.add('hidden');
+                        document.querySelector('#voting-panel .grid').style.opacity = '1';
+                        document.querySelector('#voting-panel .grid').style.pointerEvents = 'auto';
+                    }
+                } else if (state.status === 'result') {
+                    document.getElementById('voting-panel').classList.add('hidden');
+                    document.getElementById('result-panel').classList.remove('hidden');
+
+                    // Check result
+                    // For majority vote:
+                    const fakeVotes = Object.values(state.votes).filter(v => v.vote === 'fake').length;
+                    const faktVotes = Object.values(state.votes).filter(v => v.vote === 'fakt').length;
+                    const teamVerdict = fakeVotes > faktVotes ? 'fake' : 'fakt';
+                    
+                    const correctVerdict = article.isFake ? 'fake' : 'fakt';
+                    const success = teamVerdict === correctVerdict;
+
+                    document.getElementById('result-title').innerText = success ? "🎉 Hervorragend bewertet!" : "❌ Team-Fehleinschätzung!";
+                    document.getElementById('result-title').className = `text-2xl font-black mb-2 ${success ? 'text-green-500' : 'text-red-500'}`;
+                    
+                    document.getElementById('result-desc').innerText = `Tatsächlich: Es handelt sich um ein ${correctVerdict.toUpperCase()}.`;
+                    document.getElementById('explanation-box').innerText = article.explanation;
+
+                    const amHost = state.host === socket.id;
+                    document.getElementById('next-round-btn').classList.toggle('hidden', !amHost);
+                    
+                    if (state.isBotRoom && amHost) {
+                        // Change text for solo bot game
+                        document.getElementById('next-round-btn').innerText = "Nächste Übung";
+                    }
+                }
+            }
+        });
+
+        document.getElementById('start-game-btn').addEventListener('click', () => {
+            socket.emit('action', { room: myRoom, type: 'start_game' });
+        });
+
+        document.getElementById('next-round-btn').addEventListener('click', () => {
+            socket.emit('action', { room: myRoom, type: 'next_round' });
+        });
+
+        function submitVote(choice) {
+            socket.emit('action', { room: myRoom, type: 'submit_vote', payload: choice });
+        }
 
         // YouTube Consent Logic
         function initYoutubeConsent() {
@@ -433,16 +586,6 @@
                 carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
             });
         }
-
-        videoCards.forEach(card => {
-            card.addEventListener('click', () => {
-                videoCards.forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
-                initCloze(parseInt(card.dataset.videoIndex));
-            });
-        });
-
-        initCloze(0);
     </script>
 </body>
 </html>

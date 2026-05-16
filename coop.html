@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wahrheits-Jäger (Koop)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { accent: { light: '#3b82f6', dark: '#8b5cf6' } }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply font-sans antialiased bg-slate-50 text-slate-900 dark:bg-gray-950 dark:text-gray-100 transition-all duration-500 ease-in-out min-h-screen flex flex-col; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-gray-950 dark:text-gray-100">
+    <header class="w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-slate-200 dark:border-gray-800 shrink-0">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
+                <span class="text-2xl">🕵️</span>
+                <span class="font-bold text-lg tracking-tight">Wahrheits-Jäger Koop</span>
+            </a>
+            <div id="room-badge" class="hidden px-4 py-1.5 rounded-full bg-accent-light/10 text-accent-light dark:bg-accent-dark/20 dark:text-accent-dark font-bold text-sm tracking-wider">
+                Raum: <span id="room-code-display"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <!-- Overlay for Loading/Connecting -->
+        <div id="loading" class="text-center">
+            <div class="w-12 h-12 border-4 border-accent-light border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="font-medium animate-pulse">Verbinde zum Server...</p>
+        </div>
+
+        <!-- Lobby View (Join Room) -->
+        <div id="lobby-view" class="hidden w-full max-w-md bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-8 border border-white/40 dark:border-gray-800/30 shadow-2xl">
+            <h1 class="text-3xl font-black mb-2 text-center">Einsatzbesprechung</h1>
+            <p class="text-slate-600 dark:text-gray-400 mb-8 text-center text-sm">Bildet ein Taskforce-Team. Klärt kooperativ auf, ob Social Media Posts "Fake" oder "Fakt" sind!</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold mb-1">Dein Deckname</label>
+                    <input type="text" id="username-input" class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-gray-800 border-none outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark placeholder-slate-400" placeholder="Agent 007">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-1">Raumcode (teilen oder neu ausdenken)</label>
+                    <input type="text" id="room-input" class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-gray-800 border-none outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark placeholder-slate-400 uppercase" placeholder="Z.B. A27-ALPHA">
+                </div>
+                <button id="join-btn" class="w-full py-4 mt-4 rounded-xl font-bold text-white bg-accent-light dark:bg-accent-dark hover:opacity-90 transform transition hover:scale-[1.02] active:scale-95">Raum beitreten</button>
+            </div>
+        </div>
+
+        <!-- Waiting Room View -->
+        <div id="waiting-view" class="hidden w-full max-w-lg bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-8 border border-white/40 dark:border-gray-800/30 shadow-2xl text-center">
+            <h2 class="text-3xl font-black mb-2">Team formiert sich...</h2>
+            <p class="text-slate-600 dark:text-gray-400 mb-8">Wartet auf weitere Agenten im Raum <b id="waiting-room-code" class="text-accent-light dark:text-accent-dark"></b></p>
+            
+            <div class="bg-slate-100 dark:bg-gray-800 rounded-2xl p-4 mb-8 text-left">
+                <h3 class="font-bold text-sm uppercase text-slate-500 mb-4 tracking-wider">Aktuelle Taskforce:</h3>
+                <ul id="players-list" class="space-y-2">
+                    <!-- Players inserted here -->
+                </ul>
+            </div>
+
+            <button id="start-game-btn" class="hidden w-full py-4 rounded-xl font-bold text-white bg-green-500 hover:bg-green-600 transform transition hover:scale-[1.02] active:scale-95 shadow-lg shadow-green-500/20">Mission Starten</button>
+            <p id="waiting-for-host-msg" class="text-sm font-medium text-amber-500 hidden mt-4">Warte auf Host...</p>
+        </div>
+
+        <!-- Game Active View -->
+        <div id="game-view" class="hidden w-full max-w-5xl grid lg:grid-cols-3 gap-6 items-start">
+            <!-- Left: The Post -->
+            <div class="lg:col-span-1 bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-2xl">
+                <div class="inline-block px-3 py-1 mb-4 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold tracking-widest uppercase">
+                    Verdächtiger Post
+                </div>
+                <h3 id="post-headline" class="text-xl font-black mb-4 leading-snug"></h3>
+                <p id="post-content" class="text-slate-600 dark:text-gray-400 mb-4 italic text-sm border-l-2 border-slate-300 dark:border-gray-700 pl-4"></p>
+                <div class="p-4 bg-slate-100 dark:bg-gray-800 rounded-xl mb-6">
+                    <p class="text-sm font-medium">Dein exklusiver Hinweis:</p>
+                    <p id="player-clue" class="text-base font-bold text-accent-light dark:text-accent-dark mt-2"></p>
+                </div>
+            </div>
+
+            <!-- Middle: Voting & Result -->
+            <div class="lg:col-span-1 flex flex-col gap-6">
+                <!-- Voting Panel -->
+                <div id="voting-panel" class="bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-xl text-center">
+                    <h3 class="text-lg font-bold mb-4">Teambeschluss</h3>
+                    <p class="text-sm text-slate-600 dark:text-gray-400 mb-6">Tauscht eure exklusiven Hinweise im Chat aus. Wie lautet euer Urteil?</p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="submitVote('fakt')" class="py-3 rounded-xl font-bold bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800 transition">Fakt</button>
+                        <button onclick="submitVote('fake')" class="py-3 rounded-xl font-bold bg-red-100 text-red-700 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800 transition">Fake</button>
+                    </div>
+                    <p id="vote-status" class="mt-4 text-xs font-bold text-amber-500 uppercase tracking-widest hidden">Warte auf andere Agenten...</p>
+                </div>
+
+                <!-- Result Panel -->
+                <div id="result-panel" class="hidden bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/40 dark:border-gray-800/30 shadow-xl text-center">
+                    <h3 id="result-title" class="text-2xl font-black mb-2"></h3>
+                    <p id="result-desc" class="text-sm text-slate-600 dark:text-gray-400 mb-6"></p>
+                    <div id="explanation-box" class="p-4 bg-slate-100 dark:bg-gray-800 rounded-xl text-sm text-left font-medium mb-6"></div>
+                    <button id="next-round-btn" class="w-full py-3 rounded-xl font-bold text-white bg-accent-light dark:bg-accent-dark hover:opacity-90 transition hidden">Nächster Fall</button>
+                </div>
+            </div>
+
+            <!-- Right: Chat -->
+            <div class="lg:col-span-1 bg-white/60 dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-4 border border-white/40 dark:border-gray-800/30 shadow-xl flex flex-col h-[500px]">
+                <h3 class="font-bold text-sm uppercase text-slate-500 mb-4 px-2 tracking-wider flex justify-between">
+                    <span>Team-Funk</span>
+                    <span id="chat-online" class="text-green-500">• Online</span>
+                </h3>
+                <div id="chat-messages" class="flex-grow overflow-y-auto mb-4 space-y-3 px-2 hide-scrollbar"></div>
+                <form id="chat-form" class="flex gap-2">
+                    <input type="text" id="chat-input" autocomplete="off" class="flex-grow px-4 py-2 rounded-xl bg-slate-100 dark:bg-gray-800 border-none outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark text-sm" placeholder="Nachricht...">
+                    <button type="submit" class="px-4 py-2 rounded-xl bg-accent-light dark:bg-accent-dark text-white font-bold">→</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const socket = io();
+        
+        let currentState = null;
+        let myUsername = '';
+        let myRoom = '';
+
+        // DOM Elements
+        const loadingE = document.getElementById('loading');
+        const lobbyView = document.getElementById('lobby-view');
+        const waitingView = document.getElementById('waiting-view');
+        const gameView = document.getElementById('game-view');
+        
+        const usernameIn = document.getElementById('username-input');
+        const roomIn = document.getElementById('room-input');
+        const joinBtn = document.getElementById('join-btn');
+        const badge = document.getElementById('room-badge');
+        const codeDisp = document.getElementById('room-code-display');
+        
+        // Chat
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        // Connect event
+        socket.on('connect', () => {
+            console.log('Connected to server');
+            loadingE.classList.add('hidden');
+            if(!myRoom) {
+                lobbyView.classList.remove('hidden');
+            } else {
+                // Re-join logic if disconnected
+                socket.emit('join_room', { username: myUsername, room: myRoom });
+            }
+        });
+
+        // Setup Join
+        joinBtn.addEventListener('click', () => {
+            const u = usernameIn.value.trim();
+            const r = roomIn.value.trim().toUpperCase();
+            if(!u || !r) return alert('Bitte Deckname und Raumcode eingeben.');
+            myUsername = u;
+            myRoom = r;
+            socket.emit('join_room', { username: u, room: r });
+            lobbyView.classList.add('hidden');
+            loadingE.classList.remove('hidden');
+        });
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if(!text) return;
+            socket.emit('chat_message', { room: myRoom, text });
+            chatInput.value = '';
+        });
+
+        socket.on('chat_message', (msg) => {
+            const div = document.createElement('div');
+            const isMe = msg.username === myUsername;
+            div.className = `flex flex-col ${isMe ? 'items-end' : 'items-start'}`;
+            div.innerHTML = `
+                <span class="text-[10px] text-slate-400 mb-0.5 font-bold">${msg.username}</span>
+                <div class="px-3 py-2 rounded-2xl text-sm ${isMe ? 'bg-accent-light dark:bg-accent-dark text-white rounded-br-sm' : 'bg-slate-200 dark:bg-gray-700 text-slate-900 dark:text-gray-100 rounded-bl-sm'}">
+                    ${msg.text}
+                </div>
+            `;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+
+        // Render purely based on state broadcasts
+        socket.on('room_state', (state) => {
+            currentState = state;
+            loadingE.classList.add('hidden');
+            
+            // Header display
+            badge.classList.remove('hidden');
+            codeDisp.innerText = state.id;
+
+            if (state.status === 'waiting') {
+                waitingView.classList.remove('hidden');
+                gameView.classList.add('hidden');
+                document.getElementById('waiting-room-code').innerText = state.id;
+                
+                const plList = document.getElementById('players-list');
+                plList.innerHTML = state.players.map(p => `
+                    <li class="flex items-center gap-3 p-3 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-slate-100 dark:border-gray-700">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span class="font-bold flex-grow">${p.username} ${p.id === state.host ? '<span class="text-xs text-accent-light dark:text-accent-dark uppercase ml-2">(Host)</span>' : ''}</span>
+                    </li>
+                `).join('');
+
+                const amHost = state.host === socket.id;
+                document.getElementById('start-game-btn').classList.toggle('hidden', !amHost);
+                document.getElementById('waiting-for-host-msg').classList.toggle('hidden', amHost);
+
+            } else if (state.status === 'playing' || state.status === 'result') {
+                waitingView.classList.add('hidden');
+                gameView.classList.remove('hidden');
+
+                // Render article
+                const article = state.currentArticle;
+                document.getElementById('post-headline').innerText = article.headline;
+                document.getElementById('post-content').innerText = article.content;
+
+                // Render clue for this player
+                const myIndex = state.players.findIndex(p => p.id === socket.id);
+                // Distribute clues round-robin if more players than clues
+                const myClue = article.clues[myIndex % article.clues.length] || "Kein Hinweis erhalten - höre gut auf dein Team!";
+                document.getElementById('player-clue').innerText = `"${myClue}"`;
+
+                if (state.status === 'playing') {
+                    document.getElementById('voting-panel').classList.remove('hidden');
+                    document.getElementById('result-panel').classList.add('hidden');
+                    
+                    const myVote = Object.values(state.votes).find(v => v.playerId === socket.id);
+                    if(myVote) {
+                        document.getElementById('vote-status').classList.remove('hidden');
+                        document.getElementById('vote-status').innerText = `${Object.keys(state.votes).length} von ${state.players.length} haben abgestimmt...`;
+                        document.querySelector('#voting-panel .grid').style.opacity = '0.5';
+                        document.querySelector('#voting-panel .grid').style.pointerEvents = 'none';
+                    } else {
+                        document.getElementById('vote-status').classList.add('hidden');
+                        document.querySelector('#voting-panel .grid').style.opacity = '1';
+                        document.querySelector('#voting-panel .grid').style.pointerEvents = 'auto';
+                    }
+                } else if (state.status === 'result') {
+                    document.getElementById('voting-panel').classList.add('hidden');
+                    document.getElementById('result-panel').classList.remove('hidden');
+
+                    // Check result
+                    // For majority vote:
+                    const fakeVotes = Object.values(state.votes).filter(v => v.vote === 'fake').length;
+                    const faktVotes = Object.values(state.votes).filter(v => v.vote === 'fakt').length;
+                    const teamVerdict = fakeVotes > faktVotes ? 'fake' : 'fakt';
+                    
+                    const correctVerdict = article.isFake ? 'fake' : 'fakt';
+                    const success = teamVerdict === correctVerdict;
+
+                    document.getElementById('result-title').innerText = success ? "🎉 Hervorragend bewertet!" : "❌ Team-Fehleinschätzung!";
+                    document.getElementById('result-title').className = `text-2xl font-black mb-2 ${success ? 'text-green-500' : 'text-red-500'}`;
+                    
+                    document.getElementById('result-desc').innerText = `Tatsächlich: Es handelt sich um ein ${correctVerdict.toUpperCase()}.`;
+                    document.getElementById('explanation-box').innerText = article.explanation;
+
+                    const amHost = state.host === socket.id;
+                    document.getElementById('next-round-btn').classList.toggle('hidden', !amHost);
+                }
+            }
+        });
+
+        document.getElementById('start-game-btn').addEventListener('click', () => {
+            socket.emit('action', { room: myRoom, type: 'start_game' });
+        });
+
+        document.getElementById('next-round-btn').addEventListener('click', () => {
+            socket.emit('action', { room: myRoom, type: 'next_round' });
+        });
+
+        function submitVote(choice) {
+            socket.emit('action', { room: myRoom, type: 'submit_vote', payload: choice });
+        }
+    </script>
+</body>
+</html>

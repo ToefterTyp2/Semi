@@ -4,12 +4,16 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
+    "dev": "node server.js",
     "build": "vite build",
-    "preview": "vite preview",
+    "start": "node server.js",
+    "preview": "npm run start",
     "lint": "echo 'No linting configured'"
   },
   "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3",
     "vite": "^6.2.0"
   },
   "devDependencies": {
