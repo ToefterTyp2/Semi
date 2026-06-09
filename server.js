@@ -182,12 +182,21 @@ async function startServer() {
     });
 
     socket.on('chat_message', (data) => {
-      const { room, text } = data;
+      const { room, text, type } = data;
       const r = rooms.get(room);
       if(r) {
         const p = r.players.find(pl => pl.id === socket.id);
         if(p) {
-          io.to(room).emit('chat_message', { username: p.username, text });
+          if (type === 'team') {
+            const teamPlayers = r.players.filter(pl => pl.role === p.role);
+            teamPlayers.forEach(tp => {
+              if (tp.id && !tp.isBot) {
+                io.to(tp.id).emit('chat_message', { username: p.username, text, type: 'team' });
+              }
+            });
+          } else {
+            io.to(room).emit('chat_message', { username: p.username, text, type: 'all' });
+          }
         }
       }
     });
