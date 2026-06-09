@@ -85,17 +85,7 @@
                 border-top: 2px solid rgba(204, 120, 92, 0.45) !important;
             }
 
-            /* Custom styling for the "Was du mitnimmst" takeaway boxes */
-            .was-du-mitnimmst-card {
-                background-color: #f7ede8 !important;
-                border-color: #cc785c !important;
-                border-width: 2px !important;
-            }
-            .dark .was-du-mitnimmst-card {
-                background-color: #2A2625 !important;
-                border-color: #e29177 !important;
-                border-width: 2px !important;
-            }
+
         }
         @layer utilities {
             .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -252,7 +242,7 @@
 
                 <!-- SIFT Steps -->
                 <div class="max-w-4xl mx-auto space-y-8 mb-24 mt-12">
-                    <div class="bg-white/60 dark:bg-[#2A2625]/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/40 dark:border-gray-800/30 shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
+                    <div class="bg-white dark:bg-[#2A2625] rounded-3xl p-8 md:p-10 border border-stone-200 dark:border-[#2d2520] shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
                         <div class="w-16 h-16 bg-amber-500/20 text-amber-500 rounded-2xl flex items-center justify-center font-black text-3xl flex-shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-colors shadow-inner">S</div>
                         <div>
                             <h3 class="text-2xl font-bold mb-3">Stop. Halte inne.</h3>
@@ -261,7 +251,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="bg-white/60 dark:bg-[#2A2625]/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/40 dark:border-gray-800/30 shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
+                    <div class="bg-white dark:bg-[#2A2625] rounded-3xl p-8 md:p-10 border border-stone-200 dark:border-[#2d2520] shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
                         <div class="w-16 h-16 bg-blue-500/20 text-blue-500 rounded-2xl flex items-center justify-center font-black text-3xl flex-shrink-0 group-hover:bg-blue-500 group-hover:text-white transition-colors shadow-inner">I</div>
                         <div>
                             <h3 class="text-2xl font-bold mb-3">Investigate the Source</h3>
@@ -270,7 +260,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="bg-white/60 dark:bg-[#2A2625]/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/40 dark:border-gray-800/30 shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
+                    <div class="bg-white dark:bg-[#2A2625] rounded-3xl p-8 md:p-10 border border-stone-200 dark:border-[#2d2520] shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
                         <div class="w-16 h-16 bg-green-500/20 text-green-500 rounded-2xl flex items-center justify-center font-black text-3xl flex-shrink-0 group-hover:bg-green-500 group-hover:text-white transition-colors shadow-inner">F</div>
                         <div>
                             <h3 class="text-2xl font-bold mb-3">Find Better Coverage.</h3>
@@ -279,7 +269,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="bg-white/60 dark:bg-[#2A2625]/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/40 dark:border-gray-800/30 shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
+                    <div class="bg-white dark:bg-[#2A2625] rounded-3xl p-8 md:p-10 border border-stone-200 dark:border-[#2d2520] shadow-xl hover:scale-[1.01] transition-transform group flex flex-col md:flex-row gap-8 items-start md:items-center">
                         <div class="w-16 h-16 bg-purple-500/20 text-purple-500 rounded-2xl flex items-center justify-center font-black text-3xl flex-shrink-0 group-hover:bg-purple-500 group-hover:text-white transition-colors shadow-inner">T</div>
                         <div>
                             <h3 class="text-2xl font-bold mb-3">Trace It Back.</h3>
@@ -293,7 +283,7 @@
                 <div class="max-w-4xl mx-auto">
                     <div class="grid lg:grid-cols-2 gap-8 mb-16">
                         <!-- Deepfake & Image Check -->
-                        <div class="bg-white/60 dark:bg-[#2A2625]/40 backdrop-blur-md p-8 rounded-[3rem] border border-white/40 dark:border-gray-800/30 shadow-2xl relative overflow-hidden">
+                        <div class="bg-white dark:bg-[#2A2625] rounded-3xl p-8 border border-stone-200 dark:border-[#2d2520] shadow-xl relative overflow-hidden">
                             <div class="absolute -top-12 -right-12 w-48 h-48 bg-accent-light/10 rounded-full blur-3xl animate-pulse"></div>
                             <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
                                 <svg class="w-8 h-8 text-accent-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
@@ -328,7 +318,7 @@
                         </div>
 
                         <!-- Emotional Language -->
-                        <div class="bg-white/60 dark:bg-[#2A2625]/40 backdrop-blur-md p-8 rounded-[3rem] border border-white/40 dark:border-gray-800/30 shadow-2xl relative overflow-hidden">
+                        <div class="bg-white dark:bg-[#2A2625] rounded-3xl p-8 border border-stone-200 dark:border-[#2d2520] shadow-xl relative overflow-hidden">
                             <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-accent-dark/10 rounded-full blur-3xl animate-pulse"></div>
                             <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
                                 <svg class="w-8 h-8 text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" /></svg>
@@ -780,7 +770,7 @@
                         </div>
                         <div>
                             <h2 class="text-2xl font-black mb-6 text-accent-light dark:text-accent-dark uppercase tracking-wider">Was du mitnimmst</h2>
-                            <div class="was-du-mitnimmst-card bg-white/80 dark:bg-[#2A2625]/80 backdrop-blur-md p-8 rounded-3xl border-2 border-accent-light/20 dark:border-accent-dark/20 shadow-xl">
+                            <div class="bg-white dark:bg-[#2A2625] rounded-3xl p-8 border border-stone-200 dark:border-[#2d2520] shadow-xl">
                                 <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
                                     <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
                                     Checkliste:
@@ -813,7 +803,7 @@
                 </div>
             </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 text-center">
-            <a href="index.html#lexikon" class="inline-flex items-center px-8 py-4 rounded-full font-bold text-white bg-accent-light hover:bg-blue-600 dark:bg-accent-dark dark:hover:bg-violet-500 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+            <a href="index.html#lexikon" class="inline-flex items-center px-8 py-4 rounded-full font-bold text-white bg-accent-light hover:brightness-110 dark:bg-accent-dark dark:hover:brightness-110 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                 <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                 Zurück zum Lexikon
             </a>
