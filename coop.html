@@ -212,21 +212,24 @@
 
             <!-- Right Column: Chat -->
             <div class="lg:col-span-1 bg-white/90 dark:bg-[#2A2625]/90 backdrop-blur-md rounded-3xl p-4 border border-stone-200 dark:border-[#2d2520] shadow-xl flex flex-col h-[500px]">
-                <h3 class="font-bold text-sm uppercase text-slate-500 mb-4 px-2 tracking-wider flex justify-between">
-                    <span>Team-Funk</span>
-                    <span id="chat-online" class="text-green-500">• Online</span>
-                </h3>
-                <div id="chat-messages" class="flex-grow overflow-y-auto mb-4 space-y-3 px-2 hide-scrollbar"></div>
-                <form id="chat-form" class="flex gap-2">
-                    <input type="text" id="chat-input" autocomplete="off" class="flex-grow px-4 py-2 rounded-xl bg-stone-100 dark:bg-[#25201c] border-none outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark text-sm" placeholder="Nachricht...">
-                    <button type="submit" class="px-4 py-2 rounded-xl bg-accent-light dark:bg-accent-dark text-white font-bold">→</button>
+                <div class="flex justify-between items-center mb-4 px-2">
+                    <div class="flex bg-stone-100 dark:bg-[#25201c] rounded-lg p-1">
+                        <button id="chat-tab-all" class="px-3 py-1 text-xs font-bold rounded-md bg-white shadow-sm dark:bg-[#2A2625] text-slate-800 dark:text-gray-200 transition-colors">Alle</button>
+                        <button id="chat-tab-team" class="px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">Team</button>
+                    </div>
+                    <span id="chat-online" class="text-xs font-bold text-green-500 uppercase tracking-wider flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Online</span>
+                </div>
+                <div id="chat-messages" class="flex-grow min-h-0 overflow-y-auto mb-4 space-y-3 px-2 hide-scrollbar"></div>
+                <form id="chat-form" class="flex gap-2 shrink-0">
+                    <input type="text" id="chat-input" autocomplete="off" class="flex-grow min-w-0 px-4 py-2 rounded-xl bg-stone-100 dark:bg-[#25201c] border-none outline-none focus:ring-2 focus:ring-accent-light dark:focus:ring-accent-dark text-sm w-full" placeholder="Nachricht...">
+                    <button type="submit" class="shrink-0 px-4 py-2 rounded-xl bg-accent-light dark:bg-accent-dark text-white font-bold">→</button>
                 </form>
             </div>
         </div>
     </main>
 
     <script>
-       const socket = io('https://semi.kurtshaus.de');
+        const socket = io();
         
         let currentState = null;
         let myUsername = '';
@@ -248,6 +251,11 @@
         const chatForm = document.getElementById('chat-form');
         const chatInput = document.getElementById('chat-input');
         const chatMessages = document.getElementById('chat-messages');
+        const chatTabAll = document.getElementById('chat-tab-all');
+        const chatTabTeam = document.getElementById('chat-tab-team');
+        
+        let chatChannel = 'all';
+        let allMessages = [];
 
         // Connect event
         socket.on('connect', () => {
@@ -284,26 +292,49 @@
             loadingE.classList.remove('hidden');
         });
 
+        chatTabAll.addEventListener('click', () => {
+            chatChannel = 'all';
+            chatTabAll.className = 'px-3 py-1 text-xs font-bold rounded-md bg-white shadow-sm dark:bg-[#2A2625] text-slate-800 dark:text-gray-200 transition-colors';
+            chatTabTeam.className = 'px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors';
+            renderChat();
+        });
+
+        chatTabTeam.addEventListener('click', () => {
+            chatChannel = 'team';
+            chatTabTeam.className = 'px-3 py-1 text-xs font-bold rounded-md bg-white shadow-sm dark:bg-[#2A2625] text-slate-800 dark:text-gray-200 transition-colors';
+            chatTabAll.className = 'px-3 py-1 text-xs font-bold rounded-md text-slate-500 hover:text-slate-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors';
+            renderChat();
+        });
+
         chatForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const text = chatInput.value.trim();
             if(!text) return;
-            socket.emit('chat_message', { room: myRoom, text });
+            socket.emit('chat_message', { room: myRoom, text, type: chatChannel });
             chatInput.value = '';
         });
 
-        socket.on('chat_message', (msg) => {
-            const div = document.createElement('div');
-            const isMe = msg.username === myUsername;
-            div.className = `flex flex-col ${isMe ? 'items-end' : 'items-start'}`;
-            div.innerHTML = `
-                <span class="text-[10px] text-slate-400 mb-0.5 font-bold">${msg.username}</span>
-                <div class="px-3 py-2 rounded-2xl text-sm ${isMe ? 'bg-accent-light dark:bg-accent-dark text-white rounded-br-sm' : 'bg-slate-200 dark:bg-gray-700 text-slate-900 dark:text-gray-100 rounded-bl-sm'}">
-                    ${msg.text}
-                </div>
-            `;
-            chatMessages.appendChild(div);
+        function renderChat() {
+            chatMessages.innerHTML = '';
+            const filtered = allMessages.filter(m => m.type === chatChannel);
+            filtered.forEach(msg => {
+                const div = document.createElement('div');
+                div.className = `flex flex-col ${msg.isMe ? 'items-end' : 'items-start'}`;
+                div.innerHTML = `
+                    <span class="text-[10px] text-slate-400 mb-0.5 font-bold">${msg.username}</span>
+                    <div class="px-3 py-2 rounded-2xl text-sm ${msg.isMe ? 'bg-accent-light dark:bg-accent-dark text-white rounded-br-sm' : 'bg-slate-200 dark:bg-gray-700 text-slate-900 dark:text-gray-100 rounded-bl-sm'}">
+                        ${msg.text}
+                    </div>
+                `;
+                chatMessages.appendChild(div);
+            });
             chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        socket.on('chat_message', (msg) => {
+            msg.isMe = msg.username === myUsername;
+            allMessages.push(msg);
+            renderChat();
         });
 
         // Render purely based on state broadcasts
