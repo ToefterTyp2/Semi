@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
+<html lang="de" class="scroll-smooth overflow-x-hidden max-w-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,8 @@
     </script>
     <style type="text/tailwindcss">
         @layer base {
+            html { @apply overflow-x-hidden max-w-full; }
+            * { box-sizing: border-box; }
             :root {
                 --accent-light: #cc785c;
                 --accent-dark: #e29177;
@@ -137,11 +139,11 @@
                     </h1>
                     
                     <div class="flex flex-col gap-6">
-                        <p class="text-2xl md:text-3xl text-slate-900 dark:text-gray-100 font-medium leading-relaxed max-w-4xl">
+                        <p class="text-xl md:text-2xl text-slate-900 dark:text-gray-100 font-medium leading-relaxed max-w-4xl">
                             Wer das aktuelle Weltgeschehen auf Social Media verfolgt, stößt unvermeidlich auf extreme Debatten und unterschiedlichste Meinungen. Diese negative Atmosphäre entsteht selten zufällig. Stattdessen nutzen bestimmte Gruppen diese Atmosphäre um sich in den Vordergrund zu drängen, für komplexe Probleme einfache Lösungen versprechen und Feindbilder schaffen<sup class="relative inline-block group cursor-pointer ml-0.5"><a href="quellen.html#bpb-populismus" class="text-accent-light dark:text-accent-dark font-bold px-0.5 hover:bg-accent-light/10 dark:hover:bg-accent-dark/20 rounded no-underline">1</a><span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[250px] p-2.5 text-xs bg-slate-900 dark:bg-[#2A2625] text-white dark:text-gray-200 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-left font-normal leading-relaxed hidden sm:block">Bundeszentrale für politische Bildung (bpb) - Populismus<span class="absolute top-full left-1/2 -translate-x-1/2 border-3 border-transparent border-t-slate-900 dark:border-t-gray-800"></span></span></sup>.
                         </p>
                         
-                        <p class="text-lg md:text-xl text-slate-700 dark:text-gray-300 leading-relaxed max-w-4xl bg-white/90 dark:bg-[#1a1613]/80 p-6 rounded-2xl border border-stone-200 dark:border-[#2a241f]/70 shadow-sm">
+                        <p class="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-relaxed max-w-4xl bg-white/90 dark:bg-[#1a1613]/80 p-6 rounded-2xl border border-stone-200 dark:border-[#2a241f]/70 shadow-sm">
                             Anstatt realistische Kompromisse zu erreichen, wird die Gesellschaft durch diesen Populismus in verfeindete Lager gespalten. Dies geschieht durch Aussagen und Nachrichten welche so verpackt werden, dass Emotionen wie Angst, Wut oder Empörung ausgelöst werden, wodurch die aufgestellten Behauptungen kaum noch hinterfragt werden<sup class="relative inline-block group cursor-pointer ml-0.5"><a href="quellen.html#lpb-bw" class="text-accent-light dark:text-accent-dark font-bold px-0.5 hover:bg-accent-light/10 dark:hover:bg-accent-dark/20 rounded no-underline">2</a><span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[250px] p-2.5 text-xs bg-slate-900 dark:bg-[#2A2625] text-white dark:text-gray-200 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-left font-normal leading-relaxed hidden sm:block">Landeszentrale für politische Bildung BW: Was ist Populismus?<span class="absolute top-full left-1/2 -translate-x-1/2 border-3 border-transparent border-t-slate-900 dark:border-t-gray-800"></span></span></sup>. Diese Form der emotionalen Manipulation verleitet uns dazu, vorschnell zu urteilen. Wenn wir diese Tricks nicht durchschauen, lassen wir uns schnell von Leuten manipulieren, denen Aufmerksamkeit wichtiger ist als die Wahrheit.
                         </p>
                     </div>
@@ -158,7 +160,7 @@
                 </div>
                 <div class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x scroll-smooth" id="video-carousel">
                     <!-- Video 1 -->
-                    <div class="min-w-[300px] md:min-w-[450px] snap-start video-card" data-video-index="0">
+                    <div class="min-w-[85vw] sm:min-w-[300px] md:min-w-[450px] snap-start video-card" data-video-index="0">
                         <div class="video-placeholder relative aspect-video rounded-3xl overflow-hidden bg-slate-200 dark:bg-[#2A2625] shadow-lg border border-white/20 dark:border-gray-800 group cursor-pointer" data-video-id="vhakO1R-Fxk">
                             <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                                 <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
@@ -172,7 +174,7 @@
                         <p class="mt-4 font-bold text-slate-700 dark:text-gray-300">Populismus einfach erklärt<sup class="relative inline-block group cursor-pointer ml-1"><a href="quellen.html#video-populismus-1" class="text-accent-light dark:text-accent-dark font-bold hover:underline">V1</a></sup></p>
                     </div>
                     <!-- Video 2 -->
-                    <div class="min-w-[300px] md:min-w-[450px] snap-start video-card" data-video-index="1">
+                    <div class="min-w-[85vw] sm:min-w-[300px] md:min-w-[450px] snap-start video-card" data-video-index="1">
                         <div class="video-placeholder relative aspect-video rounded-3xl overflow-hidden bg-slate-200 dark:bg-[#2A2625] shadow-lg border border-white/20 dark:border-gray-800 group cursor-pointer" data-video-id="kCsQlGm_fjc">
                             <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                                 <div class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
