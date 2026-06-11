@@ -374,7 +374,7 @@
                 </div>
 
                 <!-- Story Bubbles (Instagram Style Row) -->
-                <div class="flex justify-center items-center gap-6 md:gap-10 mb-12 max-w-lg mx-auto overflow-x-auto py-4 px-2 hide-scrollbar select-none">
+                <div class="flex justify-start md:justify-center items-center gap-4 sm:gap-6 md:gap-10 mb-12 w-full max-w-full sm:max-w-3xl mx-auto overflow-x-auto py-4 px-6 hide-scrollbar select-none scroll-smooth">
                     
                     <!-- Bubble 1: Laura Gumo -->
                     <button id="bubble-laura" onclick="openInstagramStory('laura')" class="flex flex-col items-center gap-2 focus:outline-none group shrink-0">
@@ -386,7 +386,6 @@
                             </div>
                         </div>
                         <span class="text-sm font-bold text-slate-800 dark:text-gray-200 mt-1">Laura Gumo</span>
-                        <span class="text-[11px] text-slate-400 dark:text-gray-500 -mt-1 font-semibold">@laura_gumo</span>
                     </button>
 
                     <!-- Bubble 2: Influencer:in A -->
@@ -399,7 +398,6 @@
                             </div>
                         </div>
                         <span class="text-sm font-bold text-slate-800 dark:text-gray-200 mt-1">Influencer:in A</span>
-                        <span class="text-[11px] text-slate-400 dark:text-gray-500 -mt-1 font-semibold">Kritischer Blick</span>
                     </button>
 
                     <!-- Bubble 3: Influencer:in B -->
@@ -412,9 +410,19 @@
                             </div>
                         </div>
                         <span class="text-sm font-bold text-slate-800 dark:text-gray-200 mt-1">Influencer:in B</span>
-                        <span class="text-[11px] text-slate-400 dark:text-gray-500 -mt-1 font-semibold">Perspektive Verantwortung</span>
                     </button>
 
+                    <!-- Bubble 4: Influencer:in C -->
+                    <button id="bubble-schueler" onclick="openInstagramStory('schueler')" class="flex flex-col items-center gap-2 focus:outline-none group shrink-0">
+                        <div class="relative">
+                            <div class="story-bubble-ring w-24 h-24 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-[4px] transform transition-transform group-hover:scale-105 group-active:scale-95 shadow-md">
+                                <div class="w-full h-full bg-white dark:bg-[#2A2625] rounded-full border-4 border-slate-50 dark:border-gray-950 flex items-center justify-center overflow-hidden">
+                                    <img src="https://ui-avatars.com/api/?name=Inf+C&background=10b981&color=fff&bold=true" class="w-full h-full object-cover" alt="Influencer:in C">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-sm font-bold text-slate-800 dark:text-gray-200 mt-1">Influencer:in C</span>
+                    </button>
                 </div>
 
                 <!-- Guidance label below bubbles -->
@@ -870,6 +878,18 @@
             });
         }
 
+        // Tooltip explainer helper
+        function tt(term, explanation) {
+            return `<span class="group relative inline cursor-help underline decoration-dotted decoration-2 underline-offset-4 decoration-pink-500 hover:text-pink-300 transition-colors pointer-events-auto" onclick="event.stopPropagation()">
+                ${term}
+                <span class="fixed sm:absolute bottom-32 sm:bottom-full sm:mb-2 w-[85%] sm:w-max sm:max-w-[280px] p-3 text-sm bg-slate-900 border border-pink-500/30 text-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all pointer-events-none z-[110] text-center sm:text-left font-normal leading-relaxed not-italic" style="left: 50%; transform: translateX(-50%);">
+                    <strong class="block mb-1 text-pink-400 capitalize">${term}</strong>
+                    ${explanation}
+                    <span class="hidden sm:block absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-slate-900"></span>
+                </span>
+            </span>`;
+        }
+
         // Story interactive system logic (Instagram format)
         const storyData = {
             laura: {
@@ -879,16 +899,32 @@
                 subtitle: "Politische Creatorin",
                 slides: [
                     {
-                        question: "Auswirkung von populistischen Inhalten auf Jugendliche",
-                        answer: "Ich denke es macht die Jugend im gesamten politischer, aber auch gefährdeter für Radikalisierung."
+                        question: "Welche Auswirkungen hat Ihrer Meinung nach die steigende Anzahl an populistischen Inhalten auf Social Media auf die politische Meinungsbildung Jugendlicher?",
+                        answer: `Ich denke es macht die Jugend im gesamten politischer, aber auch gefährdeter für ${tt('Radikalisierung', 'Der Prozess, bei dem man zunehmend extreme politische oder religiöse Ansichten entwickelt.')}.`
                     },
                     {
-                        question: "Reaktion Jugendlicher auf bestimmte politische Meinungen",
-                        answer: "Ich glaube die Spaltung der Gesellschaft zeichnet sich am meisten bei Jugendlichen, da diese oft noch unsicher in ihrer Identität sind und besonders gut von Extremen beeinflusst werden können. Daher bewegen sich meiner Auffassung nach auch junge Menschen immer mehr in extrem-rechte oder extrem-linke Richtungen."
+                        question: "Ist Ihnen aufgefallen, dass Jugendliche auf bestimmte politische Meinungen auf Social Media besonders stark reagieren?",
+                        answer: "Ja, Ich glaube die Spaltung der Gesellschaft zeichnet sich am meisten bei Jugendlichen, da diese oft noch unsicher in ihrer Identität sind und besonders gut von Extremen beeinflusst werden können, daher bewegen sich meiner Auffassung nach auch junge Menschen immer mehr in extrem-rechte oder extrem-linke Richtungen."
                     },
                     {
-                        question: "Neutralität oder persönliche Meinung",
-                        answer: "Ich glaube Politik ist nie neutral, sondern stets von den Gegebenheiten beeinflusst und geframed. Weder Moral noch Politik kann [...] neutral oder objektiv sein, ich denke das kann höchstens die Mathematik."
+                        question: "Legen Sie beim Veröffentlichen politischer Inhalte auf Social Media mehr Wert auf Neutralität oder darauf, Ihre persönliche Meinung zu äußern?",
+                        answer: `Ich glaube Politik ist nie neutral, sondern stets von den Gegebenheiten beeinflusst und ${tt('geframed', 'Framing: Ein Ereignis gezielt in einen bestimmten Kontext (Rahmen) setzen, um die Wahrnehmung in eine bestimmte Richtung zu steuern.')}.<span class="block mt-4 text-sm text-white/80 not-italic font-normal">Weder Moral noch Politik kann [...] neutral oder ${tt('objektiv', 'Sachlich, neutral und unabhängig von persönlichen Gefühlen oder Meinungen.')} sein, ich denke das kann höchstens die Mathematik.</span>`
+                    },
+                    {
+                        question: "Welche Rolle spielen Ihrer Meinung nach Influencer bei der Verbreitung oder Einordnung politischer Themen?",
+                        answer: "Essenziell, da immer mehr Menschen ihre Infos von Social Media haben."
+                    }
+                ]
+            },
+            schueler: {
+                name: "Influencer:in C",
+                avatar: "https://ui-avatars.com/api/?name=Inf+C&background=10b981&color=fff&bold=true",
+                badge: "Perspektive",
+                subtitle: "Anonymes Interview",
+                slides: [
+                    {
+                        question: "Welche Auswirkungen hat Ihrer Meinung nach die steigende Anzahl an populistischen Inhalten auf Social Media auf die politische Meinungsbildung Jugendlicher?",
+                        answer: "Wenn man bedenkt, dass die Diskussion mit Wählen ab 16 immer wieder stattfindet, dann versteht man, wie gefährlich die online Mittel sind. Weil wenn ein Video reicht, um deine politische Bildung in eine Richtung zu lenken. Dann ist vor allem Social Media ein gefährlicher Raum. Aus der Vergangenheit wissen wir ja, dass die Hitlerjugend sehr gut funktioniert hat und das ohne Social Media…"
                     }
                 ]
             },
@@ -899,20 +935,16 @@
                 subtitle: "Anonymes Interview",
                 slides: [
                     {
-                        question: "Auswirkung von populistischen Inhalten auf Jugendliche",
-                        answer: "Wenn man bedenkt, dass die Diskussion mit Wählen ab 16 immer wieder stattfindet, dann versteht man, wie gefährlich die online Mittel sind. Weil wenn ein Video reicht, um deine politische Bildung in eine Richtung zu lenken, dann ist vor allem Social Media ein gefährlicher Raum. Aus der Vergangenheit wissen wir ja, dass die Hitlerjugend sehr gut funktioniert hat..."
+                        question: "Warum glauben Sie, verbreiten sich Desinformationen und populistische Inhalte auf Social Media so schnell?",
+                        answer: `Ich glaube nicht, dass das an Social Media alleine liegt, sondern erst dadurch hinterfragt wird und schon lange ein mediales Problem ist. Journalismus übernimmt viel zu viele ${tt('Agenturmeldungen', 'Nachrichten, zumeist von großen Nachrichtenagenturen (wie der dpa), die massenhaft an Medien verkauft und teils ungeprüft übernommen werden.')} ohne sie zu hinterfragen, politische Personen dürfen Gastbeiträge bei Medien veröffentlichen etc. Auf Social Media kann das nur noch besser gesteuert werden, weil man weiß wen der Inhalt erreichen soll und ${tt('Algorithmen', 'Von Computern ausgeführte Rechenvorgänge, die auf Social Media entscheiden, welche Beiträge uns angezeigt werden (oft diejenigen, die uns am längsten auf der Plattform halten).')} danach ausgerichtet werden können, deswegen ist auch die US-Regierung so verbissen darauf gewesen TikTok zu kaufen. Die meisten Menschen die empfänglich für Populismus sind, sind generell in ${tt('Medienkompetenz', 'Die Fähigkeit, Medien kritisch zu nutzen, zu hinterfragen und Fake News von Fakten zu unterscheiden.')} und Bildung sehr schlecht aufgestellt und daher empfänglich für "einfache" Erklärungen bei komplexen Themen.`
                     },
                     {
-                        question: "Neutralität oder persönliche Meinung",
-                        answer: "Pauschal nicht einfach zu beantworten, da es Unterschiede gibt zwischen 'Journalismus', wo man prinzipiell persönliche Haltung und Meinung raushalten sollte... Ich glaube es gibt keine Neutralität, nirgends, man sollte nur transparent sein, was die Haltung ist, nach welcher man agiert."
+                        question: "Legen Sie beim Veröffentlichen politischer Inhalte auf Social Media mehr Wert auf Neutralität oder darauf, Ihre persönliche Meinung zu äußern?",
+                        answer: "Pauschal nicht einfach zu beantworten, da es Unterschiede gibt zwischen \"Journalismus\", wo man prinzipiell persönliche Haltung und Meinung raushalten sollte - was aber auch bei jedem Medienhaus nicht getan wird - oder eben Meinungscontent macht. Ich glaube es gibt keine Neutralität, nirgends, man sollte nur transparent sein, was die Haltung ist, nach welcher man agiert."
                     },
                     {
-                        question: "Warum ist die Verbreitung auf Social Media so extrem?",
-                        answer: "Ich glaube nicht, dass das an Social Media alleine liegt, sondern erst dadurch hinterfragt wird und schon lange ein mediales Problem ist. Journalismus übernimmt viel zu viele Agenturmeldungen ohne sie zu hinterfragen... Auf Social Media kann das nur noch besser gesteuert werden, weil man weiß wen der Inhalt erreichen soll und Algorithmen danach ausgerichtet werden können..."
-                    },
-                    {
-                        question: "Die Rolle von Influencern",
-                        answer: "Eine furchtbare. Die meisten Influencer sind einzig und allein opportunistische People Pleaser... Ausnahme sind rechte Ideologien, welche von großen Influencern wie zB Montanablack einfach ungefiltert geteilt und verbreitet werden, weil er selbst nicht im Stande ist sich zu hinterfragen. Diese Aussagen werden dann gleichzeitig auch als 'nicht politisch' gesehen..."
+                        question: "Welche Rolle spielen Ihrer Meinung nach Influencer bei der Verbreitung oder Einordnung politischer Themen?",
+                        answer: `Eine furchtbare. Die meisten Influencer sind einzige und allein ${tt('opportunistische People Pleaser', 'Personen, die ihre Meinung schnell anpassen, nur um anderen zu gefallen und daraus einen eigenen Vorteil (z.B. Likes/Follower) zu ziehen.')}. Im Bezug zu politischen Themen wird nichts gesagt, solange man nicht selbst davon betroffen ist, weil man davon nicht profitiert. Ausnahme sind rechte ${tt('Ideologien', 'Eine feststehende Weltanschauung oder ein System von Werten und Ideen.')}, welche von großen Influencern wie zB Montanablack einfach ungefiltert geteilt und verbreitet werden, weil er selbst nicht im Stande ist sich zu hinterfragen. Diese Aussagen werden dann gleichzeitig auch als "nicht politisch" gesehen, aber wenn man dann Kritik daran ausübt, ist das Problem, dass man "Politik mit reinzieht".`
                     }
                 ]
             },
@@ -923,20 +955,20 @@
                 subtitle: "Anonymes Interview",
                 slides: [
                     {
-                        question: "Auswirkung von populistischen Inhalten auf Jugendliche",
-                        answer: "Das wirkt sich definitiv stark auf die politische Meinungsbildung Jugendlicher aus. Es wird immer schwieriger, durch die Flut an Informationen zu graben... Da Social Media durch verkürzte Kommunikation und begrenzte Aufmerksamkeitsspanne ohnehin der perfekte Ort für Populismus ist, wäre es nicht unwichtig, das Kommunikationstool des Populismus auch für 'bessere' Botschaften zu verwenden..."
+                        question: "Welche Auswirkungen hat Ihrer Meinung nach die steigende Anzahl an populistischen Inhalten auf Social Media auf die politische Meinungsbildung Jugendlicher?",
+                        answer: `Das wirkt sich definitiv stark auf die politische Meinungsbildung Jugendlicher aus. Es wird immer schwieriger, durch die Flut an Informationen zu graben, oft fehlt ihnen die ${tt('Medienkompetenz', 'Die Fähigkeit, Medieninhalte kritisch zu hinterfragen und deren Vertrauenswürdigkeit einzuordnen.')} (die viele Erwachsene auch nicht haben) und dann holt man sich lieber die kurzen, zugänglichen Botschaften. Das Problem ist auch, dass es aktuell hauptsächlich ${tt('Rechtspopulismus', 'Eine politische Strategie, die an Ängste in der Bevölkerung appelliert und oft Minderheiten ausgrenzt.')} gibt. Da Social Media durch verkürzte Kommunikation und begrenzte Aufmerksamkeitsspanne ohnehin der perfekte Ort für Populismus ist, wäre es nicht unwichtig, das Kommunikationstool des Populismus auch für "bessere" Botschaften zu verwenden...`
                     },
                     {
-                        question: "Neutralität oder persönliche Meinung",
-                        answer: "Neutralität ist ein Trugschluss. Es gibt weder völlige Objektivität noch Neutralität im Journalismus oder auch sonst wo... Die Frage ist nur, wie transparent man mit der eigenen Haltung umgeht. Bei mir fließt meist sehr viel eigene Meinung bzw. Haltung rein... Dennoch ist es immer wichtig, faktenbasiert zu arbeiten."
-                    },
-                    {
-                        question: "Warum ist die Verbreitung auf Social Media so extrem?",
+                        question: "Warum glauben Sie, verbreiten sich Desinformationen und populistische Inhalte auf Social Media so schnell?",
                         answer: "Die Hauptwährung auf Social Media ist Aufmerksamkeit. Mit Desinformation, Populismus und vor allem negativem Framing ist es sehr viel leichter, Emotionen und damit Aufmerksamkeit und Interaktion zu generieren. Die Algorithmen und das Design der Plattformen unterstützen das zusätzlich."
                     },
                     {
-                        question: "Die Rolle von Influencern",
-                        answer: "Teilweise eine zu große Rolle. Es wird zu viel Wert auf Statements von Influencern gelegt, selbst wenn diese keine Expertise oder dementsprechenden Background haben. Viele sind sich ihrer Verantwortung auch nicht bewusst... Es gibt aber auch viele, die durchaus wissen, welche Position sie gesellschaftlich einnehmen und die diese Rolle auch verantwortungsbewusst... wahrnehmen."
+                        question: "Legen Sie beim Veröffentlichen politischer Inhalte auf Social Media mehr Wert auf Neutralität oder darauf, Ihre persönliche Meinung zu äußern?",
+                        answer: `Neutralität ist ein Trugschluss. Es gibt weder völlige Objektivität noch Neutralität im Journalismus oder auch sonst wo. Egal ob Themenwahl, Timing, ${tt('Framing', 'Das gezielte Setzen eines Deutungsrahmens, um zu steuern, wie eine Information aufgefasst wird.')}, mit wem man spricht, was man weglässt und was nicht, Formulierung, ${tt('Tonalität', 'Die Art und Weise bzw. der Tonfall, wie etwas ausgedrückt wird (z.B. sachlich, emotional oder aggressiv).')} etc. - alle Aspekte von Berichterstattung sind irgendwie von einzelnen oder mehreren Personen beeinflusst und damit nie völlig objektiv oder neutral. Die Frage ist nur, wie ${tt('transparent', 'Offen, durchschaubar und nachvollziehbar für alle.')} man mit der eigenen Haltung umgeht. Bei mir fließt meist sehr viel eigene Meinung bzw. Haltung rein, daraus mache ich auch kein Geheimnis. Dennoch ist es immer wichtig, faktenbasiert zu arbeiten.`
+                    },
+                    {
+                        question: "Welche Rolle spielen Ihrer Meinung nach Influencer bei der Verbreitung oder Einordnung politischer Themen?",
+                        answer: "Teilweise eine zu große Rolle. Es wird zu viel Wert auf Statements von Influencern gelegt, selbst wenn diese keine Expertise oder dementsprechenden Background haben. Viele sind sich ihrer Verantwortung auch nicht bewusst, was sich negativ auf sie selbst, aber auch auf die Community auswirken kann. Es gibt aber auch viele, die durchaus wissen, welche Position sie gesellschaftlich einnehmen und die diese Rolle auch verantwortungsbewusst und überlegt wahrnehmen."
                     }
                 ]
             }
@@ -994,7 +1026,7 @@
             document.getElementById('story-title-name').textContent = story.name;
             document.getElementById('story-subtitle-lbl').textContent = story.subtitle;
             document.getElementById('story-question').textContent = slide.question;
-            document.getElementById('story-answer').textContent = slide.answer;
+            document.getElementById('story-answer').innerHTML = slide.answer;
             document.getElementById('story-index-label').textContent = `${activeSlideIndex + 1} / ${story.slides.length}`;
 
             // Render progress indicator bars
