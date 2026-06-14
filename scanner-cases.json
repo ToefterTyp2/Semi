@@ -1,101 +1,91 @@
 [
     {
-        "text": "Die gierigen Konzerne treiben absichtlich die Preise hoch, um uns auszusaugen! Während wir hart arbeiten, machen die sich die Taschen voll. Macht einfach die Grenzen für Importe dicht, dann sinken die Preise sofort. Lasst euch diese Ausbeutung nicht länger gefallen!",
+        "text": "‼️ WACHT ENDLICH AUF ‼️ Brüssel plant schon das nächste Gesetz, um uns komplett zu enteignen! Die feinen Herren in ihren Glaspalästen lachen sich kaputt, während der normale deutsche Arbeiter nicht mal mehr weiß, wie er seine Rechnungen zahlen soll. Raus aus diesem korrupten EU-Sumpf, Grenzen zu und wir haben wieder Milliarden für unsere eigenen Leute! Teilt das, bevor die Zensurbehörden es löschen! 😡📉",
         "hotspots": [
             { 
-                "text": "gierigen Konzerne", 
-                "category": "Sündenböcke", 
-                "explanation": "Eine bestimmte Gruppe wird pauschal als der einzige Schuldige für ein komplexes Problem (Inflation) dargestellt." 
+                "text": "Die feinen Herren in ihren Glaspalästen", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Politiker werden hier als arrogante, feindliche Elite stilisiert. Das spaltet die Gesellschaft in ein 'Wir' (unten) und 'Die' (oben)." 
             },
             { 
-                "text": "Während wir hart arbeiten", 
-                "category": "Wir gegen die", 
-                "explanation": "Hier wird ein starker Kontrast zwischen dem 'fleißigen, normalen Volk' und den 'Anderen' gezogen." 
+                "text": "während der normale deutsche Arbeiter", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Hier wird das 'Wir' definiert: Nur das vermeintlich hart arbeitende Volk wird als gut und ehrlich dargestellt, um es gegen die Elite in Stellung zu bringen." 
             },
             { 
-                "text": "Grenzen für Importe dicht, dann sinken die Preise sofort", 
+                "text": "Raus aus diesem korrupten EU-Sumpf, Grenzen zu und wir haben wieder Milliarden", 
                 "category": "Einfache Antworten", 
-                "explanation": "Wirtschaft ist kompliziert. Hier wird so getan, als würde eine einzige, radikale Maßnahme alle Probleme auf einen Schlag lösen." 
+                "explanation": "Internationale Wirtschaft (VWL) ist extrem vernetzt. Die Behauptung, eine einfache Grenzschließung würde plötzlichen Reichtum bringen, ignoriert bewusst alle wirtschaftlichen Realitäten." 
             },
             { 
-                "text": "auszusaugen", 
+                "text": "enteignen", 
                 "category": "Gefühle", 
-                "explanation": "Ein sehr bildhaftes, bedrohliches Wort, das gezielt Wut und Panik auslösen soll." 
+                "explanation": "Das Wort weckt gezielt Existenzangst und Panik. Es geht nicht um Fakten, sondern darum, den Leser emotional aufzuwühlen." 
+            },
+            { 
+                "text": "bevor die Zensurbehörden es löschen", 
+                "category": "Gefühle", 
+                "explanation": "Erzeugt künstlich das beklemmende Gefühl, in einer Diktatur zu leben, um Kritik am Text im Vorfeld abzuwehren und Misstrauen zu säen." 
             }
         ]
     },
     {
-        "text": "Die Öko-Diktatoren in der Regierung wollen uns jetzt auch noch das Autofahren verbieten! Der normale Bürger wird hier doch komplett eingesperrt. Wir müssen einfach aus allen Klimaverträgen aussteigen, dann haben wir unsere Ruhe. Stoppt diese grüne Hölle!",
+        "text": "Es ist doch völlig offensichtlich, was hier gespielt wird. Die Tech-Elite aus dem Silicon Valley und ihre gekauften Freunde in der Hochfinanz nutzen die sogenannte 'KI-Revolution' nur, um den Mittelstand endgültig auszuschalten. Wir, die noch ehrliche Werte schaffen, sind denen ein Dorn im Auge. Aber die Lösung liegt auf der Hand: Verbietet diese Algorithmen einfach sofort auf nationaler Ebene! Nur so entkommen wir der digitalen Sklaverei.",
         "hotspots": [
             { 
-                "text": "Öko-Diktatoren in der Regierung", 
-                "category": "Sündenböcke", 
-                "explanation": "Die Politiker werden als Feindbild markiert und mit Diktatoren gleichgesetzt, um sie als böswillig darzustellen." 
+                "text": "Die Tech-Elite aus dem Silicon Valley und ihre gekauften Freunde in der Hochfinanz", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Zwei riesige Branchen werden zu einer einzigen, gefährlichen Verschwörungsmacht zusammengefasst, gegen die man sich dringend wehren muss." 
             },
             { 
-                "text": "Der normale Bürger", 
-                "category": "Wir gegen die", 
-                "explanation": "Eine typische Formulierung, um zu suggerieren: Wer nicht zu 'uns' gehört, ist nicht normal, sondern gegen uns." 
-            },
-            { 
-                "text": "einfach aus allen Klimaverträgen aussteigen, dann haben wir unsere Ruhe", 
-                "category": "Einfache Antworten", 
-                "explanation": "Die Illusion einer simplen Lösung: Einfach nicht mitmachen, und schon verschwindet ein globales Problem." 
-            },
-            { 
-                "text": "grüne Hölle", 
+                "text": "um den Mittelstand endgültig auszuschalten", 
                 "category": "Gefühle", 
-                "explanation": "Ein extrem dramatischer Begriff, der Angst vor der Zukunft und starke Empörung schüren soll." 
+                "explanation": "Technologischer Wandel wird hier nicht als Prozess, sondern als böswilliger, gezielter Angriff auf die Existenz der Bürger beschrieben." 
+            },
+            { 
+                "text": "Wir, die noch ehrliche Werte schaffen", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Wertet die eigene Gruppe moralisch auf ('ehrlich'), während alle anderen automatisch als unehrlich und feindlich abgestempelt werden." 
+            },
+            { 
+                "text": "Verbietet diese Algorithmen einfach sofort auf nationaler Ebene", 
+                "category": "Einfache Antworten", 
+                "explanation": "Ein lokales Verbot von globalen Netzwerken und Code ist technisch unmöglich. Es ist eine Schein-Lösung, die Tatkraft vortäuscht." 
+            },
+            { 
+                "text": "digitale Sklaverei", 
+                "category": "Gefühle", 
+                "explanation": "Ein drastisches Schreckensbild. Dieser Begriff blockiert rationales Nachdenken über Vor- und Nachteile von KI und löst stattdessen Wut aus." 
             }
         ]
     },
     {
-        "text": "Die gekauften Lügenmedien verheimlichen uns doch jeden Tag die Wahrheit! Nur wir wachen Patrioten sehen, was wirklich passiert. Schaltet einfach euren Fernseher ab und glaubt nur noch uns. Habt ihr keine Angst, dass sie euch eine Gehirnwäsche verpassen?",
+        "text": "Schon wieder neue Gesundheitsauflagen! Die Pharmabosse und Gesundheitsbürokraten reiben sich die Hände. 💸 Jeder Cent aus unseren Taschen fließt direkt an diese Verbrecher. Wenn wir einfach alle Lobbyisten einsperren und die Konzerne zerschlagen, ist unser System über Nacht geheilt. Niemand von denen interessiert sich für euch! Wir müssen zusammenstehen gegen dieses kranke System.",
         "hotspots": [
             { 
-                "text": "gekauften Lügenmedien", 
-                "category": "Sündenböcke", 
-                "explanation": "Journalisten und Medienhäuser werden pauschal zum Feind erklärt, der absichtlich lügen würde." 
+                "text": "Pharmabosse und Gesundheitsbürokraten", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Ein diffuses Feindbild wird erschaffen. Anstatt über Strukturen des Gesundheitssystems zu reden, wird alles auf eine angebliche böse Elite projiziert." 
             },
             { 
-                "text": "Nur wir wachen Patrioten", 
-                "category": "Wir gegen die", 
-                "explanation": "Die eigene Gruppe wird als die einzig Wissende und überlegene dargestellt, die sich vom 'dummen Rest' abgrenzt." 
-            },
-            { 
-                "text": "Schaltet einfach euren Fernseher ab und glaubt nur noch uns", 
-                "category": "Einfache Antworten", 
-                "explanation": "Anstatt sich mit verschiedenen Quellen auseinanderzusetzen, wird die einfache Lösung gefordert: Ignoranz und blindes Vertrauen in nur eine Quelle." 
-            },
-            { 
-                "text": "Gehirnwäsche", 
+                "text": "Verbrecher", 
                 "category": "Gefühle", 
-                "explanation": "Spielt mit der tiefen menschlichen Angst vor Kontrollverlust und Manipulation." 
-            }
-        ]
-    },
-    {
-        "text": "Die Fremden nehmen uns unsere Wohnungen und Jobs weg, weil die etablierten Parteien komplett versagt haben! Wir werden langsam zu Fremden im eigenen Land. Einfach alle Grenzen sofort schließen, dann ist alles wieder gut. Wacht auf, bevor wir alles verlieren!",
-        "hotspots": [
-            { 
-                "text": "Die Fremden", 
-                "category": "Sündenböcke", 
-                "explanation": "Eine Minderheit wird als Sündenbock für komplexe gesellschaftliche Probleme (Wohnungsmangel, Arbeitsmarkt) benutzt." 
+                "explanation": "Die Gegenseite wird kriminalisiert. Das schürt extreme Aggression und macht jeden sachlichen Kompromiss unmöglich." 
             },
             { 
-                "text": "Fremden im eigenen Land", 
-                "category": "Wir gegen die", 
-                "explanation": "Ein klassisches Mittel, um die Bevölkerung in ein klares 'Wir' (die Einheimischen) und 'Die' (die Eindringlinge) zu spalten." 
-            },
-            { 
-                "text": "Einfach alle Grenzen sofort schließen, dann ist alles wieder gut", 
+                "text": "Wenn wir einfach alle Lobbyisten einsperren und die Konzerne zerschlagen, ist unser System über Nacht geheilt", 
                 "category": "Einfache Antworten", 
-                "explanation": "Die hochkomplexe Thematik der Migration wird auf eine einzige, unrealistisch simple Handlung reduziert." 
+                "explanation": "Gesundheitsökonomie ist hochkomplex. Die Idee, durch Zerstörung und Verhaftungen alle strukturellen Probleme schlagartig zu lösen, ist purer Populismus." 
             },
             { 
-                "text": "bevor wir alles verlieren", 
-                "category": "Gefühle", 
-                "explanation": "Eine Drohung, die reine Panikmache ist und sofortige, unüberlegte Reaktionen erzwingen will." 
+                "text": "Niemand von denen interessiert sich für euch", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Suggeriert dem Leser völlige Hilflosigkeit und redet ihm ein, dass das gesamte System als Feind aktiv gegen ihn arbeitet." 
+            },
+            { 
+                "text": "Wir müssen zusammenstehen gegen dieses kranke System", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Beschwört eine unbedingte Solidarität der 'Normalen' herauf, die sich radikal vom bestehenden Staat abwenden sollen." 
             }
         ]
     }
