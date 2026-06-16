@@ -1,0 +1,102 @@
+[
+  {
+    "text": "Der gesetzliche Mindestlohn in Deutschland liegt aktuell bei 12,41 Euro pro Stunde.",
+    "type": "fakt",
+    "explanation": "Das ist eine gesetzliche Vorgabe, die sich in offiziellen Dokumenten der Bundesregierung eindeutig überprüfen lässt."
+  },
+  {
+    "text": "Diese ständigen Erhöhungen vom Mindestlohn ruinieren unsere komplette Wirtschaft, bald gibt es gar keine Jobs mehr!",
+    "type": "meinung",
+    "explanation": "Das ist eine persönliche, stark vereinfachte Prognose und ein emotionales Werturteil, kein bewiesener Fakt."
+  },
+  {
+    "text": "Dass jetzt schon 16-Jährige wählen dürfen, ist doch ein absoluter Witz. Die haben doch noch gar keine Ahnung vom Leben!",
+    "type": "meinung",
+    "explanation": "Diese Aussage spiegelt eine persönliche Abwertung wider ('absoluter Witz') und keine sachliche Feststellung."
+  },
+  {
+    "text": "Bei der letzten Europawahl durften in Deutschland erstmals auch Jugendliche ab 16 Jahren ihre Stimme abgeben.",
+    "type": "fakt",
+    "explanation": "Das ist eine überprüfbare historische und rechtliche Tatsache bezüglich des Wahlrechts."
+  },
+  {
+    "text": "Laut Bundesamt für Migration und Flüchtlinge wurden im letzten Jahr rund 300.000 Asylanträge in Deutschland gestellt.",
+    "type": "fakt",
+    "explanation": "Es handelt sich um konkrete, amtliche Statistikdaten, die öffentlich einsehbar und überprüfbar sind."
+  },
+  {
+    "text": "Wir werden doch hier komplett überrannt, bald sind wir im eigenen Land in der Minderheit!",
+    "type": "meinung",
+    "explanation": "Eine von Angst getriebene, überspitzte Behauptung ('komplett überrannt'), die auf Emotionen statt auf neutralen Fakten basiert."
+  },
+  {
+    "text": "Die da oben fliegen ständig mit dem Privatjet in den Urlaub, während wir für den Klimaschutz frieren sollen. Reine Heuchelei!",
+    "type": "meinung",
+    "explanation": "Die Aussage pauschalisiert ('Die da oben') und nutzt moralische Vorwürfe ('Heuchelei'), was sie zu einer rein subjektiven Bewertung macht."
+  },
+  {
+    "text": "Der Anteil erneuerbarer Energien am Stromverbrauch in Deutschland betrug im vergangenen Jahr über 50 Prozent.",
+    "type": "fakt",
+    "explanation": "Das ist ein gemessener statistischer Wert, der durch offizielle Berichte der Bundesnetzagentur belegt werden kann."
+  },
+  {
+    "text": "Man darf heutzutage ja gar nichts mehr sagen, ohne direkt gecancelt und an den Pranger gestellt zu werden!",
+    "type": "meinung",
+    "explanation": "Eine stark subjektive und gefühlte Wahrnehmung, die als absolute Wahrheit dargestellt wird, aber faktisch nicht messbar ist."
+  },
+  {
+    "text": "Eine aktuelle JIM-Studie zeigt, dass fast 60 Prozent der Jugendlichen TikTok regelmäßig zur Informationssuche nutzen.",
+    "type": "fakt",
+    "explanation": "Das Ergebnis einer repräsentativen Studie ist ein objektiver Datenpunkt, der durch die Methodik der Untersuchung belegt ist."
+  },
+  {
+    "text": "Glaubt mir, die zwingen uns bald alle Insekten zu essen, das ist alles von langer Hand geplant!",
+    "type": "meinung",
+    "explanation": "Das ist eine klassische Verschwörungserzählung, die bewusste Panikmache betreibt und keine Belege liefert."
+  },
+  {
+    "text": "Die Europäische Union hat kürzlich zwei weitere Insektenarten als neuartige Lebensmittel für den Markt zugelassen.",
+    "type": "fakt",
+    "explanation": "Ein offizieller Beschluss der EU-Kommission, der öffentlich dokumentiert und nachweisbar ist."
+  },
+  {
+    "text": "Diese Klimakleber sind doch alle komplett gehirngewaschen und gehören sofort weggesperrt!",
+    "type": "meinung",
+    "explanation": "Beleidigungen ('gehirngewaschen') und drastische Forderungen spiegeln persönliche Wut wider, stellen aber keine objektive Wahrheit dar."
+  },
+  {
+    "text": "Nach dem deutschen Versammlungsgesetz müssen öffentliche Demonstrationen unter freiem Himmel in der Regel 48 Stunden vorher angemeldet werden.",
+    "type": "fakt",
+    "explanation": "Das ist ein existierender Paragraph im Gesetzbuch, den jeder überprüfen kann."
+  },
+  {
+    "text": "Das System ist kaputt, Fleiß und harte Arbeit lohnen sich in diesem Land einfach gar nicht mehr.",
+    "type": "meinung",
+    "explanation": "Eine pauschale Frustrationsbekundung. Ob sich etwas 'lohnt', ist eine hochgradig subjektive Einschätzung."
+  },
+  {
+    "text": "Der durchschnittliche Bruttostundenverdienst in Deutschland ist laut Statistischem Bundesamt im letzten Quartal um 2,1 Prozent gestiegen.",
+    "type": "fakt",
+    "explanation": "Ein klarer, gemessener Wert von einer offiziellen Statistikbehörde."
+  },
+  {
+    "text": "Die Politiker brechen nach der Wahl doch sowieso alle ihre Versprechen, das war schon immer so und wird immer so bleiben.",
+    "type": "meinung",
+    "explanation": "Eine Verallgemeinerung ('alle Politiker') und eine hellseherische Behauptung ('wird immer so bleiben') sind keine nachweisbaren Fakten."
+  },
+  {
+    "text": "Das Bundesverfassungsgericht hat das neue Wahlrecht der Regierung in Teilen für verfassungswidrig erklärt.",
+    "type": "fakt",
+    "explanation": "Dieses Gerichtsurteil ist real gefallen und das Aktenzeichen sowie die Urteilsbegründung sind öffentlich einsehbar."
+  },
+  {
+    "text": "Die da in Brüssel wollen uns doch nur unsere Autos wegnehmen, um uns komplett kontrollieren zu können!",
+    "type": "meinung",
+    "explanation": "Die Unterstellung geheimer und bösartiger Motive ('um uns kontrollieren zu können') ist typisch für Populismus und kein Fakt."
+  },
+  {
+    "text": "Das EU-Parlament hat beschlossen, dass ab 2035 in der Europäischen Union keine neuen Autos mit Verbrennungsmotor mehr zugelassen werden dürfen.",
+    "type": "fakt",
+    "explanation": "Ein konkreter, dokumentierter Gesetzesbeschluss, der ein exaktes Datum und eine klar definierte Maßnahme enthält."
+  }
+]

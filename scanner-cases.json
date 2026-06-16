@@ -1,5 +1,85 @@
 [
     {
+        "text": "Die Öko-Diktatur in Berlin will uns jetzt vorschreiben, wie wir zu heizen und zu leben haben! Während die grünen Eliten sich ihre teuren Villen schön warm halten, soll der normale Bürger im Winter frieren. Das ist der pure Wahnsinn! Wenn wir einfach alle Klima-Gesetze abschaffen und wieder billiges Gas einkaufen, geht es uns sofort wieder gut. Lasst euch nicht länger verarschen!",
+        "hotspots": [
+            { 
+                "text": "Die Öko-Diktatur in Berlin", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Eine demokratisch gewählte Regierung wird hier als diktatorisches Feindbild dargestellt, um Ablehnung und Hass zu schüren." 
+            },
+            { 
+                "text": "Während die grünen Eliten sich ihre teuren Villen schön warm halten, soll der normale Bürger im Winter frieren", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Das klassische 'Wir gegen Die': Die arrogante, reiche Elite wird dem leidenden, 'normalen' Bürger gegenübergestellt." 
+            },
+            { 
+                "text": "Das ist der pure Wahnsinn!", 
+                "category": "Gefühle", 
+                "explanation": "Eine sehr emotionale Formulierung, die sachliche Argumentationen durch pure Empörung ersetzt." 
+            },
+            { 
+                "text": "einfach alle Klima-Gesetze abschaffen und wieder billiges Gas einkaufen, geht es uns sofort wieder gut", 
+                "category": "Einfache Antworten", 
+                "explanation": "Eine hochkomplexe globale Krise wird mit einer extrem simplen, aber unrealistischen Schein-Lösung weggewischt." 
+            },
+            { 
+                "text": "Lasst euch nicht länger verarschen!", 
+                "category": "Gefühle", 
+                "explanation": "Erzeugt das Gefühl, betrogen zu werden, was beim Leser Wut und Misstrauen auslösen soll." 
+            }
+        ]
+    },
+    {
+        "text": "Habt ihr gesehen, was schon wieder auf unseren Straßen los ist? Die Mainstream-Medien verschweigen uns doch absichtlich die Wahrheit, um uns klein zu halten! Wir werden in unserem eigenen Land bald nichts mehr zu sagen haben. Die einzige Lösung ist ganz simpel: Baut eine Mauer um Europa und schiebt jeden sofort ab, der nicht von hier ist. Nur so stoppen wir den kompletten Untergang!",
+        "hotspots": [
+            { 
+                "text": "Die Mainstream-Medien verschweigen uns doch absichtlich die Wahrheit", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Die etablierten Medien werden pauschal als Feind und Lügner dargestellt. Ein typisches Mittel, um die eigene (oft extreme) Meinung als die einzig wahre zu verkaufen." 
+            },
+            { 
+                "text": "Wir werden in unserem eigenen Land bald nichts mehr zu sagen haben.", 
+                "category": "Gefühle", 
+                "explanation": "Diese Aussage spielt gezielt mit Verlustängsten und dem Gefühl von Kontrollverlust." 
+            },
+            { 
+                "text": "ganz simpel: Baut eine Mauer um Europa und schiebt jeden sofort ab", 
+                "category": "Einfache Antworten", 
+                "explanation": "Menschenrechte, internationale Verträge und logistische Machbarkeit werden komplett ignoriert zugunsten einer radikalen, extrem einfachen Behauptung." 
+            },
+            { 
+                "text": "kompletten Untergang", 
+                "category": "Gefühle", 
+                "explanation": "Eine extreme Übertreibung (Weltuntergangsszenario), die Panik auslösen soll, damit die radikalen Forderungen davor logisch erscheinen." 
+            }
+        ]
+    },
+    {
+        "text": "Jeden Tag wird alles teurer, aber die Manager in den Konzernzentralen schieben sich nur gegenseitig die Millionen-Boni zu. Für den kleinen Mann auf der Straße bleibt am Ende des Monats nichts mehr übrig! Sie wollen uns absichtlich arm machen, damit wir abhängig vom Staat bleiben. Hört auf, Steuern zu zahlen und das System bricht morgen zusammen – dann haben wir endlich wieder Geld zum Leben!",
+        "hotspots": [
+            { 
+                "text": "die Manager in den Konzernzentralen", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Ein wirtschaftliches Problem (Inflation) wird nicht durch komplexe Marktmechanismen erklärt, sondern allein einer gierigen Elite in die Schuhe geschoben." 
+            },
+            { 
+                "text": "kleinen Mann auf der Straße", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Die klassische Selbstinszenierung als Opfer der 'Großen', um Solidarität in der eigenen Bubble zu erzeugen." 
+            },
+            { 
+                "text": "Sie wollen uns absichtlich arm machen", 
+                "category": "Gefühle", 
+                "explanation": "Eine Verschwörungserzählung, die pure Wut und Existenzangst schürt, indem sie anderen bewusste Boshaftigkeit unterstellt." 
+            },
+            { 
+                "text": "Hört auf, Steuern zu zahlen und das System bricht morgen zusammen – dann haben wir endlich wieder Geld zum Leben!", 
+                "category": "Einfache Antworten", 
+                "explanation": "Steuern finanzieren Schulen, Straßen und Krankenhäuser. Die Behauptung, ohne Steuern ginge es allen besser, ist absurd vereinfacht und ignoriert die Realität völlig." 
+            }
+        ]
+    },
+    {
         "text": "‼️ WACHT ENDLICH AUF ‼️ Brüssel plant schon das nächste Gesetz, um uns komplett zu enteignen! Die feinen Herren in ihren Glaspalästen lachen sich kaputt, während der normale deutsche Arbeiter nicht mal mehr weiß, wie er seine Rechnungen zahlen soll. Raus aus diesem korrupten EU-Sumpf, Grenzen zu und wir haben wieder Milliarden für unsere eigenen Leute! Teilt das, bevor die Zensurbehörden es löschen! 😡📉",
         "hotspots": [
             { 
@@ -86,6 +166,121 @@
                 "text": "Wir müssen zusammenstehen gegen dieses kranke System", 
                 "category": "Klare Feindbilder", 
                 "explanation": "Beschwört eine unbedingte Solidarität der 'Normalen' herauf, die sich radikal vom bestehenden Staat abwenden sollen." 
+            }
+        ]
+    },
+    {
+        "text": "Achtung! Die wollen uns in unseren eigenen Vierteln einsperren! Angeblich geht es um 'verkehrsberuhigte Zonen', aber in Wahrheit bereiten die radikalen Stadtplaner ein riesiges Freiluftgefängnis vor. Der hart arbeitende Pendler wird bluten müssen, während die Schickimicki-Politiker im Chauffeurswagen an uns vorbeifahren. Reißt die Straßensperren ab und stoppt alle Umwelt-Projekte, dann haben wir unsere Freiheit auf den Straßen sofort zurück!",
+        "hotspots": [
+            { 
+                "text": "Die wollen uns in unseren eigenen Vierteln einsperren!", 
+                "category": "Gefühle", 
+                "explanation": "Spielt massiv mit der Angst vor Freiheitsverlust und schürt Panik, anstatt sachlich über Verkehrskonzepte zu informieren." 
+            },
+            { 
+                "text": "die radikalen Stadtplaner", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Beamte und Experten werden als extremistische Feinde dargestellt, die angeblich Böses im Schilde führen." 
+            },
+            { 
+                "text": "riesiges Freiluftgefängnis", 
+                "category": "Gefühle", 
+                "explanation": "Eine maßlose Übertreibung, die eine düstere, bedrohliche Atmosphäre schafft, um rationale Diskussionen zu unterbinden." 
+            },
+            { 
+                "text": "Der hart arbeitende Pendler wird bluten müssen, während die Schickimicki-Politiker im Chauffeurswagen an uns vorbeifahren.", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Das klassische Entgegensetzen von 'dem guten Volk' (Pendler) und der 'abgehobenen Elite' (Schickimicki-Politiker)." 
+            },
+            { 
+                "text": "Reißt die Straßensperren ab und stoppt alle Umwelt-Projekte, dann haben wir unsere Freiheit auf den Straßen sofort zurück!", 
+                "category": "Einfache Antworten", 
+                "explanation": "Komplexe Infrastruktur- und Umweltprobleme werden mit einer radikalen, vereinfachten Trotzreaktion 'gelöst'." 
+            }
+        ]
+    },
+    {
+        "text": "Warum schicken wir unsere Steuer-Milliarden ins Ausland, während unsere Rentner hier Flaschen sammeln müssen?! Die Kriegstreiber in der Regierung provozieren absichtlich den dritten Weltkrieg, nur um ihre eigene Macht auszubauen. Wenn wir einfach alle diplomatischen Beziehungen abbrechen und unser Land komplett isolieren, haben wir für immer Frieden und Wohlstand. Lasst euch von den gekauften Staatsmedien nicht länger für dumm verkaufen!",
+        "hotspots": [
+            { 
+                "text": "während unsere Rentner hier Flaschen sammeln müssen?!", 
+                "category": "Gefühle", 
+                "explanation": "Emotionalisiert ein wichtiges soziales Thema (Altersarmut), lenkt aber damit eigentlich nur ab (Whataboutism), um Wut auf Ausgaben im Ausland zu lenken." 
+            },
+            { 
+                "text": "Die Kriegstreiber in der Regierung", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Der Regierung wird ein böswilliges, todbringendes Motiv unterstellt, um sie maximal zu diskreditieren." 
+            },
+            { 
+                "text": "provozieren absichtlich den dritten Weltkrieg", 
+                "category": "Gefühle", 
+                "explanation": "Das Wecken von extremen, existenziellen Ängsten (Kriegsangst), um die eigene Botschaft dringlicher wirken zu lassen." 
+            },
+            { 
+                "text": "einfach alle diplomatischen Beziehungen abbrechen und unser Land komplett isolieren, haben wir für immer Frieden", 
+                "category": "Einfache Antworten", 
+                "explanation": "Geopolitik und internationale Wirtschaft sind enorm komplex. Absolute Isolation als sofortigen Garant für Frieden und Reichtum darzustellen, ist völlig realitätsfern." 
+            },
+            { 
+                "text": "den gekauften Staatsmedien", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Die etablierte Presse wird als korrupter Feind markiert, damit die Nutzer nur noch den Inhalten des Verfassers glauben." 
+            }
+        ]
+    },
+    {
+        "text": "Unsere Schulen sind nur noch Gehirnwäsche-Fabriken! Die Ideologen im Bildungsministerium wollen unseren Kindern vorschreiben, was sie denken und wie sie sprechen sollen. Die Zukunft unserer Jugend wird systematisch zerstört. Schmeißt einfach die ganzen neuen Lehrpläne in den Müll und feuert diese Woke-Lehrer, dann lernen die Kids endlich wieder was Vernünftiges fürs echte Leben!",
+        "hotspots": [
+            { 
+                "text": "Gehirnwäsche-Fabriken!", 
+                "category": "Gefühle", 
+                "explanation": "Ein extrem negativ behafteter Begriff, der bei Eltern sofortige Panik und Schutzinstinkte auslösen soll." 
+            },
+            { 
+                "text": "Die Ideologen im Bildungsministerium", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Pauschalisiert eine ganze Behörde als feindliche Gruppe, die angeblich eine geheime, böse Agenda verfolgt." 
+            },
+            { 
+                "text": "systematisch zerstört", 
+                "category": "Gefühle", 
+                "explanation": "Dramatisierung und Schwarzmalerei, die jegliche nuancierte Kritik am Schulsystem überschattet." 
+            },
+            { 
+                "text": "Schmeißt einfach die ganzen neuen Lehrpläne in den Müll und feuert diese Woke-Lehrer", 
+                "category": "Einfache Antworten", 
+                "explanation": "Pädagogik und gesellschaftlicher Wandel sind komplex. Die pauschale Zerstörung von Plänen und Entlassungen bieten eine laute, aber völlig unpraktikable Lösung." 
+            }
+        ]
+    },
+    {
+        "text": "Es ist doch krank! Bald zwingen sie uns, auf unser Fleisch zu verzichten und nur noch Labor-Pampe zu essen. Die Klima-Lobbyisten und Milliardäre wollen uns jeden Genuss verbieten, um uns zu gehorsamen Sklaven zu erziehen. Wenn wir einfach sofort aus allen internationalen Verträgen austreten und den Organisationen den Geldhahn abdrehen, können wir endlich wieder frei leben. Lasst uns dieses kranke System stürzen!",
+        "hotspots": [
+            { 
+                "text": "Es ist doch krank!", 
+                "category": "Gefühle", 
+                "explanation": "Ein reiner Gefühlsausbruch, der die Tonalität des Posts sofort auf Aggression und Empörung setzt." 
+            },
+            { 
+                "text": "zwingen sie uns, auf unser Fleisch zu verzichten und nur noch Labor-Pampe zu essen", 
+                "category": "Gefühle", 
+                "explanation": "Schürt gezielt die Angst vor einem Eingriff in die Privatsphäre und weckt durch das Wort 'Pampe' Ekel." 
+            },
+            { 
+                "text": "Die Klima-Lobbyisten und Milliardäre", 
+                "category": "Klare Feindbilder", 
+                "explanation": "Wissenschaftler, Aktivisten und Reiche werden zu einer einheitlichen, bösen Elite zusammengefasst." 
+            },
+            { 
+                "text": "gehorsamen Sklaven", 
+                "category": "Gefühle", 
+                "explanation": "Opferinszenierung auf höchstem Niveau. Dieser Begriff soll maximale Empörung hervorrufen." 
+            },
+            { 
+                "text": "einfach sofort aus allen internationalen Verträgen austreten und den Organisationen den Geldhahn abdrehen, können wir endlich wieder frei leben", 
+                "category": "Einfache Antworten", 
+                "explanation": "Ignoriert die rechtlichen und wirtschaftlichen Folgen von Vertragsbrüchen und stellt den Austritt als simplen Knopfschalter für absolute Freiheit dar." 
             }
         ]
     }

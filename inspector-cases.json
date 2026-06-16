@@ -1,54 +1,106 @@
 [
     {
-        "id": 2,
-        "headline": "Wissenschaftler beweisen: Zitronensaft heilt Krebs in 24 Stunden! Experten warnen vor Zensur.",
-        "image": "https://picsum.photos/seed/lemon/600/600",
+        "id": 4,
+        "headline": "UNFASSBAR! Mitten in der Krise: Finanzminister feiert heimliche Luxus-Party auf einer Yacht! Medien verschweigen alles!",
+        "image": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&h=600&fit=crop",
         "profile": {
-            "name": "NaturHeilung24",
-            "avatar": "https://picsum.photos/seed/avatar1/100/100",
-            "age": "2 Tage",
-            "impressum": "Keines vorhanden (Anonym)",
-            "followers": "12",
+            "name": "WahrerPatriot99",
+            "avatar": "https://picsum.photos/seed/anon1/100/100",
+            "age": "1 Woche",
+            "impressum": "Keines",
+            "followers": "450",
             "isVerified": false
         },
-        "emotions": ["beweisen", "heilt", "24 Stunden", "Experten warnen", "Zensur"],
+        "emotions": ["UNFASSBAR", "Krise", "heimliche", "verschweigen"],
         "searchResult": [
-            { "title": "Zitronensaft gegen Krebs? Faktencheck", "source": "CORRECTIV", "snippet": "Keine wissenschaftlichen Belege für Heilung. Gefährliche Desinformation.", "isCorrect": true },
-            { "title": "Warum Hausmittel keine Krebstherapie ersetzen", "source": "Tagesschau", "snippet": "Onkologen warnen vor Heilsversprechen in sozialen Medien.", "isCorrect": true },
-            { "title": "Die Wahrheit über Zitrone: Was Pharma dir verschweigt", "source": "FreieMedien_Blog", "snippet": "Tausende Patienten berichten von Wunderheilungen durch Zitronenkur.", "isCorrect": false }
+            { "title": "Faktencheck: Bilder von Politiker auf Yacht sind KI-generiert", "source": "dpa-Faktencheck", "snippet": "Die viralen Bilder weisen typische KI-Fehler auf (z.B. sechs Finger). Der Minister befand sich an dem Tag nachweislich im Parlament.", "isCorrect": true },
+            { "title": "Luxus-Skandal: Die Elite feiert weiter!", "source": "Wahrheits-Bote Blog", "snippet": "Wieder ein Beweis, wie wir ausgenommen werden. Die Bilder sprechen für sich.", "isCorrect": false },
+            { "title": "Wie man KI-Bilder schnell entlarvt", "source": "Deutschlandfunk", "snippet": "Oft verraten fehlerhafte Proportionen im Hintergrund oder unnatürliche Hände die künstliche Herkunft von Skandal-Fotos.", "isCorrect": true }
         ],
         "metadata": {
-            "date": "Original: 12.05.2015",
-            "context": "Das Bild stammt aus einer alten Werbung für Limonade in Brasilien.",
-            "location": "Stockfoto-Archiv (Shutterstock)"
+            "date": "Erstellt am 14.05.2026",
+            "context": "Prompt: 'Finanzminister auf Luxusyacht, hyperrealistisch' generiert mit Midjourney v6.",
+            "location": "KI-Bildgenerator"
         },
         "isFake": true,
-        "explanation": "Die reißerische Sprache ('24 Stunden'), der anonyme Account ohne Impressum und die eindeutigen Faktenchecks zeigen: Das ist eine gefährliche Falschmeldung."
+        "explanation": "Dieses Bild wurde durch eine KI (Künstliche Intelligenz) erstellt. Der anonyme Account versucht durch Wörter wie 'UNFASSBAR' und die Behauptung, Medien würden 'alles verschweigen', Wut zu schüren."
     },
     {
-        "id": 3,
-        "headline": "Sensation: Forscher finden antike Stadt unter dem Eis der Antarktis! Satellitenbilder zeigen Pyramiden.",
-        "image": "https://picsum.photos/seed/antarctica/600/600",
+        "id": 5,
+        "headline": "Offiziell beschlossen: Frankreich verbietet ab sofort kurze Inlandsflüge zum Schutz des Klimas! Ein Vorbild für uns?",
+        "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=600&fit=crop",
         "profile": {
-            "name": "MysteryWorld_Official",
-            "avatar": "https://picsum.photos/seed/avatar2/100/100",
-            "age": "3 Jahre",
-            "impressum": "Mystery Media LLC, USA",
-            "followers": "45k",
+            "name": "KlimaNews_Update",
+            "avatar": "https://picsum.photos/seed/newslogo/100/100",
+            "age": "4 Jahre",
+            "impressum": "KlimaNews Media GmbH, Berlin",
+            "followers": "125k",
             "isVerified": true
         },
-        "emotions": ["Sensation", "antike Stadt", "Pyramiden"],
+        "emotions": ["beschlossen", "verbietet", "Vorbild"],
         "searchResult": [
-            { "title": "Pyramiden in der Antarktis? Die Wahrheit über die Berge", "source": "National Geographic", "snippet": "Geologen erklären die pyramidenförmigen Strukturen als natürliche Bergformationen (Nunataks).", "isCorrect": true },
-            { "title": "Verschwörungsmythen über die Antarktis", "source": "Bayerischer Rundfunk", "snippet": "Warum sich Mythen über geheime Basen und Städte im Eis so hartnäckig halten.", "isCorrect": true },
-            { "title": "Eilmeldung: Eingang zur Hohlwelt am Südpol entdeckt", "source": "UFO-Insider", "snippet": "Exklusive Aufnahmen zeigen künstliche Strukturen unter dem Gletschereis.", "isCorrect": false }
+            { "title": "Frankreich setzt Verbot von Kurzstreckenflügen in Kraft", "source": "Tagesschau", "snippet": "Flüge, deren Strecke auch in unter 2,5 Stunden mit dem Zug erreichbar sind, sind ab sofort gesetzlich verboten.", "isCorrect": true },
+            { "title": "Neues Klimagesetz: Frankreich stoppt Kurzstreckenflüge", "source": "ZDFheute", "snippet": "Die Maßnahme soll den CO2-Ausstoß senken. Ausnahmen gibt es noch für Umsteigeflüge.", "isCorrect": true },
+            { "title": "Öko-Diktatur: Frankreich verbietet das Reisen!", "source": "Freiheits-Forum", "snippet": "Jetzt sperren sie uns ein. Keine Flüge mehr für normale Bürger! Wann passiert das bei uns?", "isCorrect": false }
         ],
         "metadata": {
-            "date": "Original: 2016",
-            "context": "Das Bild zeigt den Mount Vinson, den höchsten Berg der Antarktis, aus einem bestimmten Winkel.",
-            "location": "Ellsworthgebirge, Antarktis"
+            "date": "Mai 2023",
+            "context": "Pressefoto eines startenden Flugzeugs am Flughafen Paris-Charles-de-Gaulle.",
+            "location": "Paris, Frankreich"
+        },
+        "isFake": false,
+        "explanation": "Diese Nachricht ist tatsächlich WAHR! Nicht alles, was radikal oder überraschend klingt, ist Fake. Die transparente Quelle (Impressum vorhanden, verifiziert) und der Gegen-Check bei seriösen Medien bestätigen den Fakt."
+    },
+    {
+        "id": 6,
+        "headline": "Skandal-Interview: Berühmter Schauspieler fordert: Hunde und Katzen müssen verboten werden, um den CO2-Ausstoß zu senken! Boykottiert seine Filme!",
+        "image": "https://bilder.deutschlandfunk.de/FI/LE/_3/70/FILE_370e1ab12cfb3249dfafed5683c40212/30762091-jpg-100-1920x1080.jpg",
+        "profile": {
+            "name": "PromiGossip_Unzensiert",
+            "avatar": "https://picsum.photos/seed/gossip/100/100",
+            "age": "2 Monate",
+            "impressum": "Postfach 12, Bahamas",
+            "followers": "3.4k",
+            "isVerified": false
+        },
+        "emotions": ["Skandal-Interview", "verboten", "Boykottiert"],
+        "searchResult": [
+            { "title": "Falsches Zitat: Schauspieler forderte kein Haustier-Verbot", "source": "Mimikama (Faktencheck)", "snippet": "Ein völlig frei erfundenes Zitat geht viral. Der Schauspieler selbst besitzt drei gerettete Straßenhunde.", "isCorrect": true },
+            { "title": "Hollywood dreht durch: Jetzt wollen sie unsere Hunde!", "source": "Empörungs-Netzwerk", "snippet": "Die Klima-Hysterie kennt keine Grenzen mehr. Teilt dies, um eure Haustiere zu schützen!", "isCorrect": false },
+            { "title": "Schauspieler spendet Million an Tierschutzverein", "source": "Spiegel Online", "snippet": "Der bekannte Hollywood-Star setzt sich seit Jahren für den Schutz von Hunden und Katzen ein.", "isCorrect": true }
+        ],
+        "metadata": {
+            "date": "Foto von 2019",
+            "context": "Mikrofone bei einer Pressekonferenz auf dem Roten Teppich bei einer Filmpremiere. Das angeblich schockierende Interview hat nie stattgefunden.",
+            "location": "Los Angeles, USA"
         },
         "isFake": true,
-        "explanation": "Hier werden natürliche Phänomene als Sensation umgedeutet. Die SIFT-Methode hilft dir, durch den Gegencheck bei Fachmagazinen die geologische Realität von der Fiktion zu trennen."
+        "explanation": "Frei erfundene Zitate (False Quotes) sind eine häufige Art von Fake News. Tierschutz und Klima sind stark emotionale Themen, die hier bewusst gegeneinander ausgespielt werden, um Empörung ('Boykottiert!') zu generieren."
+    },
+    {
+        "id": 7,
+        "headline": "SCHOCKIEREND: Giftige blaue Spinnen in heimischen Supermarkt-Bananen entdeckt! Regierung unternimmt NICHTS! Teilt diese Warnung sofort an alle Mütter!",
+        "image": "https://static.vecteezy.com/ti/fotos-kostenlos/p2/1227849-makro-nahaufnahme-der-springenden-spinne-kostenlos-foto.jpg",
+        "profile": {
+            "name": "MamaNetz_Warnungen",
+            "avatar": "https://picsum.photos/seed/mom/100/100",
+            "age": "5 Monate",
+            "impressum": "Keines",
+            "followers": "850",
+            "isVerified": false
+        },
+        "emotions": ["SCHOCKIEREND", "Giftige", "NICHTS", "sofort", "Warnung"],
+        "searchResult": [
+            { "title": "Vorsicht vor Kettenbriefen: Keine blauen Spinnen in Bananen", "source": "Polizei Beratung", "snippet": "Derzeit kursiert eine Panikmache auf WhatsApp und Social Media. Die gezeigte Spinne lebt nur in Asien und ist für Menschen harmlos.", "isCorrect": true },
+            { "title": "Blaue Vogelspinne (Cyriopagopus lividus)", "source": "Wikipedia", "snippet": "Eine seltene, in Malaysia heimische Spinnenart. Sie verirrt sich praktisch nie in Export-Früchte.", "isCorrect": true },
+            { "title": "Supermarkt vertuscht tödliche Spinnen-Invasion!", "source": "Schock-News24", "snippet": "Die Wahrheit soll unterdrückt werden. Kauft dort nicht mehr ein, bevor eure Kinder gebissen werden!", "isCorrect": false }
+        ],
+        "metadata": {
+            "date": "Original aufgenommen: 2011",
+            "context": "Nahaufnahme einer großen Spinne in einem Zoo.",
+            "location": "London Zoo, UK"
+        },
+        "isFake": true,
+        "explanation": "Hier wird ein echtes Foto aus seinem ursprünglichen Kontext (Zoo-Terrarium) gerissen, um in einem neuen Kontext (Supermarkt-Bananen) Angst und Schrecken zu verbreiten. Aufrufe wie 'Teilt diese Warnung sofort!' sind ein rotes Tuch."
     }
 ]
