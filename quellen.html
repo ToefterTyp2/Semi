@@ -100,6 +100,13 @@
     </header>
 
     <main class="pt-32 pb-20 relative">
+        <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-50">
+            <button onclick="history.back()" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-accent-light dark:bg-accent-dark text-white shadow-2xl hover:scale-105 hover:shadow-[0_20px_40px_-15px_rgba(239,68,68,0.5)] transition-all duration-300 font-bold text-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Zurück zur vorherigen Seite
+            </button>
+        </div>
+
         <!-- Persistent Background Noise -->
         <div class="fixed inset-0 z-[-25] opacity-[0.02] dark:opacity-[0.04] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
 
@@ -236,6 +243,48 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="swr-parasozial" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
+                    <div class="flex gap-4">
+                        <div class="font-bold text-accent-light dark:text-accent-dark text-xl">9</div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">SWR Kultur</h3>
+                            <p class="text-slate-600 dark:text-gray-400 mb-3">Warum haben wir das Gefühl, Influencer wirklich zu kennen?</p>
+                            <a href="https://www.swr.de/swrkultur/wissen/warum-haben-wir-das-gefuehl-influencer-wirklich-zu-kennen-102.html" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent-light dark:text-accent-dark hover:underline inline-flex items-center gap-1">
+                                Zur Originalquelle 
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bpb-parasozial" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
+                    <div class="flex gap-4">
+                        <div class="font-bold text-accent-light dark:text-accent-dark text-xl">10</div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">bpb (Bundeszentrale für politische Bildung)</h3>
+                            <p class="text-slate-600 dark:text-gray-400 mb-3">Parasoziale Beziehungen – wenn Freundschaft zur Illusion wird</p>
+                            <a href="https://www.bpb.de/lernen/digitale-bildung/werkstatt/546934/parasoziale-beziehungen-wenn-freundschaft-zur-illusion-wird/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent-light dark:text-accent-dark hover:underline inline-flex items-center gap-1">
+                                Zur Originalquelle 
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mdr-parasozial" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
+                    <div class="flex gap-4">
+                        <div class="font-bold text-accent-light dark:text-accent-dark text-xl">11</div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">MDR Wissen</h3>
+                            <p class="text-slate-600 dark:text-gray-400 mb-3">Parasoziale Beziehungen (Podcast)</p>
+                            <a href="https://www.mdr.de/wissen/podcast/bibis-palace/bibis-palace-parasoziale-beziehungen-100.html" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent-light dark:text-accent-dark hover:underline inline-flex items-center gap-1">
+                                Zur Originalquelle 
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Videoquellen -->
@@ -243,12 +292,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Populismus Videos -->
                 <div id="video-populismus-1" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
-                    <p class="text-xs font-semibold text-accent-light dark:text-accent-dark uppercase tracking-wider mb-2">explainity ® Erklärvideos</p>
+                    <p class="text-xs font-semibold text-accent-light dark:text-accent-dark uppercase tracking-wider mb-2">phoenix</p>
                     <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Populismus einfach erklärt</h3>
-                    <a href="https://www.youtube.com/watch?v=vhakO1R-Fxk" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark hover:underline block mb-2 break-all">
-                        https://www.youtube.com/watch?v=vhakO1R-Fxk
+                    <a href="https://www.youtube.com/watch?v=t1UNnv4gu9g" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark hover:underline block mb-2 break-all">
+                        https://www.youtube.com/watch?v=t1UNnv4gu9g
                     </a>
-                    <p class="text-sm text-slate-500 font-medium"> 07.11.2016</p>
+                    <p class="text-sm text-slate-500 font-medium"> 26.08.2020</p>
                 </div>
 
                 <div id="video-populismus-2" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
@@ -299,15 +348,6 @@
                 </div>
 
                 <div id="video-fakenews-2" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
-                    <p class="text-xs font-semibold text-accent-light dark:text-accent-dark uppercase tracking-wider mb-2">explainity ® Erklärvideos</p>
-                    <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Fake News einfach erklärt</h3>
-                    <a href="https://www.youtube.com/watch?v=O6RS2M8N5uk" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark hover:underline block mb-2 break-all">
-                        https://www.youtube.com/watch?v=O6RS2M8N5uk
-                    </a>
-                    <p class="text-sm text-slate-500 font-medium">03.05.2017</p>
-                </div>
-
-                <div id="video-fakenews-3" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
                     <p class="text-xs font-semibold text-accent-light dark:text-accent-dark uppercase tracking-wider mb-2">ARD Kinder und Familie</p>
                     <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Wie kann man Fake News erkennen?</h3>
                     <a href="https://www.youtube.com/watch?v=z2A_g4IGQKA" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark hover:underline block mb-2 break-all">
@@ -316,33 +356,7 @@
                     <p class="text-sm text-slate-500 font-medium">12.02.2025</p>
                 </div>
 
-                <!-- Influencer Videos -->
-                <div id="video-influencer-1" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
-                    <p class="text-xs font-semibold text-accent-light dark:text-accent-dark uppercase tracking-wider mb-2">Kanalname / Urheber eintragen</p>
-                    <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Die Macht der Influencer</h3>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark hover:underline block mb-2 break-all">
-                        https://www.youtube.com/watch?v=dQw4w9WgXcQ
-                    </a>
-                    <p class="text-sm text-slate-500 font-medium">Erscheinungsjahr eintragen</p>
-                </div>
 
-                <div id="video-influencer-2" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
-                    <p class="text-xs font-semibold text-accent-light dark:text-accent-dark uppercase tracking-wider mb-2">Kanalname / Urheber eintragen</p>
-                    <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Meinungsmache auf Social Media</h3>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark hover:underline block mb-2 break-all">
-                        https://www.youtube.com/watch?v=dQw4w9WgXcQ
-                    </a>
-                    <p class="text-sm text-slate-500 font-medium">Erscheinungsjahr eintragen</p>
-                </div>
-
-                <div id="video-influencer-3" class="p-6 bg-white dark:bg-[#2A2625] rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 scroll-mt-32 transition-all duration-300 target:ring-2 target:ring-accent-light dark:target:ring-accent-dark target:shadow-lg">
-                    <p class="text-xs font-semibold text-accent-light dark:text-accent-dark uppercase tracking-wider mb-2">Kanalname / Urheber eintragen</p>
-                    <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Vertrauen und Verantwortung</h3>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark hover:underline block mb-2 break-all">
-                        https://www.youtube.com/watch?v=dQw4w9WgXcQ
-                    </a>
-                    <p class="text-sm text-slate-500 font-medium">Erscheinungsjahr eintragen</p>
-                </div>
             </div>
         </div>
     </main>

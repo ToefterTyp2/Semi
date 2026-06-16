@@ -97,15 +97,41 @@
         </div>
     </header>
 
-    <main class="flex-grow flex items-center justify-center p-4">
+    <main class="flex-grow flex flex-col items-center justify-center p-4">
         <!-- Overlay for Loading/Connecting -->
-        <div id="loading" class="text-center">
+        <div id="loading" class="text-center w-full">
             <div class="w-12 h-12 border-4 border-accent-light border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
             <p class="font-medium animate-pulse">Verbinde zum Server...</p>
         </div>
 
-        <!-- Lobby View (Join Room) -->
-        <div id="lobby-view" class="hidden w-full max-w-md bg-white/90 dark:bg-[#2A2625]/90 backdrop-blur-md rounded-3xl p-8 border border-stone-200 dark:border-[#2d2520] shadow-2xl">
+        <div id="coop-intro" class="hidden bg-white/80 dark:bg-[#2A2625]/80 backdrop-blur-md rounded-3xl p-8 md:p-10 text-left border border-slate-200 dark:border-gray-700 shadow-xl max-w-2xl mx-auto z-20">
+            <h3 class="text-2xl md:text-3xl font-black mb-6 text-slate-900 dark:text-white flex items-center gap-3">
+                <span class="text-accent-light dark:text-accent-dark flex-shrink-0">📝</span> So funktioniert's:
+            </h3>
+            <ul class="space-y-4 mb-10">
+                <li class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold shrink-0 mt-0.5 shadow-sm">1</div>
+                    <p class="text-lg text-slate-600 dark:text-gray-300">Gib deinen Namen und einen <span class="font-semibold text-slate-800 dark:text-gray-100">eigenen Raumcode</span> ein, um mit deinen Freunden zu spielen.</p>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold shrink-0 mt-0.5 shadow-sm">2</div>
+                    <p class="text-lg text-slate-600 dark:text-gray-300">Jedem Spieler wird eine geheime Rolle zugeteilt (Journalist, Algorithmus, Zuschauer).</p>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center font-bold shrink-0 mt-0.5 shadow-sm">3</div>
+                    <p class="text-lg text-slate-600 dark:text-gray-300">Spielt in Runden und versucht das Spielziel <span class="font-semibold text-slate-800 dark:text-gray-100">zusammen</span> oder für den eigenen Gewinn zu entscheiden.</p>
+                </li>
+            </ul>
+            <div class="text-center">
+                <button id="start-coop-btn" class="bg-accent-light hover:bg-accent-light/90 dark:bg-accent-dark dark:hover:bg-accent-dark/90 text-white font-black text-lg py-4 px-10 rounded-2xl shadow-xl transition-transform hover:scale-[1.03] w-full sm:w-auto">
+                    Verstanden – Spiel starten
+                </button>
+            </div>
+        </div>
+
+        <div id="coop-game-area" class="hidden opacity-0 transition-opacity duration-500 w-full flex justify-center">
+            <!-- Lobby View (Join Room) -->
+            <div id="lobby-view" class="hidden w-full max-w-md bg-white/90 dark:bg-[#2A2625]/90 backdrop-blur-md rounded-3xl p-8 border border-stone-200 dark:border-[#2d2520] shadow-2xl">
             <h1 class="text-3xl font-black mb-2 text-center">Einsatzbesprechung</h1>
             <p class="text-slate-600 dark:text-gray-400 mb-8 text-center text-sm">Bildet ein Taskforce-Team. Klärt kooperativ auf, ob Social Media Posts "Fake" oder "Fakt" sind!</p>
             
@@ -228,6 +254,7 @@
                 </form>
             </div>
         </div>
+        </div>
     </main>
 
     <script>
@@ -260,11 +287,33 @@
         let allMessages = [];
 
         // Connect event
+        const coopIntro = document.getElementById('coop-intro');
+        const coopGameArea = document.getElementById('coop-game-area');
+        const startCoopBtn = document.getElementById('start-coop-btn');
+
+        let introDismissed = false;
+
+        if (startCoopBtn && coopIntro && coopGameArea) {
+            startCoopBtn.addEventListener('click', () => {
+                introDismissed = true;
+                coopIntro.classList.add('hidden');
+                coopGameArea.classList.remove('hidden', 'opacity-0');
+                coopGameArea.classList.add('opacity-100');
+                if(!myRoom) {
+                    lobbyView.classList.remove('hidden');
+                }
+            });
+        }
+
         socket.on('connect', () => {
             console.log('Connected to server');
             loadingE.classList.add('hidden');
             if(!myRoom) {
-                lobbyView.classList.remove('hidden');
+                if (!introDismissed) {
+                    coopIntro.classList.remove('hidden');
+                } else {
+                    lobbyView.classList.remove('hidden');
+                }
             } else {
                 // Re-join logic if disconnected
                 socket.emit('join_room', { username: myUsername, room: myRoom });
